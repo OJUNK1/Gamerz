@@ -9,25 +9,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav id="topMenu">
-		<ul>
-			<li><a class="menuLink" href="home.do">Home</a></li>
-			<li><a class="menuLink" href="#">Book</a></li>
-			<li><a class="menuLink" href="noticelist.do">Notice</a></li>
-			<c:if test="${author eq 'ADMIN'}">
-				<!--author가 admin일 때만 Member를 보여주는 것. -->
-				<li><a class="menuLink" href="memberlist.do">Member</a></li>
-			</c:if>
-			<c:if test="${empty id}">
-				<li><a class="menuLink" href="memberjoinform.do">Join</a></li>
-				<li><a class="menuLink" href="memberloginform.do">Login</a></li>
-			</c:if>
-			<c:if test="${not empty id }">
-				<li><a class="menuLink" href="#">MyPage</a></li>
-				<li><a class="menuLink" href="memberlogout.do">Logout</a></li>
-				<li>'${name }'님, 접속중입니다</li>
-			</c:if>
-		</ul>
-	</nav>
+	<header class="header-section">
+		<div class="header-warp">
+			<div class="header-social d-flex justify-content-end">
+				<p>Follow us:</p>
+				<a href="#"><i class="fa fa-pinterest"></i></a>
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-dribbble"></i></a>
+				<a href="#"><i class="fa fa-behance"></i></a>
+			</div>
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="home.html" class="site-logo">
+					<img src="usertemplet//img/logo.png" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+					<div class="user-panel">
+						<a href="">Login</a> / <a href="">Register</a>
+					</div>
+					<!-- Menu -->
+					<ul class="main-menu primary-menu">
+						<li><a href="home.html">Home</a></li>
+						<li><a href="games.html">Games</a>
+							<ul class="sub-menu">
+								<li><a href="game-single.html">Game Singel</a></li>
+							</ul>
+						</li>
+						<li><a href="review.html">Reviews</a></li>
+						<li><a href="blog.html">News</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
 </body>
 </html>
