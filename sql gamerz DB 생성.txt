@@ -1,0 +1,6 @@
+>sqlplus
+>oracle 계정명/비번
+>alter session set "_ORACLE_SCRIPT"=true;
+>create user gamerz identified by 1234;
+>grant connect, resource, dba to gamerz;
+>commit;
