@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/menu.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -37,7 +36,7 @@
 								<li><a href="game-single.html">Popular Games</a></li>
 								<li><a href="game-single.html">Coming Soon</a></li>
 								<li><a href="game-single.html">Games Library</a></li>
-								<li><a href="game-single.html">인디게임</a></li>
+								<li><a href="">인디게임</a></li>
 							</ul></li>
 						<li><a href="review.html">Promotion</a></li>
 						<li><a href="contact.html">Community</a>

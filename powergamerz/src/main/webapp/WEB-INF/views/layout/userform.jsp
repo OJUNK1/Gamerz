@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 <head>
-	<title>EndGam - Gaming Magazine Template</title>
+	<title><tiles:insertAttribute name="title" /></title>
 	<meta charset="UTF-8">
 	<meta name="description" content="EndGam Gaming Magazine Template">
 	<meta name="keywords" content="endGam,gGaming, magazine, html">
@@ -26,12 +26,6 @@
 
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="usertemplet/css/style.css"/>
-
-
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 <body>
