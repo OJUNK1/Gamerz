@@ -2,27 +2,37 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 	<!-- Hero section -->
 	<section class="hero-section overflow-hidden">
 		<div class="hero-slider owl-carousel">
 			<div
 				class="hero-item set-bg d-flex align-items-center justify-content-center text-center"
-				data-setbg="usertemplet/img/1700.jpg">
+				data-setbg="usertemplet/img/slider-bg-1.jpg">
 				<div class="container">
 					<h2>Gamerz</h2>
 					<p>
 						2조 Gamerz입니다.<br>잘 부탁드립니다.
 					</p>
-					<a href="about.do" class="site-btn"> About us <img
+					<a href="aboutus.do" class="site-btn"> About us <img
+						src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
+				</div>
+			</div>
+			<div
+				class="hero-item set-bg d-flex align-items-center justify-content-center text-center"
+				data-setbg="usertemplet/img/slider-bg-2.jpg">
+				<div class="container">
+					<h2>Gamerz</h2>
+					<p>
+					여기에 뭘 둘까 
+					</p>
+					<a href="aboutus.do" class="site-btn">About us <img
 						src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
 				</div>
 			</div>
 		</div>
+		</div>
+
 	</section>
 	<!-- Hero section end-->
 
@@ -32,14 +42,8 @@
 			<div class="row">
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					<div class="section-title text-white">
-						<h2>Latest News</h2>
+						<h2>Promotion</h2>
 					</div>
-					<ul class="blog-filter">
-						<li><a href="#">Racing</a></li>
-						<li><a href="#">Shooters</a></li>
-						<li><a href="#">Strategy</a></li>
-						<li><a href="#">Online</a></li>
-					</ul>
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
@@ -153,17 +157,19 @@
 							<div class="categories-widget">
 								<h4 class="widget-title">categories</h4>
 								<ul>
-									<li><a href="">Games</a></li>
-									<li><a href="">Gaming Tips & Tricks</a></li>
-									<li><a href="">Online Games</a></li>
-									<li><a href="">Team Games</a></li>
-									<li><a href="">Community</a></li>
-									<li><a href="">Uncategorized</a></li>
+									<li><a href="gamelibrary.do">Game Library</a></li>
+									<li><a href="populargames.do">Popular Games</a></li>
+									<li><a href="latestgames.do">Latest Games</a></li>									
+									<li><a href="discussion.do">Community</a></li>
+									<li><a href="">FAQ</a></li>
+									<li><a href="aboutus.do">About Gamerz</a></li>
+
 								</ul>
 							</div>
 						</div>
 						<div class="widget-item">
-							<a href="#" class="add"> <img src="usertemplet/img/add.jpg" alt="">
+							<a href="#" class="add"> <img src="usertemplet/img/add.jpg"
+								alt="">
 							</a>
 						</div>
 					</div>
@@ -214,20 +220,5 @@
 	</section>
 	<!-- Featured section end-->
 
-
-
-	<!-- Newsletter section -->
-	<section class="newsletter-section">
-		<div class="container">
-			<h2>Subscribe to our newsletter</h2>
-			<form class="newsletter-form">
-				<input type="text" placeholder="ENTER YOUR E-MAIL">
-				<button class="site-btn">
-					subscribe <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-				</button>
-			</form>
-		</div>
-	</section>
-	<!-- Newsletter section end -->
 </body>
 </html>
