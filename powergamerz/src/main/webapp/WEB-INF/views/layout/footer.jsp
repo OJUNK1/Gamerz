@@ -3,14 +3,25 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body>
-	<hr>
-	<div align="center">
-		<h1>CopyRight by @ojun TEL : 053-421-2460</h1>
-	</div>
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-right-pic">
+				<img src="usertemplet/img/footer-left-pic.png" alt="">
+			</div>
+			<a href="#" class="footer-logo">
+				<img src="usertemplet//img/logo.png" alt="">
+			</a>
+			<ul class="main-menu footer-menu">
+				<li><a href="home.do">Home</a></li>
+				<li><a href="gamelibrary.do">Games</a></li>
+				<li><a href="discussion.do">Community</a></li>
+				<li><a href="discussion.do">Support</a></li>
+				<li><a href="aboutus.do">About</a></li>
+			</ul>		
+			<div class="copyright"><a href="">Gamerz</a> 2023 @ All rights reserved</div>
+		</div>
+	</footer>
 </body>
 </html>
