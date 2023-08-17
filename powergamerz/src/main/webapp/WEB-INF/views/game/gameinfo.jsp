@@ -63,6 +63,7 @@
 		</div>
 	</section>
 	<!-- Games end-->
+
 	<section class="game-author-section">
 		<div class="container">
 			<div class="row">
@@ -71,24 +72,28 @@
 						<div class="section-title">
 							<h5>Reviews</h5>
 						</div>
-						<div class="anime__review__item">
-							<div class="anime__review__item__pic">
-								<img src="usertemplet/img/review/1.jpg" alt="">
-							</div>
-							<div class="anime__review__item__text">
-								<h6>
-									Chris Curry - <span>1 Hour ago</span>
-								</h6>
-								<p>whachikan Just noticed that someone categorized this as
-									belonging to the genre "demons" LOL</p>
-							</div>
-						</div>
+						<form id="gamefrm" action="review.do" method="post">
+							<c:forEach items="${reviewlist }" var="r">
+								<div class="anime__review__item">
+									<div class="anime__review__item__pic">
+										<img src="usertemplet/img/review/1.jpg" alt="">
+									</div>
+
+									<div class="anime__review__item__text">
+										<h6>
+											${r.memberName } - <span>${r.reviewDate }</span>
+										</h6>
+										<p>${r.reviewComment }</p>
+									</div>
+								</div>
+							</c:forEach>
+						</form>
 					</div>
 					<div class="anime__details__form">
 						<div class="section-title">
 							<h5>Your Comment</h5>
 						</div>
-						<form action="#">
+						<form action="">
 							<textarea placeholder="Your Comment"></textarea>
 							<button type="submit">
 								<i class="fa fa-location-arrow"></i> Review
@@ -99,5 +104,6 @@
 			</div>
 		</div>
 	</section>
+
 </body>
 </html>
