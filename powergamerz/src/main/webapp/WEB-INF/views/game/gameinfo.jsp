@@ -63,7 +63,7 @@
 		</div>
 	</section>
 	<!-- Games end-->
-
+	
 	<section class="game-author-section">
 		<div class="container">
 			<div class="row">
@@ -72,7 +72,7 @@
 						<div class="section-title">
 							<h5>Reviews</h5>
 						</div>
-						<form id="gamefrm" action="review.do" method="post">
+						<form id="reviewfrm" action="review.do" method="post">
 							<c:forEach items="${reviewlist }" var="r">
 								<div class="anime__review__item">
 									<div class="anime__review__item__pic">
