@@ -18,7 +18,7 @@
 		</div>
 	</section>
 	<!-- Page top end-->
-	
+
 	<!-- Normal Breadcrumb Begin -->
 	<section class="normal-breadcrumb set-bg"
 		data-setbg="usertemplet/img/review-bg-2.jpg">
@@ -76,6 +76,7 @@
 										Sign in With Google</a></li>
 								<li><a href="#" class="twitter"><i
 										class="fa fa-twitter"></i> Sign in With Twitter</a></li>
+
 							</ul>
 						</div>
 					</div>
