@@ -7,11 +7,8 @@
 <body>
 	<footer class="footer-section">
 		<div class="container">
-			<div class="footer-right-pic">
-				<img src="usertemplet/img/footer-left-pic.png" alt="">
-			</div>
 			<a href="#" class="footer-logo">
-				<img src="usertemplet//img/logo.png" alt="">
+				<img src="usertemplet/img/logo.jpg" alt="">
 			</a>
 			<ul class="main-menu footer-menu">
 				<li><a href="home.do">Home</a></li>

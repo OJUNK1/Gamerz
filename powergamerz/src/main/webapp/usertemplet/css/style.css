@@ -577,7 +577,7 @@ ol {
 
 .hero-item h2 {
 	font-size: 160px;
-	color: #fff;
+	color: #492370;
 	font-weight: 500;
 	line-height: 1;
 	position: relative;
@@ -1214,6 +1214,8 @@ ol {
 	padding-top: 30px;
 	margin-bottom: 20px;
 }
+
+
 
 .game-item .read-more {
 	font-size: 15px;
