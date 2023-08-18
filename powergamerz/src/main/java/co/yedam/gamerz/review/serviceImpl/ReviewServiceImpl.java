@@ -21,26 +21,22 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public ReviewVO reviewSelect(ReviewVO vo) {
-
 		return null;
 	}
 
 	@Override
 	public int reviewInsert(ReviewVO vo) {
-
-		return 0;
+		return map.reviewInsert(vo);
 	}
 
 	@Override
 	public int reviewUpdate(ReviewVO vo) {
-
-		return 0;
+		return map.reviewUpdate(vo);
 	}
 
 	@Override
 	public int reviewDelete(ReviewVO vo) {
-
-		return 0;
+		return map.reviewDelete(vo);
 	}
 
 }
