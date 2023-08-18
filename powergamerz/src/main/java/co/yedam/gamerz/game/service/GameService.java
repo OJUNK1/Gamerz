@@ -5,6 +5,10 @@ import java.util.List;
 public interface GameService {
 	List<GameVO> gameSelectList();
 	
+	List<GameVO> gameGenreList(String key);
+	
+	List<GameVO> gamePlatformList(String val);
+
 	GameVO gameSelect(GameVO vo);
 	
 	int gameInsert(GameVO vo);

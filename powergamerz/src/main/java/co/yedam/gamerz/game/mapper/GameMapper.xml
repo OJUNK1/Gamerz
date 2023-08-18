@@ -11,6 +11,15 @@
 		SELECT * FROM VIDEOGAMES WHERE GAME_ID = #{gameId}
 	</select>
 
+	<select id="gameGenreList" resultType="co.yedam.gamerz.game.service.GameVO">
+		SELECT * FROM VIDEOGAMES
+		<if test="key != null"> WHERE GAME_GENRE = #{key}</if>	
+	</select>
+	
+	<select id="gamePlatformList" resultType="co.yedam.gamerz.game.service.GameVO">
+		SELECT * FROM VIDEOGAMES
+		<if test="val != null"> WHERE GAME_PLATFORM = #{val}</if>
+	</select>
 
 	<insert id="gameInsert"
 		parameterType="co.yedam.gamerz.game.service.GameVO">
