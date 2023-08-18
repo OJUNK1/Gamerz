@@ -1,22 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	
-	
 	<!-- Page top section -->
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/2.jpg">
 		<div class="page-info">
-			<h2>Reviews</h2>
+			<h2>Community</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <span>Reviews</span>
+				<a href="home.do">Home</a> / <a href="home.do">Discussion</a> / <a href="home.do">Reviews</a>
 			</div>
 		</div>
 	</section>

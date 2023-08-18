@@ -9,22 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
 
-
-@WebServlet("/discussion.do")
-public class DiscussionController extends HttpServlet {
+@WebServlet("/reviews.do")
+public class ReviewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public DiscussionController() {
+       
+    public ReviewsController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			String viewName = "community/discussion";
-			ViewResolve.forward(request, response, viewName);
+		String viewName = "community/reviews";
+		ViewResolve.forward(request, response, viewName);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
