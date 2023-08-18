@@ -43,6 +43,7 @@
 			<thead>
 				<tr>
 					<th width="100">순번</th>
+					<th width="100">사진</th>
 					<th width="250">제목</th>
 					<th width="100">작성자</th>
 					<th width="100">작성일자</th>
@@ -54,6 +55,12 @@
 				<c:forEach items="${posts }" var="d">
 				<tr onclick="selectPost(${d.postId })">
 					<td>${d.postId }</td>
+					<c:if test="${not empty d.postAttach }">
+						<td><img src="attach/post/${d.postAttach }" style="width:100px; height:100px;"></td>
+					</c:if>
+					<c:if test="${empty d.postAttach }">
+						<td>No image</td>
+					</c:if>
 					<td>${d.postTitle }</td>
 					<td>${d.postWriter }</td>
 					<td>${d.postCreateDate }</td>
