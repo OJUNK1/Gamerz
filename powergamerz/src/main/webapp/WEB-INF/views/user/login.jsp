@@ -5,10 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="google-signin-client_id"
-	content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<!-- Page top section -->
@@ -50,14 +49,14 @@
 						<h3>Login</h3>
 						<form action="login.do" method="post">
 							<div class="input__item">
-								<input type="text" placeholder="Email Address"> <span
+								<input type="text" id="memberId" name="memberId" placeholder="Your Id"> <span
 									class="icon_mail"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" placeholder="Password"> <span
+								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password"> <span
 									class="icon_lock"></span>
 							</div>
-							<button type="submit" class="site-btn2">Login Now</button>
+							<input type="submit" class="site-btn2">Login Now</button>
 						</form>
 					</div>
 				</div>
@@ -92,6 +91,7 @@
 	
 	<!-- JS Section Begin -->
 	
+	<!-- Google Login Api Begin 
 	<script type="text/javascript">
 	function init() {
 	gapi.load('auth2', function() {
@@ -122,32 +122,16 @@
 	function onSignInFailure(t){		
 		console.log(t);
 	}
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	</script>
+	 Google Login Api End -->
 	
-	function idCheck(){
-		let id = document.getElementById("memberId").value;
-		
-		let url = "ajaxIdCheck.do?memberId" + id;
-		fetch(url)
-			.then(response => response.text())
-			.then(text => checkId(text));
-	}	
-	
-	function checkId(text){
-		if(text == 'yes'){
-			alert("사용 가능한 아이디입니다");
-			document.getElementById("btn").disabled = true;
-			document.getElementById("btn").value = "Yes";
-			document.getElementById("memberPassword").focus();
-		} else{
-			alert("이미 사용 중인 아이디입니다");
-			document.getElementById("memberId").value = "";
-			document.getElementById("memberId").focus();
-		}
-	}
+	<!-- 
+	<script>
 	
 	</script>
-	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-		
+	-->
+	
 	<!-- JS Section End -->
 </body>
 </html>

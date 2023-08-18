@@ -27,19 +27,20 @@ public class SignUp extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		String saveDir = getServletContext().getRealPath("attech/member/"); // 리눅스 유닉스 / 로 windows \ 디렉토리 표시
-		int sizeLimit = 100*1024*1024;	
+		String saveDir = getServletContext().getRealPath("attach/member");
+		int sizeLimit = 100 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(
-						request,
-						saveDir,
-						sizeLimit,
-						"utf-8",
-						new DefaultFileRenamePolicy());
+				request,
+				saveDir,
+				sizeLimit,
+				"utf-8",
+				new DefaultFileRenamePolicy());
 		
-		String orginalFileName = multi.getOriginalFileName("file");
-		if(orginalFileName != null) {
-			String fileName = multi.getFilesystemName("file"); // 물리적 위치에 저장
- 			vo.setMemberImg(fileName);
+		String originalFile = multi.getOriginalFileName("file");
+		if(originalFile != null) {
+			String fileName = multi.getFilesystemName("file");
+			vo.setMemberImg(originalFile);
+			vo.setMemberDir(saveDir+fileName);
 		}
 		
 		vo.setMemberId(multi.getParameter("memberId"));
@@ -49,6 +50,7 @@ public class SignUp extends HttpServlet {
 		vo.setMemberEmail(multi.getParameter("memberPhone"));
 		vo.setMemberEmail(multi.getParameter("memberAddress"));
 		vo.setMemberEmail(multi.getParameter("memberEmail"));
+		vo.setMemberImg(multi.getParameter("memberImg"));
 		
 		int n = dao.memberInsert(vo);
 		if(n == 1) {

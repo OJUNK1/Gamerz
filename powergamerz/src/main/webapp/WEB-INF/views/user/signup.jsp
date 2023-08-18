@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.security.SecureRandom"%>
 <%@ page import="java.math.BigInteger"%>
@@ -10,13 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="google-signin-client_id"
-	content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<!-- Page top section -->
@@ -108,13 +103,13 @@
 					<div class="login__social__links">
 						<h3>Login With:</h3>
 						<ul>
-							<li><a id="naverIdLogin_loginButton" href="javascript:void(0)"
+							<li><a id="naverIdLogin_loginButton" href="#"
 								class="facebook"><i class="fa fa-facebook"></i> Sign in With
 									Naver</a></li>
-							<li id="googlelogin"><a href="javascript:void(0)"
+							<li id="googlelogin"><a href="#"
 								class="google"><i class="fa fa-google"></i> Sign in With
 									Google</a></li>
-							<li onclick="kakaoLogin()"><a href="javascript:void(0)"
+							<li onclick="kakaoLogin()"><a href="#"
 								class="twitter"><i class="fa fa-twitter"></i> Sign in With
 									Kakao</a></li>
 						</ul>
@@ -125,13 +120,35 @@
 	</section>
 	<!-- Signup Section End -->
 
-	<!-- JS Section Begin -->
+	<!-- JS Section Begin
 
 	<script type="text/javascript">
 	
+	Login Id Check Begin
+	function idCheck(){
+		let id = document.getElementById("memberId").value;
+		
+		let url = "ajaxIdCheck.do?memberId" + id;
+		fetch(url)
+			.then(response => response.text())
+			.then(text => checkId(text));
+	}	
 	
+	function checkId(text){
+		if(text == 'yes'){
+			alert("사용 가능한 아이디입니다");
+			document.getElementById("btn").disabled = true;
+			document.getElementById("btn").value = "Yes";
+			document.getElementById("memberPassword").focus();
+		} else{
+			alert("이미 사용 중인 아이디입니다");
+			document.getElementById("memberId").value = "";
+			document.getElementById("memberId").focus();
+		}
+	}
+	Login Id Check End
 	
-	<!-- Google Login Api Begin -->
+	Google Login Api Begin
 	function init() {
 	gapi.load('auth2', function() {
 		gapi.auth2.init();
@@ -161,39 +178,16 @@
 	function onSignInFailure(t){		
 		console.log(t);
 	}
-	<!-- Google Login Api End -->
+	Google Login Api End
 	
-	<!-- Login Id Check Begin -->
-	function idCheck(){
-		let id = document.getElementById("memberId").value;
-		
-		let url = "ajaxIdCheck.do?memberId" + id;
-		fetch(url)
-			.then(response => response.text())
-			.then(text => checkId(text));
-	}	
-	
-	function checkId(text){
-		if(text == 'yes'){
-			alert("사용 가능한 아이디입니다");
-			document.getElementById("btn").disabled = true;
-			document.getElementById("btn").value = "Yes";
-			document.getElementById("memberPassword").focus();
-		} else{
-			alert("이미 사용 중인 아이디입니다");
-			document.getElementById("memberId").value = "";
-			document.getElementById("memberId").focus();
-		}
-	}
-	<!-- Login Id Check End -->
 	</script>
-
-	<!-- Google Login Api2 Begin -->
+	
+	Google Login Api2 Begin
 	<script src="https://apis.google.com/js/platform.js?onload=init" async
 		defer></script>
-	<!-- Google Login Api2 End -->
+	Google Login Api2 End
 
-	<!-- Kakao Login Api Begin -->
+	Kakao Login Api Begin
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
 	Kakao.init('4ce7320aa4c7250c4feb01a0333f4cad'); //발급받은 키 중 javascript키를 사용해준다.
@@ -233,9 +227,9 @@
 	    }
 	  }  
 	</script>
-	<!-- Kakao Login Api End -->
+	Kakao Login Api End
 
-	<!-- Naver Login Api Begin -->
+	Naver Login Api Begin
 	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
 	<script>
@@ -287,9 +281,9 @@
 		
 	}
 	</script>
-	<!-- Naver Login Api End -->
-
-	<!-- JS Section End -->
-
+	Naver Login Api End
+	 
+	JS Section End -->
+	
 </body>
 </html>

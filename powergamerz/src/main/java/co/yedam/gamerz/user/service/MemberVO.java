@@ -18,4 +18,5 @@ public class MemberVO {
 	private String memberAuthor;
 	private LocalDate memberEdate;
 	private String memberImg;
+	private String memberDir;
 }
