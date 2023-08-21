@@ -27,10 +27,11 @@ public class GameList extends HttpServlet {
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
 		List<GameVO> games = new ArrayList<GameVO>();
+		
 
 		games = dao.gameSelectList();
 		request.setAttribute("games", games);
-
+				
 		String viewName = "game/gamelibrary";
 		ViewResolve.forward(request, response, viewName);
 	}
