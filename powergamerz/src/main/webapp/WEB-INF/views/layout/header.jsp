@@ -52,7 +52,7 @@
 							</ul></li>
 						<li><a href="support.do">Support</a>
 							<ul class="sub-menu">
-								<li><a href="review.do">FAQ</a></li>
+								<li><a href="faq.do">FAQ</a></li>
 								<li><a href="contactus.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
