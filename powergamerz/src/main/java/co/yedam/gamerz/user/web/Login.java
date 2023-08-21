@@ -50,8 +50,6 @@ public class Login extends HttpServlet {
 		    response.flushBuffer();
 		    out.close();
 		}
-//		String viewName = "home/home";
-//		ViewResolve.forward(request, response, viewName);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
