@@ -63,6 +63,7 @@
 		</div>
 	</section>
 	<!-- Games end-->
+
 	<section class="game-author-section">
 		<div class="container">
 			<div class="row">
@@ -71,26 +72,53 @@
 						<div class="section-title">
 							<h5>Reviews</h5>
 						</div>
-						<div class="anime__review__item">
-							<div class="anime__review__item__pic">
-								<img src="usertemplet/img/review/1.jpg" alt="">
-							</div>
-							<div class="anime__review__item__text">
-								<h6>
-									Chris Curry - <span>1 Hour ago</span>
-								</h6>
-								<p>whachikan Just noticed that someone categorized this as
-									belonging to the genre "demons" LOL</p>
-							</div>
+						<form id="reviewfrm" action="review.do" method="post">
+							<c:forEach items="${reviewlist }" var="r">
+								<c:if test="${r.reviewLocation eq g.gameName }">
+
+									<div class="anime__review__item">
+										<div class="anime__review__item__pic">
+											<img src="usertemplet/img/review/1.jpg" alt="">
+										</div>
+
+										<div class="anime__review__item__text">
+											<h6>
+												${r.memberName } - <span>${r.reviewDate }</span>
+												<a class="general_btn panel_btn" href=""
+													onclick="editReview()"> <img class="toolsIcon"
+													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_edit.png">
+													Edit
+												</a> <a class="general_btn panel_btn" href=""
+													onclick="deleteReview()"> <img class="toolsIcon"
+													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
+													Delete
+												</a>
+											</h6>
+											<p>${r.reviewComment }</p>
+
+										</div>
+									</div>
+								</c:if>
+							</c:forEach>
+						</form>
+						<div>
+							<form id="frm" method="post">
+								<input type="hidden" id="reviewId" name="reviewId"
+									value="${n.reviewId }">
+							</form>
 						</div>
 					</div>
 					<div class="anime__details__form">
 						<div class="section-title">
 							<h5>Your Comment</h5>
 						</div>
-						<form action="#">
-							<textarea placeholder="Your Comment"></textarea>
-							<button type="submit">
+						<form action="reviewinsert.do">
+							<input type="hidden" name="reviewWriter" id="reviewWriter"
+								value="이박사"> <input type="hidden" name="reviewLocation"
+								id="reviewLocation" value="${g.gameName }">
+							<textarea placeholder="Your Comment" id="reviewComment"
+								name="reviewComment"></textarea>
+							<button type="submit" onclick="location.href='reviewinsert.do'">
 								<i class="fa fa-location-arrow"></i> Review
 							</button>
 						</form>
@@ -99,5 +127,14 @@
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript">
+		function noticeUpdate(str) {
+			if (str == 'D') {
+				document.getElementById("frm").action = "reviewdelete.do"
+			}
+
+			document.getElementById("frm").submit();
+		}
+	</script>
 </body>
 </html>

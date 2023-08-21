@@ -24,7 +24,7 @@
 				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row">
 						<c:forEach items="${games }" var="g">
-							<c:if test="${g.gameClassfication == 'coming' }">
+							<c:if test="${g.gameClassfication == 'Coming Soon' }">
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
 										<img src="${g.gameIllustMini }" alt="#">
