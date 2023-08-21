@@ -122,9 +122,9 @@
 
 	<!-- JS Section Begin -->
 
-	<script type="text/javascript">
 	
 	<!-- Login Id Check Begin -->
+	<script type="text/javascript">
 	function idCheck(){
 		let id = document.getElementById("memberId").value;
 		
@@ -184,7 +184,7 @@
 	
 	<!-- Google Login Api2 Begin -->
 	<script src="https://apis.google.com/js/platform.js?onload=init" async
-		defer></script>
+			defer></script>
 	<!-- Google Login Api2 End -->
 
 	<!-- Kakao Login Api Begin -->
