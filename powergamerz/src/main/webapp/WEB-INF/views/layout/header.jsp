@@ -22,12 +22,22 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
-										<li><a href="login.do"> <span class="fa fa-user"></span>
+										<c:if test="${empty id}">
+										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
+										</c:if>
+										<c:if test="${not empty id}">
+										<li><a href="#">my page	</a></li>
+										<li><a href="logout.do"> log out </a></li>
+										</c:if>
+										
 										<li><a href="cart.do"><span
 												class="nk-cart-toggle"> <span
 													class="fa fa-shopping-cart"></span>
-											</span></a>
+											</span></a></li>
+											<c:if test="${not empty id}">
+										<li>${name}님 접속중</li>
+										</c:if>
 									</ul>
 								</div>
 							</div>
@@ -45,14 +55,14 @@
 								<li><a href="">인디게임</a></li>
 							</ul></li>
 						<li><a href="promotion.do">Promotion</a></li>
-						<li><a href="discussion.do">Community</a>
+						<li><a href="postlist.do">Community</a>
 							<ul class="sub-menu">
-								<li><a href="discussion.do">Discussions</a></li>
+								<li><a href="postlist.do">Discussions</a></li>
 
 							</ul></li>
 						<li><a href="support.do">Support</a>
 							<ul class="sub-menu">
-								<li><a href="review.do">FAQ</a></li>
+								<li><a href="faq.do">FAQ</a></li>
 								<li><a href="contactus.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>

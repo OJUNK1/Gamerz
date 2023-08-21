@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+import co.yedam.gamerz.user.service.MemberService;
+import co.yedam.gamerz.user.service.MemberVO;
+import co.yedam.gamerz.user.serviceImpl.MemberServiceImpl;
 
-@WebServlet("/signup.do")
+@WebServlet("/signupcontroller.do")
 public class SignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
