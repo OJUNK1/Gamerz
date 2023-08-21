@@ -45,9 +45,9 @@
 								<li><a href="">인디게임</a></li>
 							</ul></li>
 						<li><a href="promotion.do">Promotion</a></li>
-						<li><a href="discussion.do">Community</a>
+						<li><a href="postlist.do">Community</a>
 							<ul class="sub-menu">
-								<li><a href="discussion.do">Discussions</a></li>
+								<li><a href="postlist.do">Discussions</a></li>
 
 							</ul></li>
 						<li><a href="support.do">Support</a>
