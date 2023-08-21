@@ -61,11 +61,12 @@ public class SignUp extends HttpServlet {
 			String viewName = "user/login";
 			ViewResolve.forward(request, response, viewName);
 		} else {
-			
-			request.setAttribute("message", "회원가입 실패");
-			
-			String viewName = "user/message";
-			ViewResolve.forward(request, response, viewName);
+			response.setContentType("text/html; charset=UTF-8");
+		    PrintWriter out = response.getWriter();
+		    out.println("<script>alert('아이디 또는 비밀번호를 확인해주세요.'); history.go(-1);</script>");
+		    out.flush();
+		    response.flushBuffer();
+		    out.close();
 		}
 		
 	}

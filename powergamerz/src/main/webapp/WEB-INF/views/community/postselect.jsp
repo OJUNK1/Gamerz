@@ -37,23 +37,31 @@
 								<th>제목</th>
 								<td colspan="5">${p.postTitle }</td>
 							</tr>
+							<c:if test="${not empty p.postAttach }">
 							<tr>
-								<td colspan="6">
-								<c:if test="${not empty p.postAttach }">
-								<img src="attach/post/${p.postAttach }" style="width:500px; height:300px;">
-								</c:if>
+								<th width="100">이미지</th>
+								<td colspan="5"><img src="attach/post/${p.postAttach }" style="width:500px; height:300px;"></td>
+							</tr>
+							</c:if>
+							<tr>
+								<th width="100">내용</th>
+								<td colspan="5">
 								${p.postSubject }
 								</td>
+							</tr>
+							<tr>
+								<th width="100">첨부파일</th>
+								<td colspan="5">${p.postAttach}</td>
 							</tr>
 						</table>
 					</div>
 					<br>
 					<div>
 						<%-- <c:if test="${name eq p.postWriter }"> --%>
-							<button type="button" onclick="postUpdate('E')">수정</button>&nbsp;&nbsp;&nbsp;
-							<button type="button" onclick="postUpdate('D')">삭제</button>&nbsp;&nbsp;&nbsp;			
+							<button type="button" class="site-btn" onclick="postUpdate('E')">수정 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
+							<button type="button" class="site-btn" onclick="postUpdate('D')">삭제 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;			
 						<%-- </c:if> --%>
-						<button type="button" onclick="location.href='postlist.do'">목록</button>
+						<button type="button" class="site-btn" onclick="location.href='postlist.do'">목록 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
 					</div>
 					<div>
 						<form id="frm" method="post">
@@ -66,7 +74,7 @@
 		</div>
 	</section>
 	<script type="text/javascript">
-		function noticeUpdate(str) {
+		function postUpdate(str) {
 			if (str == 'E') {
 				document.getElementById("frm").action = "posteditform.do";
 			} else {

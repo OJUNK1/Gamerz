@@ -26,11 +26,11 @@
 <update id="postUpdate" parameterType="co.yedam.gamerz.community.post.service.PostVO">
 	UPDATE COMMUNITY
 	<set>
-		<if test="postTitle != null">POST_TITLE = #{postTitle}</if>	
-		<if test="postSubject != null">POST_SUBJECT = #{postSubject}</if>
-		<if test="postAttach != null">POST_ATTACH = #{postAttach}</if>
-		<if test="postAttachDir != null">POST_ATTACH_DIR = #{postAttachDir}</if>
-		<if test="postUpdateDate != null">POST_UPDATE_DATE = #{postUpdateDate}</if>  
+		<if test="postTitle != null">POST_TITLE = #{postTitle},</if>	
+		<if test="postSubject != null">POST_SUBJECT = #{postSubject},</if>
+		<if test="postAttach != null">POST_ATTACH = #{postAttach},</if>
+		<if test="postAttachDir != null">POST_ATTACH_DIR = #{postAttachDir},</if>
+		<if test="postCreateDate != null">POST_CREATE_DATE = #{postCreateDate},</if>  
 	</set>
 	WHERE POST_ID = #{postId}
 </update>
