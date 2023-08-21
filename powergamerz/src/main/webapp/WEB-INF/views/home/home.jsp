@@ -8,7 +8,7 @@
 		<div class="hero-slider owl-carousel">
 			<div
 				class="hero-item set-bg d-flex align-items-center justify-content-center text-center"
-				data-setbg="usertemplet/img/cuphead.jpg">
+				data-setbg="usertemplet/img/1700.jpg">
 				<div class="container">
 					<h2>Gamerz</h2>
 					<p>

@@ -17,20 +17,20 @@ public class GameServiceImpl implements GameService {
 	public List<GameVO> gameSelectList() {
 		return map.gameSelectList();
 	}
-	
+
+	@Override
+	public GameVO gameSelect(GameVO vo) {
+		return map.gameSelect(vo);
+	}
+
 	@Override
 	public List<GameVO> gameGenreList(String key) {
 		return map.gameGenreList(key);
 	}
-	
+
 	@Override
 	public List<GameVO> gamePlatformList(String val) {
 		return map.gamePlatformList(val);
-	}
-	
-	@Override
-	public GameVO gameSelect(GameVO vo) {
-		return map.gameSelect(vo);
 	}
 
 	@Override

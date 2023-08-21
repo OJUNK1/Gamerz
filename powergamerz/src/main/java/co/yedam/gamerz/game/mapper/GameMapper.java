@@ -8,7 +8,7 @@ import co.yedam.gamerz.game.service.GameVO;
 
 public interface GameMapper {
 	List<GameVO> gameSelectList();
-	
+
 	List<GameVO> gameGenreList(@Param("key") String key);
 
 	List<GameVO> gamePlatformList(@Param("val") String val);
