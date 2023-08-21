@@ -17,7 +17,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	background: #0b0c2a;
+	background: #2d1854;
+	
 }
 
 h1,
@@ -577,7 +578,7 @@ ol {
 
 .hero-item h2 {
 	font-size: 160px;
-	color: #fff;
+	color: #492370;
 	font-weight: 500;
 	line-height: 1;
 	position: relative;
@@ -1214,6 +1215,8 @@ ol {
 	padding-top: 30px;
 	margin-bottom: 20px;
 }
+
+
 
 .game-item .read-more {
 	font-size: 15px;
@@ -3090,3 +3093,35 @@ label {
 	font-weight: 600;
 	color: #fff;
 }
+
+/*---------------------------*/
+.general_btn {
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	margin-right: 5px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	cursor: pointer;
+	color: #ebebeb;
+}
+
+.general_btn:hover {
+	color: #ebebeb;
+}
+
+a.general_btn {
+	color: #ebebeb;
+}
+
+a.general_btn:hover {
+	text-decoration: none;
+	color: #ebebeb;
+}
+
+.toolsIcon {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+
+

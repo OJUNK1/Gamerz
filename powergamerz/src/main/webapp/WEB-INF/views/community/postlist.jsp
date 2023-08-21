@@ -29,15 +29,15 @@
 		<div class="container" align="center">
 		<div><h2 class="text-white">자유게시판 목록</h2></div>
 		<div align="right">
-			<form id="searchform" >
-				<select class="form-select" name="key" id="key">
-					<option value="title">제목</option>
-					<option value="subject">내용</option>
-					<option value="writer">작성자</option>
-				</select>&nbsp;&nbsp;
-				<input type="text" id="val" name="val" />
-				<input type="button" class="btn btn-light" value="검색" onclick="searchlist()" />
-			</form>
+		<form id="searchfrm">
+			<select name="key" id="key">
+				<option value="title">제목</option>
+				<option value="subject">내용</option>
+				<option value="writer">작성자</option>
+			</select>&nbsp;&nbsp;
+			<input type="text" id="val" name="val" />
+			<input type="button" onclick="searchlist()" value="검색" />
+		</form>
 		</div><br>
 		<table class="table table-light table-striped table-hover">
 			<thead>
@@ -59,7 +59,7 @@
 						<td><img src="attach/post/${d.postAttach }" style="width:100px; height:100px;"></td>
 					</c:if>
 					<c:if test="${empty d.postAttach }">
-						<td>No image</td>
+						<td><img src="attach/post/noimg.jpg" style="width:100px; height:100px;"></td>
 					</c:if>
 					<td>${d.postTitle }</td>
 					<td>${d.postWriter }</td>
@@ -120,11 +120,12 @@
  	function htmlView(data){
  		return `
 			<tr onclick="selectPost(\${data.postId})">
- 				<td align="center">\${data.postId }</td>
-				<td align="center">\${data.postTitle }</td>
-				<td align="center">\${data.postWriter }</td>
-				<td align="center">\${data.postCreateDate }</td>
-				<td align="center">\${data.postHit }</td> 
+		 		<td>\${data.postId }</td>
+				<td><img src="attach/post/\${data.postAttach }" style="width:100px; height:100px;"></td>
+				<td>\${data.postTitle }</td>
+				<td>\${data.postWriter }</td>
+				<td>\${data.postCreateDate }</td>
+				<td>\${data.postHit }</td>
 			</tr>
  		`
  	}

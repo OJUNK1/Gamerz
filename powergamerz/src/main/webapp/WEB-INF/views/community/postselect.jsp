@@ -49,10 +49,10 @@
 					</div>
 					<br>
 					<div>
-						<c:if test="${name eq p.postWriter }">
+						<%-- <c:if test="${name eq p.postWriter }"> --%>
 							<button type="button" onclick="postUpdate('E')">수정</button>&nbsp;&nbsp;&nbsp;
 							<button type="button" onclick="postUpdate('D')">삭제</button>&nbsp;&nbsp;&nbsp;			
-						</c:if>
+						<%-- </c:if> --%>
 						<button type="button" onclick="location.href='postlist.do'">목록</button>
 					</div>
 					<div>

@@ -9,7 +9,7 @@
 		<div class="header-warp">
 			<div class="header-bar-warp d-flex">
 				<a href="home.do" class="site-logo"> <img
-					src="usertemplet/img/logo.jpg" alt="">
+					src="usertemplet/img/logohead.png" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -46,6 +46,10 @@
 							</ul></li>
 						<li><a href="promotion.do">Promotion</a></li>
 						<li><a href="postlist.do">Community</a>
+							<ul class="sub-menu">
+								<li><a href="postlist.do">Discussions</a></li>
+
+							</ul></li>
 						<li><a href="support.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faq.do">FAQ</a></li>
