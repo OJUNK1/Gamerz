@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.gamerz.game.mapper.GameMapper">
+	<select id="gameSelectList"
+		resultType="co.yedam.gamerz.game.service.GameVO">
+		SELECT * FROM VIDEOGAMES
+	</select>
+
+	<select id="gameSelect"
+		resultType="co.yedam.gamerz.game.service.GameVO">
+		SELECT * FROM VIDEOGAMES WHERE GAME_ID = #{gameId}
+	</select>
+
+
+	<insert id="gameInsert"
+		parameterType="co.yedam.gamerz.game.service.GameVO">
+		INSERT INTO VIDEOGAMES
+		VALUES(#{gameId}, #{gameName},
+		#{gameDeveloper}, #{gameReleaseDate}, #{gamePrice}, #{gameGenre},
+		#{gamePlatform}, #{gameDetailAbout}, #{gamePriceDiscount},
+		#{gameIllustMain}, #{gameIllustMini}, #{gameVideo},
+		#{gameClassfication}
+		)
+	</insert>
+
+	<update id="gameUpdate">
+		UPDATE VIDEOGAMES
+		<set>
+			<if test="gamePrice != null"> GAME_PRICE = #{gamePrice},</if>
+			<if test="gameDetailAbout != null"> GAME_DETAILABOUT = #{gameDetailAbout},</if>
+			<if test="gamePriceDiscount != null"> GAME_PRICE_DISCOUNT = #{gamePriceDiscount},</if>
+			<if test="gameIllustMain != null"> GAME_ILLUST_MAIN = #{gameIllustMain},</if>
+			<if test="gameIllustMini != null"> GAME_ILLUST_MINI = #{gameIllustMini},</if>
+			<if test="gameVideo != null"> GAME_VIDEO = #{gameVideo}, </if>
+			<if test="gameClassfication != null"> GAME_CLASSFICATION = #{gameClassfication}</if>
+		</set>
+		WHERE GAME_ID = #{gameId}
+	</update>
+
+	<delete id="gameDelete"
+		parameterType="co.yedam.gamerz.game.service.GameVO">
+		DELETE FROM VIDEOGAMES WHERE GAME_ID = #{gameId}
+	</delete>
+
+</mapper>
