@@ -43,10 +43,12 @@ public class Login extends HttpServlet {
 			// 홈으로
 		} else {
 			// 아이디/비번 틀림 혹은 없음 알림
-			session.setAttribute("message", "error");
-			
-			String viewName = "user/message";
-			ViewResolve.forward(request, response, viewName);
+			response.setContentType("text/html; charset=UTF-8");
+		    PrintWriter out = response.getWriter();
+		    out.println("<script>alert('아이디 또는 비밀번호를 확인해주세요.'); history.go(-1);</script>");
+		    out.flush();
+		    response.flushBuffer();
+		    out.close();
 		}
 //		String viewName = "home/home";
 //		ViewResolve.forward(request, response, viewName);
