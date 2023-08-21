@@ -34,8 +34,7 @@
 										<img src="${g.gameIllustMini }" alt="#">
 										<h5>${g.gameName }</h5>
 										<a href="javascript:selectGame(${g.gameId })"
-											class="read-more">Read More <img
-											src="usertemplet/img/icons/double-arrow.png" alt="#">
+											class="read-more">Read More <img src="usertemplet/img/icons/double-arrow.png" alt="#">
 										</a>
 									</div>
 								</div>
@@ -66,10 +65,8 @@
 								<ul id="val">
 									<li><a href="javascript:platformList('PC')">PC</a></li>
 									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
-									<li><a href="javascript:platformList('Play Station')">Play
-											Station</a></li>
-									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo
-											Switch</a></li>
+									<li><a href="javascript:platformList('Play Station')">Play Station</a></li>
+									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo Switch</a></li>
 								</ul>
 							</div>
 						</div>
@@ -85,7 +82,7 @@
 	</section>
 	<!-- Games end-->
 	<script type="text/javascript">
-	function selectGame(n) {
+    function selectGame(n) {
         document.getElementById("gameId").value = n;
         document.getElementById("gamefrm").submit();
     }
