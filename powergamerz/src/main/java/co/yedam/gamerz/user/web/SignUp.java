@@ -1,6 +1,7 @@
 package co.yedam.gamerz.user.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +24,12 @@ public class SignUp extends HttpServlet {
     public SignUp() {
         super();
     }
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
+		response.setCharacterEncoding("utf-8");
+        
 		String saveDir = getServletContext().getRealPath("attach/member");
 		int sizeLimit = 100 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(
@@ -54,13 +57,17 @@ public class SignUp extends HttpServlet {
 		
 		int n = dao.memberInsert(vo);
 		if(n == 1) {
-			request.setAttribute("message", "회원가입 완료");
+
+			String viewName = "user/login";
+			ViewResolve.forward(request, response, viewName);
 		} else {
+			
 			request.setAttribute("message", "회원가입 실패");
+			
+			String viewName = "user/message";
+			ViewResolve.forward(request, response, viewName);
 		}
 		
-		String viewName = "user/message";
-		ViewResolve.forward(request, response, viewName);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,6 +1,7 @@
 package co.yedam.gamerz.user.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,14 +37,19 @@ public class Login extends HttpServlet {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
 			session.setAttribute("author", vo.getMemberAuthor());
-			request.setAttribute("message", vo.getMemberName()+"님 환영합니다");
+			
+			String viewName = "home/home";
+			ViewResolve.forward(request, response, viewName);
 			// 홈으로
 		} else {
 			// 아이디/비번 틀림 혹은 없음 알림
-			request.setAttribute("message","error");
+			session.setAttribute("message", "error");
+			
+			String viewName = "user/message";
+			ViewResolve.forward(request, response, viewName);
 		}
-		String viewName = "user/message";
-		ViewResolve.forward(request, response, viewName);
+//		String viewName = "home/home";
+//		ViewResolve.forward(request, response, viewName);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

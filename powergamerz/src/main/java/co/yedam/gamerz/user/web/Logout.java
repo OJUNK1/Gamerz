@@ -25,8 +25,7 @@ public class Logout extends HttpServlet {
 		String name = (String) session.getAttribute("name");
 		session.invalidate(); // session 객체를 완전히 삭제
 		
-		request.setAttribute("message", name+"님 로그아웃이 정상적으로 처리되었다");
-		String viewName = "user/message";
+		String viewName = "home/home";
 		
 		ViewResolve.forward(request, response, viewName);
 	}

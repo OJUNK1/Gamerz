@@ -120,11 +120,11 @@
 	</section>
 	<!-- Signup Section End -->
 
-	<!-- JS Section Begin
+	<!-- JS Section Begin -->
 
 	<script type="text/javascript">
 	
-	Login Id Check Begin
+	<!-- Login Id Check Begin -->
 	function idCheck(){
 		let id = document.getElementById("memberId").value;
 		
@@ -146,9 +146,9 @@
 			document.getElementById("memberId").focus();
 		}
 	}
-	Login Id Check End
+	<!-- Login Id Check End -->
 	
-	Google Login Api Begin
+	<!-- Google Login Api Begin -->
 	function init() {
 	gapi.load('auth2', function() {
 		gapi.auth2.init();
@@ -178,16 +178,16 @@
 	function onSignInFailure(t){		
 		console.log(t);
 	}
-	Google Login Api End
+	<!-- Google Login Api End -->
 	
 	</script>
 	
-	Google Login Api2 Begin
+	<!-- Google Login Api2 Begin -->
 	<script src="https://apis.google.com/js/platform.js?onload=init" async
 		defer></script>
-	Google Login Api2 End
+	<!-- Google Login Api2 End -->
 
-	Kakao Login Api Begin
+	<!-- Kakao Login Api Begin -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
 	Kakao.init('4ce7320aa4c7250c4feb01a0333f4cad'); //발급받은 키 중 javascript키를 사용해준다.
@@ -227,9 +227,9 @@
 	    }
 	  }  
 	</script>
-	Kakao Login Api End
+	<!-- Kakao Login Api End -->
 
-	Naver Login Api Begin
+	<!-- Naver Login Api Begin -->
 	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
 	<script>
@@ -281,9 +281,9 @@
 		
 	}
 	</script>
-	Naver Login Api End
+	<!-- Naver Login Api End -->
 	 
-	JS Section End -->
+	<!-- JS Section End -->
 	
 </body>
 </html>

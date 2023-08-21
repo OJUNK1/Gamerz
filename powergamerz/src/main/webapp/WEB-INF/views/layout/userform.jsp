@@ -51,7 +51,7 @@
 	<!-- Footer section end -->
 
 
-	<!--====== Javascripts & Jquery  ======-->
+	<!--====== Javascripts & Jquery ======-->
 	<script src="usertemplet/js/jquery-3.2.1.min.js"></script>
 	<script src="usertemplet/js/bootstrap.min.js"></script>
 	<script src="usertemplet/js/jquery.slicknav.min.js"></script>

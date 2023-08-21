@@ -8,6 +8,7 @@
 <meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </head>
 <body>
 	<!-- Page top section -->
@@ -56,7 +57,7 @@
 								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password"> <span
 									class="icon_lock"></span>
 							</div>
-							<input type="submit" class="site-btn2">Login Now</button>
+							<button type="submit" class="site-btn2">Login Now</button>
 						</form>
 					</div>
 				</div>
@@ -73,12 +74,12 @@
 						<div class="login__social__links">
 							<span>or</span>
 							<ul>
-								<li><a href="#" class="facebook"><i
-										class="fa fa-facebook"></i> Sign in With Facebook</a></li>
+								<li id="naverlogin"><a href="#" class="facebook"><i
+										class="fa fa-facebook"></i> Sign in With Naver</a></li>
 								<li id="googlelogin"><a href="javascript:void(0)" class="google"><i class="fa fa-google"></i>
 									Sign in With Google</a></li>
-								<li><a href="#" class="twitter"><i
-										class="fa fa-twitter"></i> Sign in With Twitter</a></li>
+								<li id="kakaologin"><a href="#" class="twitter"><i
+										class="fa fa-twitter"></i> Sign in With Kakao</a></li>
 							</ul>
 						</div>
 					</div>
@@ -90,6 +91,12 @@
 	<!-- Login Section End -->
 	
 	<!-- JS Section Begin -->
+	
+	<script>
+		function checkValue(){
+			
+		}
+	</script>
 	
 	<!-- Google Login Api Begin 
 	<script type="text/javascript">

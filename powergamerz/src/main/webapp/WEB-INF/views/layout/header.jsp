@@ -9,7 +9,7 @@
 		<div class="header-warp">
 			<div class="header-bar-warp d-flex">
 				<a href="home.do" class="site-logo"> <img
-					src="usertemplet/img/logo.jpg" alt="">
+					src="usertemplet/img/logohead.png" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -30,9 +30,12 @@
 										<li><a href="#">my page	</a></li>
 										<li><a href="logout.do"> log out </a></li>
 										</c:if>
-										<li><a href="cart.do"><span	class="nk-cart-toggle"> <span	class="fa fa-shopping-cart"></span>
-										</span></a></li>
-										<c:if test="${not empty id}">
+										
+										<li><a href="cart.do"><span
+												class="nk-cart-toggle"> <span
+													class="fa fa-shopping-cart"></span>
+											</span></a></li>
+											<c:if test="${not empty id}">
 										<li>${name}님 접속중</li>
 										</c:if>
 									</ul>
