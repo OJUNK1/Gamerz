@@ -110,10 +110,12 @@
 							<li><a id="naverIdLogin_loginButton" href="#"
 								class="facebook"><i class="fa fa-facebook"></i> Sign in With
 									Naver</a></li>
-							<li id="googlelogin"><a href="#" class="google"><i
-									class="fa fa-google"></i> Sign in With Google</a></li>
-							<li onclick="kakaoLogin()"><a href="#" class="twitter"><i
-									class="fa fa-twitter"></i> Sign in With Kakao</a></li>
+							<li id="googlelogin"><a href="#"
+								class="google"><i class="fa fa-google"></i> Sign in With
+									Google</a></li>
+							<li onclick="kakaoLogin()"><a href="#"
+								class="twitter"><i class="fa fa-twitter"></i> Sign in With
+									Kakao</a></li>
 						</ul>
 					</div>
 				</div>
@@ -121,6 +123,8 @@
 		</div>
 	</section>
 	<!-- Signup Section End -->
+	
+	
 	<!-- JS Section Begin -->
 
 	<script type="text/javascript">
