@@ -57,7 +57,7 @@
 								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password"> <span
 									class="icon_lock"></span>
 							</div>
-							<button type="submit" class="site-btn2" onclick="valueCheck()">Login Now</button>
+							<button type="submit" class="site-btn2">Login Now</button>
 						</form>
 					</div>
 				</div>
@@ -93,18 +93,7 @@
 	<!-- JS Section Begin -->
 	
 	<script>
-		function valueCheck(){
-			let id = document.getElementById("memberId").value;
-			// get방식 ajax호출
-				let url = "ajaxIdCheck.do?memberId=" + id;	
-				fetch(url)
-					.then(response => response.text())
-					.then(text => checkId(text));
-		}
 		
-		function chechId(){
-			
-		}
 	</script>
 	
 	<!-- Google Login Api Begin -->
