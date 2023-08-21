@@ -25,9 +25,9 @@ public class AjaxIdCheck extends HttpServlet {
 		vo.setMemberId(request.getParameter("memberId"));
 		
 		vo = dao.memberSelect(vo);
-		String txt = "yes";
+		String txt = "yes"; //사용 가능한 아이디
 		if(vo != null) {
-			txt = "no";
+			txt = "no"; // 사용 불가능한 아이디
 		}
 		response.setContentType("text/html; charset=UTF-8");
 		response.getWriter().append(txt);

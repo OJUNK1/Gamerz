@@ -67,6 +67,7 @@
 									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
 									<li><a href="javascript:platformList('Play Station')">Play Station</a></li>
 									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo Switch</a></li>
+									<li><a href="javascript:platformList('VR')">VR</a></li>
 								</ul>
 							</div>
 						</div>
