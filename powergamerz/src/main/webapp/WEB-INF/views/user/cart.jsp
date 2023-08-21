@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,39 +29,29 @@
 
 						<tr>
 							<td class="nk-product-cart-thumb"><a
-								href="store-product.html" class="nk-image-box-1 nk-post-image">
-									<img src="usertemplet/img/images/product-2-xs.jpg"
-									alt="However, I have reason" width="115">
+								href="javascript:selectGame(${g.gameName })" class="nk-image-box-1 nk-post-image">
+									<img src="${g.gameIllustMini }" alt="${g.game_name }"
+									width="115">
 							</a></td>
+							
 							<td class="nk-product-cart-title">
 								<h5 class="h6">Product:</h5>
 								<div class="nk-gap-1"></div>
 
 								<h2 class="nk-post-title h4">
-									<a href="store-product.html">However, I have reason</a>
+									<a href="">${g.game_name }</a>
 								</h2>
 							</td>
+							
 							<td class="nk-product-cart-price">
 								<h5 class="h6">Price:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 32.00</strong>
+								<div class="nk-gap-1"></div> <strong>${g.game_price }원</strong>
 							</td>
-							<td class="nk-product-cart-quantity">
-								<h5 class="h6">Quantity:</h5>
-								<div class="nk-gap-1"></div>
-
-								<div class="nk-form">
-									<input type="number" class="form-control" value="1" min="1"
-										max="21">
-								</div>
-							</td>
-							<td class="nk-product-cart-total">
-								<h5 class="h6">Total:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 32.00</strong>
-							</td>
+							
 							<td class="nk-product-cart-remove"><a href="#"><span
 									class="ion-android-close"></span></a></td>
 						</tr>
-
+								<!--  -->
 						<tr>
 							<td class="nk-product-cart-thumb"><a
 								href="store-product.html" class="nk-image-box-1 nk-post-image">
@@ -180,5 +171,16 @@
 	</div>
 
 	<div class="nk-gap-2"></div>
+	<div>
+		<form id="gamefrm" action="gameinfo.do" method="post">
+			<input type="hidden" id="gameName" name="gameName">
+		</form>
+	</div>
+	<script type="text/javascript">
+    	function moreGame(n) {
+     	   document.getElementById("gameName").value = n;
+     	   document.getElementById("gamefrm").submit();
+  		}
+    </script>
 </body>
 </html>

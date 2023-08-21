@@ -12,9 +12,9 @@
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/1.jpg">
 		<div class="page-info">
-			<h2>Games</h2>
+			<h2>Games Library</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <span>Games</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <span>Games Library</span>
 			</div>
 		</div>
 	</section>
