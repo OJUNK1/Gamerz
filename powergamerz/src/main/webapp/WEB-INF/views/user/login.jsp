@@ -127,8 +127,8 @@
 	function onSignInFailure(t){		
 		console.log(t);
 	}
-	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 	</script>
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 	<!-- Google Login Api End -->
 	
 	<!-- 
