@@ -22,12 +22,22 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
-										<li><a href="login.do"> <span class="fa fa-user"></span>
+										<c:if test="${empty id}">
+										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
+										</c:if>
+										<c:if test="${not empty id}">
+										<li><a href="#">my page	</a></li>
+										<li><a href="logout.do"> log out </a></li>
+										</c:if>
+										
 										<li><a href="cart.do"><span
 												class="nk-cart-toggle"> <span
 													class="fa fa-shopping-cart"></span>
-											</span></a>
+											</span></a></li>
+											<c:if test="${not empty id}">
+										<li>${name}님 접속중</li>
+										</c:if>										
 									</ul>
 								</div>
 							</div>
