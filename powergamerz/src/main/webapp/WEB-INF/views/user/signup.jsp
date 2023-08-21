@@ -1,20 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.security.SecureRandom"%>
 <%@ page import="java.math.BigInteger"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="google-signin-client_id"
-	content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<!-- Page top section -->
@@ -52,8 +49,7 @@
 				<div class="col-lg-6">
 					<div class="login__form">
 						<h3>Sign Up</h3>
-						<form action="signup.do" method="post"
-							enctype="multipart/form-data">
+						<form action="signup.do" method="post" enctype="multipart/form-data">
 							<div class="input__item">
 								<input type="file" id="memberImg" name="memberImg"
 									placeholder="Your Character"> <span class="icon_mail"></span>
@@ -123,8 +119,7 @@
 		</div>
 	</section>
 	<!-- Signup Section End -->
-	
-	
+
 	<!-- JS Section Begin -->
 
 	<script type="text/javascript">
@@ -186,7 +181,7 @@
 	<!-- Google Login Api End -->
 	
 	</script>
-
+	
 	<!-- Google Login Api2 Begin -->
 	<script src="https://apis.google.com/js/platform.js?onload=init" async
 		defer></script>
@@ -235,9 +230,7 @@
 	<!-- Kakao Login Api End -->
 
 	<!-- Naver Login Api Begin -->
-	<script
-		src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
-		charset="utf-8"></script>
+	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
 	<script>
 	
@@ -289,7 +282,8 @@
 	}
 	</script>
 	<!-- Naver Login Api End -->
-
+	 
 	<!-- JS Section End -->
+	
 </body>
 </html>
