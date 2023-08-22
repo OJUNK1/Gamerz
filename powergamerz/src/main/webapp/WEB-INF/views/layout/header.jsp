@@ -22,7 +22,7 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
-										<li><a href="login.do"> <span class="fa fa-user"></span>
+										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
 										<li><a href="cart.do"><span
 												class="nk-cart-toggle"> <span
@@ -50,9 +50,9 @@
 								<li><a href="postlist.do">Discussions</a></li>
 
 							</ul></li>
-						<li><a href="support.do">Support</a>
+						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
-								<li><a href="faq.do">FAQ</a></li>
+								<li><a href="faqlist.do">FAQ</a></li>
 								<li><a href="contactus.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
