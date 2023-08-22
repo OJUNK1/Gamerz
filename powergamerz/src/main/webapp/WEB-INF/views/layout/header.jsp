@@ -27,7 +27,15 @@
 										</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
-										<li><a href="#">my page	</a></li>
+
+											<c:choose>
+											<c:when test="${author ep 'ADMIN'}">
+												<li><a href="admin.do">admin page</a></li>
+											</c:when>
+											<c:otherwise>
+												<li><a href="#">my page</a></li>
+											</c:otherwise>
+											</c:choose>
 										<li><a href="logout.do"> log out </a></li>
 										</c:if>
 										
@@ -35,8 +43,10 @@
 												class="nk-cart-toggle"> <span
 													class="fa fa-shopping-cart"></span>
 											</span></a></li>
-											<c:if test="${not empty id}">
-										<li>${name}님 접속중</li>
+
+										<c:if test="${not empty id}">
+											<li>${name}님 접속중</li>
+
 										</c:if>
 									</ul>
 								</div>
