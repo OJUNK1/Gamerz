@@ -28,7 +28,7 @@
 										</c:if>
 										<c:if test="${not empty id}">
 											<c:choose>
-											<c:when test="${author ep 'ADMIN'}">
+											<c:when test="${author eq 'ADMIN'}">
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
 											<c:otherwise>
