@@ -12,6 +12,7 @@
 <meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 	<!-- Page top section -->
@@ -49,47 +50,35 @@
 				<div class="col-lg-6">
 					<div class="login__form">
 						<h3>Sign Up</h3>
-						<form action="signup.do" method="post" enctype="multipart/form-data">
-							<div class="input__item">
-								<input type="file" id="memberImg" name="memberImg"
-									placeholder="Your Character"> <span class="icon_mail"></span>
+						<form action="signup.do" method="post" onsubmit="return formCheck()" enctype="multipart/form-data">
+							<div class="input__img">
+								<input type="file" id="memberImg" name="memberImg"	accept="image/*"> <span class="icon_upload"></span>
 							</div>
 
 							<div class="input__item">
-								<input type="text" id="memberId" name="memberId"
-									placeholder="Your Id*" required="required"> <span
-									class="icon_mail"></span>
+								<input type="text" id="memberId" name="memberId" placeholder="Your Id*" required="required"> <span class="icon_info"></span>
+								<button type="button" id="btn" value="NoCheck" onclick="idCheck()" class="nk-btn nk-btn-rounded nk-btn-color-white ">중복체크</button>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberName" name="memberName"
-									placeholder="Your Name*" required="required"> <span
-									class="icon_profile"></span>
+								<input type="text" id="memberName" name="memberName" placeholder="Your Name*" required="required"> <span class="icon_profile"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" id="memberPassword" name="memberPassword"
-									placeholder="Password*" required="required"> <span
-									class="icon_lock"></span>
+								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password*" required="required"> <span	class="icon_lock"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" id="memberPasswordCheck"
-									name="memberPasswordCheck" placeholder="Password Check*"
-									required="required"> <span class="icon_lock"></span>
+								<input type="password" id="memberPasswordCheck"	name="memberPasswordCheck" placeholder="Password Check*" required="required"> <span class="icon_check"></span>
 							</div>
 							<div class="input__item">
-								<input type="date" id="memberBirth" name="memberBirth"
-									placeholder="Your Birth"> <span class="icon_lock"></span>
+								<input type="date" id="memberBirth" name="memberBirth"	placeholder="Your Birth"> <span class="icon_clock"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberPhone" name="memberPhone"
-									placeholder="Your PhoneNumber"> <span class="icon_mail"></span>
+								<input type="text" id="memberPhone" name="memberPhone" placeholder="Your PhoneNumber"> <span class="icon_phone"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberAddress" name="memberAddress"
-									placeholder="Your Address"> <span class="icon_mail"></span>
+								<input type="text" id="memberAddress" name="memberAddress"	placeholder="Your Address"> <span class="icon_house"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberEmail" name="memberEmail"
-									placeholder="Your Email"> <span class="icon_mail"></span>
+								<input type="text" id="memberEmail" name="memberEmail"	placeholder="Your Email"> <span class="icon_mail"></span>
 							</div>
 
 							<button type="submit" class="site-btn2">Register</button>
@@ -121,14 +110,22 @@
 	<!-- Signup Section End -->
 
 	<!-- JS Section Begin -->
-
-	
+	<script type="text/javascript">
+		function checkValue() {
+			
+			
+			if(!form.id.value){
+				
+			}
+		}
+	</script>
+		
 	<!-- Login Id Check Begin -->
 	<script type="text/javascript">
-	function idCheck(){
+	function idCheck() { // ajax를 통신을 이용해 아이디 중복체크
 		let id = document.getElementById("memberId").value;
-		
-		let url = "ajaxIdCheck.do?memberId" + id;
+	// get방식 ajax호출
+		let url = "ajaxIdCheck.do?memberId=" + id;	
 		fetch(url)
 			.then(response => response.text())
 			.then(text => checkId(text));
@@ -136,14 +133,30 @@
 	
 	function checkId(text){
 		if(text == 'yes'){
-			alert("사용 가능한 아이디입니다");
+			swal ("Possible", "사용가능한 아이디입니다", "success") ;
 			document.getElementById("btn").disabled = true;
 			document.getElementById("btn").value = "Yes";
 			document.getElementById("memberPassword").focus();
 		} else{
-			alert("이미 사용 중인 아이디입니다");
+			swal ("Impossible", "이미 사용 중인 아이디입니다", "error") ;
 			document.getElementById("memberId").value = "";
 			document.getElementById("memberId").focus();
+		}
+	}
+	
+	function formCheck() {
+ 		let password = document.getElementById("memberPassword").value;
+ 		let passcheck = document.getElementById("memberPasswordCheck").value;
+ 		let id = document.getElementById("btn").value;
+ 		
+ 		if(id == 'NoCheck'){
+ 			swal ("Please Check", "아이디 중복체크 하세요", "warning") ;
+			return false;
+ 		}
+ 		
+		if(password != passcheck){
+			swal ("Impossible", "패스워드가 일치하지 않습니다", "error") ;
+			return false;
 		}
 	}
 	<!-- Login Id Check End -->
