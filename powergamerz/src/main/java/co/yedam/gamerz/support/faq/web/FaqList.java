@@ -1,4 +1,4 @@
-package co.yedam.gamerz.community.post.web;
+package co.yedam.gamerz.support.faq.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,25 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
 import co.yedam.gamerz.common.vo.PagingVO;
-import co.yedam.gamerz.community.post.service.PostService;
-import co.yedam.gamerz.community.post.service.PostVO;
-import co.yedam.gamerz.community.post.serviceImpl.PostServiceImpl;
+import co.yedam.gamerz.support.faq.service.FaqService;
+import co.yedam.gamerz.support.faq.service.FaqVO;
+import co.yedam.gamerz.support.faq.serviceImpl.FaqServiceImpl;
 
-@WebServlet("/postlist.do")
-public class PostList extends HttpServlet {
+/**
+ * Servlet implementation class FaqList
+ */
+@WebServlet("/faqlist.do")
+public class FaqList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public PostList() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FaqList() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PostService dao = new PostServiceImpl();
-		List<PostVO> posts = new ArrayList<PostVO>();
+		FaqService dao = new FaqServiceImpl();
+		List<FaqVO> faqs = new ArrayList<FaqVO>();
 		
-		posts = dao.postSelectList();
-		request.setAttribute("posts", posts);
+		faqs = dao.faqSelectList();
+		request.setAttribute("faqs", faqs);
 		
 		int pageNum = 1;
 		int amount = 10;
@@ -40,18 +49,21 @@ public class PostList extends HttpServlet {
 			amount =Integer.parseInt(request.getParameter("amount"));
 		}
 		
-		List<PostVO> postpages = dao.postPaging(pageNum, amount);
-		int total = dao.postTotalCount();
+		List<FaqVO> faqpages = dao.faqPaging(pageNum, amount);
+		int total = dao.faqTotalCount();
 		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
 
 //		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
-		request.setAttribute("postpages", postpages);
+		request.setAttribute("faqpages", faqpages);
 		request.setAttribute("pagingVO", pagingVO);
 		
-		String viewName = "community/postlist";
+		String viewName = "faq/faqlist";
 		ViewResolve.forward(request, response, viewName);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

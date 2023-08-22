@@ -18,6 +18,21 @@
 	SELECT * FROM COMMUNITY WHERE POST_ID = #{postId}
 </select>
 
+<select id="postPaging"
+	resultType="co.yedam.gamerz.community.post.service.PostVO">
+	<![CDATA[
+	SELECT *
+	FROM ( SELECT ROWNUM RN, V.* FROM ( SELECT * FROM COMMUNITY ORDER BY POST_ID DESC ) V )
+	WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
+	ORDER BY POST_ID DESC
+	]]> 
+</select>
+
+<select id="postTotalCount" resultType="int">
+	SELECT COUNT(*) AS TOTAL
+	FROM COMMUNITY
+</select>
+
 <insert id="postInsert" parameterType="co.yedam.gamerz.community.post.service.PostVO">
 	INSERT INTO COMMUNITY(POST_TITLE, POST_SUBJECT,POST_ATTACH,POST_ATTACH_DIR,POST_WRITER,POST_WRITER_ID, POST_HIT)
 	VALUES(#{postTitle},#{postSubject},#{postAttach},#{postAttachDir},#{postWriter},#{postWriterId},0)

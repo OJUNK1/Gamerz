@@ -22,7 +22,9 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
+
 										<c:if test="${empty id}">
+
 										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
 										</c:if>
@@ -70,9 +72,9 @@
 								<li><a href="postlist.do">Discussions</a></li>
 
 							</ul></li>
-						<li><a href="support.do">Support</a>
+						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
-								<li><a href="faq.do">FAQ</a></li>
+								<li><a href="faqlist.do">FAQ</a></li>
 								<li><a href="contactus.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
