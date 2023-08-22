@@ -10,4 +10,6 @@ public interface PostService {
 	int postUpdate(PostVO vo);
 	int postDelete(PostVO vo);
 	void postUpdateHit(int id);
+	List<PostVO> postPaging(int pageNum, int amount);
+	int postTotalCount();
 }

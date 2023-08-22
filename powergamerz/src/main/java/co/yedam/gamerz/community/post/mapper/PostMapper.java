@@ -14,4 +14,6 @@ public interface PostMapper {
 	int postUpdate(PostVO vo);
 	int postDelete(PostVO vo);
 	void postUpdateHit(int id);
+	List<PostVO> postPaging(@Param("pageNum") int pageNum, @Param("amount") int amount);
+	int postTotalCount();
 }

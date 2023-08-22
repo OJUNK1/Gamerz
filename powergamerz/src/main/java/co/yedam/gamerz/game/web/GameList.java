@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+
+import co.yedam.gamerz.common.vo.PagingVO;
+
 import co.yedam.gamerz.game.service.GameService;
 import co.yedam.gamerz.game.service.GameVO;
 import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
@@ -29,6 +32,27 @@ public class GameList extends HttpServlet {
 		List<GameVO> games = new ArrayList<GameVO>();
 		
 
+		games = dao.gameSelectList();
+		request.setAttribute("games", games);
+
+
+		int pageNum = 1;
+		int amount = 12;
+		// 페이지 번호를 클릭하는 경우
+		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+			amount =Integer.parseInt(request.getParameter("amount"));
+		}
+		
+		List<GameVO> gamepages = dao.gamePaging(pageNum, amount);
+		int total = dao.gameTotalCount();
+		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
+
+//		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
+		request.setAttribute("gamepages", gamepages);
+		request.setAttribute("pagingVO", pagingVO);
+		
+			
 		games = dao.gameSelectList();
 		request.setAttribute("games", games);
 				

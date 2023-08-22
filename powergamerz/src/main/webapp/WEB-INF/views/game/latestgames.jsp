@@ -12,9 +12,9 @@
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/1.jpg">
 		<div class="page-info">
-			<h2>Games</h2>
+			<h2>Latest Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <span>Games</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <span>Latest Games</span>
 			</div>
 		</div>
 	</section>
@@ -74,6 +74,11 @@
 				</div>
 			</div>
 		</div>
+		<div>
+			<form id="gamefrm" action="gameinfo.do" method="post">
+				<input type="hidden" id="gameId" name="gameId">
+			</form>
+		</div>
 	</section>
 	<!-- Games end-->
 	<script type="text/javascript">
@@ -103,8 +108,10 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
+        	if (data.gameClassfication == 'latest'){
             const newGameItem = createGameItem(data);
             genreSection.appendChild(newGameItem);
+        	}
         });
     }
     
@@ -129,9 +136,11 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
+        	if (data.gameClassfication == 'latest'){
             const newGameItem = createGameItem(data);
             platformSection.appendChild(newGameItem);
-        });
+        	}
+       	});
     }
 
     function createGameItem(data) {

@@ -57,7 +57,7 @@
 
 							<div class="input__item">
 								<input type="text" id="memberId" name="memberId" placeholder="Your Id*" required="required"> <span class="icon_info"></span>
-								<button type="button" id="btn" value="NoCheck" onclick="idCheck()">중복체크</button>
+								<button type="button" id="btn" value="NoCheck" onclick="idCheck()" class="nk-btn nk-btn-rounded nk-btn-color-white ">중복체크</button>
 							</div>
 							<div class="input__item">
 								<input type="text" id="memberName" name="memberName" placeholder="Your Name*" required="required"> <span class="icon_profile"></span>
