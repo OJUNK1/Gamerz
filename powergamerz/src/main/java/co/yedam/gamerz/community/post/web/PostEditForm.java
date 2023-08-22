@@ -38,7 +38,7 @@ public class PostEditForm extends HttpServlet {
 		vo.setPostId(Integer.valueOf(request.getParameter("postId")));
 		vo = dao.postSelect(vo);
 		request.setAttribute("n", vo);
-		String viewName = "post/posteditform";
+		String viewName = "community/posteditform";
 		ViewResolve.forward(request, response, viewName);
 	}
 

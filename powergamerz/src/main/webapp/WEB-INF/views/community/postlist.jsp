@@ -6,6 +6,12 @@
 <html>
 <head>
 
+<style>
+select {
+  width: 200px; /* 원하는 너비설정 */
+}
+</style>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -24,66 +30,69 @@
 	</section>
 	<!-- Page top end-->
 
-	<!-- Review section -->
+		<!-- Review section -->
 	<section class="review-section">
-		<div class="container" align="center">
-		<div><h2 class="text-white">자유게시판 목록</h2></div>
-		<div align="right">
-		<form id="searchfrm">
-			<select name="key" id="key">
+		<div class="container" id="parent">
+		<!-- 검색창 영역 -->
+		<div><h2 class="text-white">자유게시판</h2></div><br>
+		<div>
+		<form id="searchfrm" class="newsletter-form">
+			<select name="key" id="key" style="height:30px;">
 				<option value="title">제목</option>
 				<option value="subject">내용</option>
 				<option value="writer">작성자</option>
-			</select>&nbsp;&nbsp;
-			<input type="text" id="val" name="val" />
-			<input type="button" onclick="searchlist()" value="검색" />
+			</select><br>
+			<input type="text" id="val" name="val" placeholder="검색할 내용입력" />
+			<button type="button" onclick="searchlist()" class="site-btn">검색  <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button> 
 		</form>
 		</div><br>
-		<table class="table table-light table-striped table-hover">
-			<thead>
-				<tr>
-					<th width="100">순번</th>
-					<th width="100">사진</th>
-					<th width="250">제목</th>
-					<th width="100">작성자</th>
-					<th width="100">작성일자</th>
-					<th width="100">조회수</th>
-				</tr>
-			</thead>	
-			<tbody>
-			<c:if test="${not empty posts }">
-				<c:forEach items="${posts }" var="d">
-				<tr onclick="selectPost(${d.postId })">
-					<td>${d.postId }</td>
-					<c:if test="${not empty d.postAttach }">
-						<td><img src="attach/post/${d.postAttach }" style="width:100px; height:100px;"></td>
-					</c:if>
-					<c:if test="${empty d.postAttach }">
-						<td><img src="attach/post/noimg.jpg" style="width:100px; height:100px;"></td>
-					</c:if>
-					<td>${d.postTitle }</td>
-					<td>${d.postWriter }</td>
-					<td>${d.postCreateDate }</td>
-					<td>${d.postHit }</td>
-				</tr>
-				</c:forEach>
-			</c:if>
-			<c:if test="${empty posts }">
-				<tr>
-					<td colspan="6" align="center">데이터가 존재하지 않습니다.</td>
-				</tr>
-			</c:if>
-			</tbody>
-		</table>		
-	<div align="right">
-		<button class="btn btn-light" type="button" onclick="location.href='postform.do'">글쓰기</button>
-	</div>
-	</div>
-	<div>
-		<form id="postfrm" method="post">
-			<input type="hidden" id="postId" name="postId" value="${d.postId }" />
-		</form>
-	</div>
+		<!-- 검색창 영역 end -->
+		<div id="contents-p">
+		<div id="contents">
+		<c:if test="${not empty posts }">
+			<c:forEach items="${posts }" var="d">			
+				<div class="review-item" >
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="review-pic">
+							<c:if test="${not empty d.postAttach}">
+								<img src="attach/post/${d.postAttach }">
+							</c:if>
+							<c:if test="${empty d.postAttach}">
+								<img src="attach/post/noimg.jpg">
+							</c:if>
+							</div>
+						</div>
+						<div class="col-lg-8">
+							<div class="review-content text-box text-white">
+								<div class="top-meta">${d.postCreateDate } /  작성자 <a href="">${d.postWriter }</a></div>
+								<h3>${d.postTitle }</h3>
+								<p>content</p>
+								<a href="#" onclick="selectPost(${d.postId })" class="read-more">Read More  <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</c:if>
+		</div>
+		</div>
+			<div class="site-pagination">
+				<a href="#" class="active">01.</a>
+				<a href="#">02.</a>
+				<a href="#">03.</a>
+			</div>
+			
+			<div align="right">
+				<button class="site-btn" type="button" onclick="location.href='postform.do'">글쓰기 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
+			</div>
+			<div>
+				<form id="postfrm" method="post">
+					<input type="hidden" id="postId" name="postId" value="${d.postId }" />
+				</form>
+			</div>
+		</div>
+
 	<script type="text/javascript">
 	function selectPost(p){
 		document.getElementById("postId").value = p;
@@ -93,7 +102,7 @@
 	
  	function searchlist(){
 		//ajax를 이용해서 검색결과를 가져오고 화면을 재구성한다
-		let key = document.getElementById("key").value;
+ 		let key = document.getElementById("key").value;
 		let val = document.getElementById("val").value;
 		let payload = "key="+key+"&val="+val;
 		let url = "ajaxpostsearch.do";
@@ -105,32 +114,48 @@
 			},
 			body: payload
 		}).then(response => response.json())
-		   .then(json => htmlConvert(json));
+		   .then(json => htmlConvert(json)); 
 	} 
 	
  	function htmlConvert(datas){
- 		document.querySelector('tbody').remove();
- 		const tbody = document.createElement('tbody');
+		var myDiv = document.getElementById("contents");
+		var parent = myDiv.parentElement;
+		parent.removeChild(myDiv);
+  		
+		var newDiv = document.createElement("div");
+		newDiv.id = 'contents';
  		// tbody에 데이터 추가
- 		tbody.innerHTML = datas.map(data=>htmlView(data)).join('');
- 		// table 테그에 tbody 추가
- 		document.querySelector('table').appendChild(tbody);
+ 		newDiv.innerHTML = datas.map(data=>htmlView(data)).join(''); 
+
+		var p = document.getElementById("contents-p");
+		p.appendChild(newDiv);
  	}
  	
- 	function htmlView(data){
+  	function htmlView(data){
  		return `
-			<tr onclick="selectPost(\${data.postId})">
-		 		<td>\${data.postId }</td>
-				<td><img src="attach/post/\${data.postAttach }" style="width:100px; height:100px;"></td>
-				<td>\${data.postTitle }</td>
-				<td>\${data.postWriter }</td>
-				<td>\${data.postCreateDate }</td>
-				<td>\${data.postHit }</td>
-			</tr>
+		 <div class="review-item" >
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="review-pic">
+								<img src="attach/post/\${data.postAttach }">
+							</div>
+						</div>
+						<div class="col-lg-8">
+							<div class="review-content text-box text-white">
+								<div class="top-meta">\${data.postCreateDate } /  작성자 <a href="">\${data.postWriter }</a></div>
+								<h3>\${data.postTitle }</h3>
+								<p>\${data.postSubject }</p>
+								<a href="#" onclick="selectPost(\${data.postId })" class="read-more">Read More  <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></a>
+							</div>
+						</div>
+					</div>
+				</div>
  		`
- 	}
+ 	} 
 </script>
 </section>
 <!-- Review section end-->
+
+
 </body>
 </html>

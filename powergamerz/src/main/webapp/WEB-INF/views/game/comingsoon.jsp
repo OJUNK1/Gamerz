@@ -106,9 +106,11 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
-            const newGameItem = createGameItem(data);
+            if(data.gameClassfication == 'Coming Soon') {
+        	const newGameItem = createGameItem(data);
             genreSection.appendChild(newGameItem);
-        });
+          }
+       });
     }
     
     function platformList(selectedPlatform) {//platform
@@ -132,9 +134,11 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
-            const newGameItem = createGameItem(data);
+        	 if(data.gameClassfication == 'Coming Soon') {
+        	const newGameItem = createGameItem(data);
              platformSection.appendChild(newGameItem);
-        });
+        	 }
+         });
     }
 
     function createGameItem(data) {
