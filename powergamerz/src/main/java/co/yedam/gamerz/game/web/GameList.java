@@ -31,13 +31,10 @@ public class GameList extends HttpServlet {
 		GameService dao = new GameServiceImpl();
 		List<GameVO> games = new ArrayList<GameVO>();
 		
-
 		games = dao.gameSelectList();
 		request.setAttribute("games", games);
-
-
 		int pageNum = 1;
-		int amount = 10;
+		int amount = 12;
 		// 페이지 번호를 클릭하는 경우
 		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
@@ -48,13 +45,8 @@ public class GameList extends HttpServlet {
 		int total = dao.gameTotalCount();
 		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
 
-//		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
 		request.setAttribute("gamepages", gamepages);
 		request.setAttribute("pagingVO", pagingVO);
-		
-			
-		games = dao.gameSelectList();
-		request.setAttribute("games", games);
 				
 		String viewName = "game/gamelibrary";
 		ViewResolve.forward(request, response, viewName);

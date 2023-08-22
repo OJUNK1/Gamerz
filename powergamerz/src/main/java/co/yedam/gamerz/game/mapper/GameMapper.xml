@@ -13,8 +13,11 @@
 
 	<select id="gameGenreList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
-		SELECT * FROM VIDEOGAMES
-		<if test="key != null"> WHERE GAME_GENRE = #{key}</if>
+		<![CDATA[
+        SELECT *
+        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_GENRE = #{key} ORDER BY GAME_GENRE) V )
+        WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
+    ]]>
 	</select>
 
 
@@ -31,7 +34,12 @@
 		SELECT COUNT(*) AS TOTAL
 		FROM VIDEOGAMES
 	</select>
-
+	
+	<select id="gameGenreTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+		<if test="key != null">WHERE GAME_GENRE = #{key} </if>
+	</select>
 
 	<select id="gamePlatformList"
 		resultType="co.yedam.gamerz.game.service.GameVO">

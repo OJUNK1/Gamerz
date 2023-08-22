@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import co.yedam.gamerz.common.vo.PagingVO;
 import co.yedam.gamerz.game.service.GameService;
 import co.yedam.gamerz.game.service.GameVO;
 import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
@@ -32,10 +33,22 @@ public class AjaxGenre extends HttpServlet {
 		GameService dao = new GameServiceImpl();
 		List<GameVO> games = new ArrayList<GameVO>();
 
+		int pageNum = 1;
+		int amount = 12;
+		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+			amount = Integer.parseInt(request.getParameter("amount"));
+		}
+		
 		String key = request.getParameter("key");
 
-		games = dao.gameGenreList(key);
-
+		games = dao.gameGenreList(key, pageNum, amount);
+		int total = dao.gameGenreTotalCount(key);
+		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
+		
+		request.setAttribute("games", games);
+		request.setAttribute("pagingVO", pagingVO);
+		
 		ObjectMapper objectMapper = new ObjectMapper(); // json 객체를 만들기 위해 필요한 객체
 
 		objectMapper.registerModule(new JavaTimeModule()); // LocalDate 처리

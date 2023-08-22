@@ -9,18 +9,17 @@ import co.yedam.gamerz.game.service.GameVO;
 public interface GameMapper {
 	List<GameVO> gameSelectList();
 
-	List<GameVO> gameGenreList(@Param("key") String key);
+	List<GameVO> gameGenreList(@Param("key") String key, @Param("pageNum") int pageNum, @Param("amount") int amount);
 
 	List<GameVO> gamePlatformList(@Param("val") String val);
 
 	GameVO gameSelect(GameVO vo);
 
-	
 	List<GameVO> gamePaging(@Param("pageNum") int pageNum, @Param("amount") int amount);
 
 	int gameTotalCount();
-	
 
+	int gameGenreTotalCount(@Param("key") String key);
 
 	int gameInsert(GameVO vo);
 

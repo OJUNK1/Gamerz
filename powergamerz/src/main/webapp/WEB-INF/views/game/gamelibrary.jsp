@@ -19,7 +19,8 @@
 		<div class="page-info">
 			<h2>Games Library</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Games Library</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <span>Games
+					Library</span>
 			</div>
 		</div>
 	</section>
@@ -48,19 +49,36 @@
 								</div>
 							</c:forEach>
 						</c:if>
+
+<%-- 						<c:if test="${not empty games }">
+							<c:forEach items="${games }" var="gg">
+								<div class="col-lg-4 col-md-6">
+									<div class="game-item">
+										<img src="${gg.gameIllustMini }" alt="#">
+										<h5>${gg.gameName }</h5>
+										<a href="javascript:selectGame(${gg.gameId })"
+											class="read-more">Read More <img
+											src="usertemplet/img/icons/double-arrow.png" alt="#">
+										</a>
+									</div>
+								</div>
+							</c:forEach>
+
+						</c:if> --%>
 					</div>
 
 
 					<!-- ============= 페이징 ===============  -->
 					<div class="site-pagination" id="pagination">
-						<c:forEach var="num" begin="${pagingVO.startPage }" end="${pagingVO.endPage }">
+						<c:forEach var="num" begin="${pagingVO.startPage }"
+							end="${pagingVO.endPage }">
 							<a href="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}"
 								class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
 						</c:forEach>
 					</div>
 					<!-- ============= 페이징 끝 ===============  -->
 
-				
+
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
 					<div id="stickySidebar">
@@ -171,7 +189,21 @@
         `;
         return gameItem;
     }
-         
+    document.addEventListener("DOMContentLoaded", function() {
+        const paginationLinks = document.querySelectorAll(".site-pagination a");
+        paginationLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                
+                const href = link.getAttribute("href");
+                if (href.includes("ajaxgenre.do")) {
+                    genreList("스포츠"); // 예시로 스포츠 장르를 넘겨주는데, 원하는 대로 변경
+                } else if (href.includes("gamelibrary.do")) {
+                    // 이 부분은 원하는 처리를 추가하세요.
+                }
+            });
+        });
+    });     
     
 </script>
 
