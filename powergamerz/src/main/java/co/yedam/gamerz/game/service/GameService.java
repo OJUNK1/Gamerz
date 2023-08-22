@@ -7,8 +7,13 @@ public interface GameService {
 
 	List<GameVO> gameGenreList(String key, int pageNum, int amount);
 
-	List<GameVO> gamePlatformList(String val);
-
+	List<GameVO> gamePlatformList(String val, int pageNum, int amount);
+	
+	List<GameVO> gameClassficationList(String cla, int pageNum, int amount);
+	
+	List<GameVO> gamePromotionList(int pageNum, int amount);
+	List<GameVO> gamePromotionGenreList(String key, int pageNum, int amount);
+	
 	GameVO gameSelect(GameVO vo);
 
 	List<GameVO> gamePaging(int pageNum, int amount);
@@ -16,7 +21,14 @@ public interface GameService {
 	int gameTotalCount();
 
 	int gameGenreTotalCount(String key);
-
+	
+	int gamePlatformTotalCount(String val);
+	
+	int gameClassficationTotalCount(String cla);
+	
+	int gamePromotionTotalCount();
+	int gamePromotionGenreTotalCount(String key);
+	
 	int gameInsert(GameVO vo);
 
 	int gameUpdate(GameVO vo);
