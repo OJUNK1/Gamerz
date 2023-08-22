@@ -1,3 +1,8 @@
+<%@page import="co.yedam.gamerz.game.mapper.GameMapper"%>
+<%@page import="co.yedam.gamerz.game.service.GameVO"%>
+<%@page import="co.yedam.gamerz.game.web.GameList"%>
+<%@page import="co.yedam.gamerz.game.serviceImpl.GameServiceImpl"%>
+<%@page import="co.yedam.gamerz.game.service.GameService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -34,14 +39,19 @@
 										<img src="${g.gameIllustMini }" alt="#">
 										<h5>${g.gameName }</h5>
 										<a href="javascript:selectGame(${g.gameId })"
-											class="read-more">Read More <img src="usertemplet/img/icons/double-arrow.png" alt="#">
+											class="read-more">Read More <img
+											src="usertemplet/img/icons/double-arrow.png" alt="#">
 										</a>
 									</div>
 								</div>
 							</c:forEach>
 						</c:if>
 					</div>
-					<div class="site-pagination">
+					<!-- ============= 페이징 ===============  -->
+					
+						
+					<!-- ============= 페이징 끝 ===============  -->
+					<div class="site-pagination" id="pagination">
 						<a href="#" class="active">01.</a> <a href="#">02.</a> <a href="#">03.</a>
 					</div>
 				</div>
@@ -65,8 +75,10 @@
 								<ul id="val">
 									<li><a href="javascript:platformList('PC')">PC</a></li>
 									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
-									<li><a href="javascript:platformList('Play Station')">Play Station</a></li>
-									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo Switch</a></li>
+									<li><a href="javascript:platformList('Play Station')">Play
+											Station</a></li>
+									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo
+											Switch</a></li>
 									<li><a href="javascript:platformList('VR')">VR</a></li>
 								</ul>
 							</div>
@@ -152,6 +164,8 @@
         `;
         return gameItem;
     }
+         
+    
 </script>
 
 </body>

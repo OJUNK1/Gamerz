@@ -13,7 +13,7 @@
 		<div class="page-info">
 			<h2>Popular Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Popular Games</span>
+				<a href="home.do">Home</a> / <a>Games</a>  / <span>Popular Games</span>
 			</div>
 		</div>
 	</section>
@@ -107,10 +107,8 @@
 	        existingItems.forEach(item => item.remove());
 
 	        datas.forEach(data => {
-	        	if (data.gameClassfication == 'popular'){
 	            const newGameItem = createGameItem(data);
 	            genreSection.appendChild(newGameItem);
-	        	}
 	        });
 	    }
 	    
@@ -135,10 +133,8 @@
 	        existingItems.forEach(item => item.remove());
 
 	        datas.forEach(data => {
-	        	if (data.gameClassfication == 'popular'){
 	            const newGameItem = createGameItem(data);
 	            platformSection.appendChild(newGameItem);
-	        	}
 	        });
 	    }
 

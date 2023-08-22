@@ -2058,6 +2058,20 @@ ol {
 	margin-bottom: 30px;
 }
 
+.login__form form .input__img {
+	display: flex;
+    justify-content: center;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.input__img {
+    visibility: hidden;
+}
+
 .login__form form .input__item {
 	position: relative;
 	width: 370px;

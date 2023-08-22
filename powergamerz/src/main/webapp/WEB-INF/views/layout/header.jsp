@@ -52,7 +52,7 @@
 								<li><a href="populargames.do">Popular Games</a></li>
 								<li><a href="comingsoon.do">Coming Soon</a></li>
 								<li><a href="gamelibrary.do">Games Library</a></li>
-								<li><a href="">인디게임</a></li>
+								<li><a href="indiegames.do">Indie Games</a></li>
 							</ul></li>
 						<li><a href="promotion.do">Promotion</a></li>
 						<li><a href="postlist.do">Community</a>

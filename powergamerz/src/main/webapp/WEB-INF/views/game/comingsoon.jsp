@@ -106,10 +106,10 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
-			if (data.gameClassfication == 'Coming Soon'){
-            const newGameItem = createGameItem(data);
+            if(data.gameClassfication == 'Coming Soon') {
+        	const newGameItem = createGameItem(data);
             genreSection.appendChild(newGameItem);
-			}
+          }
        });
     }
     
@@ -134,11 +134,11 @@
         existingItems.forEach(item => item.remove());
 
         datas.forEach(data => {
-        	if (data.gameClassfication == 'Coming Soon'){
-            const newGameItem = createGameItem(data);
+        	 if(data.gameClassfication == 'Coming Soon') {
+        	const newGameItem = createGameItem(data);
              platformSection.appendChild(newGameItem);
-        	}
-        });
+        	 }
+         });
     }
 
     function createGameItem(data) {
