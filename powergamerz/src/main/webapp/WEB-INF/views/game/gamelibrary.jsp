@@ -33,7 +33,9 @@
 				<div class="col-xl-7 col-lg-8 col-md-7" id="genpa">
 					<div class="row" id="gen">
 						<c:if test="${not empty games }">
-							<c:forEach items="${games }" var="g">
+
+							<c:forEach items="${gamepages }" var="g">
+
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
 										<img src="${g.gameIllustMini }" alt="#">
@@ -47,13 +49,17 @@
 							</c:forEach>
 						</c:if>
 					</div>
+
 					<!-- ============= 페이징 ===============  -->
-					
-						
-					<!-- ============= 페이징 끝 ===============  -->
 					<div class="site-pagination" id="pagination">
-						<a href="#" class="active">01.</a> <a href="#">02.</a> <a href="#">03.</a>
+						<c:forEach var="num" begin="${pagingVO.startPage }" end="${pagingVO.endPage }">
+							<a href="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}"
+								class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
+						</c:forEach>
 					</div>
+					<!-- ============= 페이징 끝 ===============  -->
+
+				
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
 					<div id="stickySidebar">

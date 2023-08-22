@@ -17,6 +17,22 @@
 		<if test="key != null"> WHERE GAME_GENRE = #{key}</if>
 	</select>
 
+
+	<select id="gamePaging"
+		resultType="co.yedam.gamerz.game.service.GameVO">
+		<![CDATA[
+		SELECT *
+		FROM ( SELECT ROWNUM RN, V.* FROM ( SELECT * FROM VIDEOGAMES ) V )
+		WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
+		]]>
+	</select>
+
+	<select id="gameTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+	</select>
+
+
 	<select id="gamePlatformList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		SELECT * FROM VIDEOGAMES
