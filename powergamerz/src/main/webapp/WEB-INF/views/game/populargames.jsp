@@ -13,7 +13,7 @@
 		<div class="page-info">
 			<h2>Popular Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a>  / <span>Popular Games</span>
+				<a href="home.do">Home</a> / <a>Games</a>  / <a href="populargames.do"><span>Popular Games</span></a>
 			</div>
 		</div>
 	</section>
