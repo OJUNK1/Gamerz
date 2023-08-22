@@ -14,7 +14,7 @@
 		<div class="page-info">
 			<h2>Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <span>Games</span>
+				<a href="home.do">Home</a> / <a>${g.gameGenre }</a> / <span>${g.gameName  }</span>
 			</div>
 		</div>
 	</section>

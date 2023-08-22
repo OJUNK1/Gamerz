@@ -14,8 +14,10 @@
 		<div class="page-info">
 			<h2>Games Library</h2>
 			<div class="site-breadcrumb">
+
 				<a href="home.do">Home</a> / <a>Games</a> / <span>Games
 					Library</span>
+
 			</div>
 		</div>
 	</section>
@@ -40,6 +42,7 @@
 							</div>
 						</c:forEach>
 					</div>
+
 
 					<!-- ============= 페이징 ===============  -->
 					<div class="site-pagination" id="pagination">

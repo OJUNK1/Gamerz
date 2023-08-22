@@ -105,6 +105,7 @@
 			document.getElementById("gameId").value = n;
 			document.getElementById("gamefrm").submit();
 		}
+    
 	</script>
 </body>
 </html>
