@@ -1,8 +1,3 @@
-<%@page import="co.yedam.gamerz.game.mapper.GameMapper"%>
-<%@page import="co.yedam.gamerz.game.service.GameVO"%>
-<%@page import="co.yedam.gamerz.game.web.GameList"%>
-<%@page import="co.yedam.gamerz.game.serviceImpl.GameServiceImpl"%>
-<%@page import="co.yedam.gamerz.game.service.GameService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- Page top section -->
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/1.jpg">
 		<div class="page-info">
@@ -23,43 +17,29 @@
 			</div>
 		</div>
 	</section>
-	<!-- Page top end-->
-
-	<!-- Games section -->
 	<section class="games-section">
 		<div class="container">
 
 			<div class="row">
-				<div class="col-xl-7 col-lg-8 col-md-7" id="genpa">
+				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row" id="gen">
-						<c:if test="${not empty games }">
-
-							<c:forEach items="${gamepages }" var="g">
-
+						<c:forEach items="${games }" var="g">
+							<c:if test="${g.gameClassfication == 'Coming Soon' }">
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
 										<img src="${g.gameIllustMini }" alt="#">
 										<h5>${g.gameName }</h5>
 										<a href="javascript:selectGame(${g.gameId })"
 											class="read-more">Read More <img
-											src="usertemplet/img/icons/double-arrow.png" alt="#">
-										</a>
+											src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
 									</div>
 								</div>
-							</c:forEach>
-						</c:if>
-					</div>
-
-					<!-- ============= 페이징 ===============  -->
-					<div class="site-pagination" id="pagination">
-						<c:forEach var="num" begin="${pagingVO.startPage }" end="${pagingVO.endPage }">
-							<a href="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}"
-								class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
+							</c:if>
 						</c:forEach>
 					</div>
-					<!-- ============= 페이징 끝 ===============  -->
-
-				
+					<div class="site-pagination">
+						<a href="#" class="active">01.</a> <a href="#">02.</a> <a href="#">03.</a>
+					</div>
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
 					<div id="stickySidebar">
@@ -99,7 +79,6 @@
 			</form>
 		</div>
 	</section>
-	<!-- Games end-->
 	<script type="text/javascript">
     function selectGame(n) {
         document.getElementById("gameId").value = n;
@@ -154,7 +133,7 @@
 
         datas.forEach(data => {
             const newGameItem = createGameItem(data);
-            platformSection.appendChild(newGameItem);
+             platformSection.appendChild(newGameItem);
         });
     }
 
@@ -170,9 +149,6 @@
         `;
         return gameItem;
     }
-         
-    
-</script>
-
+	</script>
 </body>
 </html>

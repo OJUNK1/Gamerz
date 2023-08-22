@@ -17,6 +17,7 @@
 		<if test="key != null"> WHERE GAME_GENRE = #{key}</if>
 	</select>
 
+
 	<select id="gamePaging"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
@@ -30,6 +31,7 @@
 		SELECT COUNT(*) AS TOTAL
 		FROM VIDEOGAMES
 	</select>
+
 
 	<select id="gamePlatformList"
 		resultType="co.yedam.gamerz.game.service.GameVO">

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+
 import co.yedam.gamerz.common.vo.PagingVO;
+
 import co.yedam.gamerz.game.service.GameService;
 import co.yedam.gamerz.game.service.GameVO;
 import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
@@ -28,6 +30,7 @@ public class GameList extends HttpServlet {
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
 		List<GameVO> games = new ArrayList<GameVO>();
+
 		games = dao.gameSelectList();
 		request.setAttribute("games", games);
 
@@ -47,7 +50,10 @@ public class GameList extends HttpServlet {
 		request.setAttribute("gamepages", gamepages);
 		request.setAttribute("pagingVO", pagingVO);
 		
-		
+			
+		games = dao.gameSelectList();
+		request.setAttribute("games", games);
+				
 		String viewName = "game/gamelibrary";
 		ViewResolve.forward(request, response, viewName);
 	}

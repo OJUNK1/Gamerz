@@ -1,8 +1,3 @@
-<%@page import="co.yedam.gamerz.game.mapper.GameMapper"%>
-<%@page import="co.yedam.gamerz.game.service.GameVO"%>
-<%@page import="co.yedam.gamerz.game.web.GameList"%>
-<%@page import="co.yedam.gamerz.game.serviceImpl.GameServiceImpl"%>
-<%@page import="co.yedam.gamerz.game.service.GameService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -33,33 +28,22 @@
 				<div class="col-xl-7 col-lg-8 col-md-7" id="genpa">
 					<div class="row" id="gen">
 						<c:if test="${not empty games }">
-
-							<c:forEach items="${gamepages }" var="g">
-
+							<c:forEach items="${games }" var="g">
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
 										<img src="${g.gameIllustMini }" alt="#">
 										<h5>${g.gameName }</h5>
 										<a href="javascript:selectGame(${g.gameId })"
-											class="read-more">Read More <img
-											src="usertemplet/img/icons/double-arrow.png" alt="#">
+											class="read-more">Read More <img src="usertemplet/img/icons/double-arrow.png" alt="#">
 										</a>
 									</div>
 								</div>
 							</c:forEach>
 						</c:if>
 					</div>
-
-					<!-- ============= 페이징 ===============  -->
-					<div class="site-pagination" id="pagination">
-						<c:forEach var="num" begin="${pagingVO.startPage }" end="${pagingVO.endPage }">
-							<a href="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}"
-								class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
-						</c:forEach>
+					<div class="site-pagination">
+						<a href="#" class="active">01.</a> <a href="#">02.</a> <a href="#">03.</a>
 					</div>
-					<!-- ============= 페이징 끝 ===============  -->
-
-				
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
 					<div id="stickySidebar">
@@ -81,10 +65,8 @@
 								<ul id="val">
 									<li><a href="javascript:platformList('PC')">PC</a></li>
 									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
-									<li><a href="javascript:platformList('Play Station')">Play
-											Station</a></li>
-									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo
-											Switch</a></li>
+									<li><a href="javascript:platformList('Play Station')">Play Station</a></li>
+									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo Switch</a></li>
 									<li><a href="javascript:platformList('VR')">VR</a></li>
 								</ul>
 							</div>
@@ -170,8 +152,6 @@
         `;
         return gameItem;
     }
-         
-    
 </script>
 
 </body>

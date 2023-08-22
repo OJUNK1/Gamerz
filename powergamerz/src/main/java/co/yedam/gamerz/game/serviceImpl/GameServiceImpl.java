@@ -1,6 +1,7 @@
 package co.yedam.gamerz.game.serviceImpl;
 
 
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -49,6 +50,7 @@ public class GameServiceImpl implements GameService {
 		return map.gameDelete(vo);
 	}
 
+
 	@Override
 	public List<GameVO> gamePaging(int pageNum, int amount) {
 		return map.gamePaging(pageNum, amount);
@@ -59,6 +61,5 @@ public class GameServiceImpl implements GameService {
 		// TODO Auto-generated method stub
 		return map.gameTotalCount();
 	}
-
 
 }
