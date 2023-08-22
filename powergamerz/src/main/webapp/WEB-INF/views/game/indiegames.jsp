@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<section class="page-top-section set-bg"
+<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/1.jpg">
 		<div class="page-info">
-			<h2>Popular Games</h2>
+			<h2>Indie Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a>  / <span>Popular Games</span>
+				<a href="home.do">Home</a> / <a>Games</a>  / <span>Indie Games</span>
 			</div>
 		</div>
 	</section>
@@ -25,7 +25,7 @@
 				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row"  id="gen">
 						<c:forEach items="${games }" var="g">
-							<c:if test="${g.gameClassfication == 'popular' }">
+							<c:if test="${g.gameClassfication == 'Indie Games' }">
 
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">

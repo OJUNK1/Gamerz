@@ -51,6 +51,8 @@ public class GameServiceImpl implements GameService {
 	}
 
 
+
+
 	@Override
 	public List<GameVO> gamePaging(int pageNum, int amount) {
 		return map.gamePaging(pageNum, amount);
@@ -61,5 +63,6 @@ public class GameServiceImpl implements GameService {
 		// TODO Auto-generated method stub
 		return map.gameTotalCount();
 	}
+
 
 }
