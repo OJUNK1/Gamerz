@@ -2,14 +2,11 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body>
 	<nav class="navbar navbar-expand-xl">
 		<div class="container h-100">
-			<a class="navbar-brand" href="index.html">
+			<a class="navbar-brand" href="admin.do">
 				<h1 class="tm-site-title mb-0">Product Admin</h1>
 			</a>
 			<button class="navbar-toggler ml-auto mr-0" type="button"
@@ -21,7 +18,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto h-100">
-					<li class="nav-item"><a class="nav-link active" href="#">
+					<li class="nav-item"><a class="nav-link active" href="admin.do">
 							<i class="fas fa-tachometer-alt"></i> Dashboard <span
 							class="sr-only">(current)</span>
 					</a></li>
@@ -37,11 +34,11 @@
 								class="dropdown-item" href="#">Weekly Report</a> <a
 								class="dropdown-item" href="#">Yearly Report</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="products.html">
+					<li class="nav-item"><a class="nav-link" href="products.do">
 							<i class="fas fa-shopping-cart"></i> Products
 					</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="accounts.html">
+					<li class="nav-item"><a class="nav-link" href="accounts.do">
 							<i class="far fa-user"></i> Accounts
 					</a></li>
 					<li class="nav-item dropdown"><a
@@ -59,7 +56,7 @@
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link d-block"
-						href="login.html"> Admin, <b>Logout</b>
+						href="logout.do"> Admin, <b>Logout</b>
 					</a></li>
 				</ul>
 			</div>

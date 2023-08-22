@@ -9,17 +9,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+import co.yedam.gamerz.game.service.GameService;
+import co.yedam.gamerz.game.service.GameVO;
+import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
 
-@WebServlet("/admin.do")
-public class AdminController extends HttpServlet {
+@WebServlet("/gameselect.do")
+public class GameSelect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminController() {
+    public GameSelect() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String viewName = "manager/admin/admin";
+		GameService dao = new GameServiceImpl();
+		GameVO vo = new GameVO();
+		
+		vo.setGameId(Integer.valueOf(request.getParameter("gameId")));
+		
+		request.setAttribute("n", vo);
+		String viewName = "manager/admin/editgame";
 		ViewResolve.forward(request, response, viewName);
 	}
 

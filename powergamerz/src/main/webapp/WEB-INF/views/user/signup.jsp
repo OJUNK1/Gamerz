@@ -84,7 +84,7 @@
 							<button type="submit" class="site-btn2">Register</button>
 						</form>
 						<h5>
-							Already have an account? <a href="login.do">Log In!</a>
+							Already have an account? <a href="logincontroller.do">Log In!</a>
 						</h5>
 					</div>
 				</div>
@@ -93,13 +93,13 @@
 						<h3>Login With:</h3>
 						<ul>
 							<li><a id="naverIdLogin_loginButton" href="#"
-								class="facebook"><i class="fa fa-facebook"></i> Sign in With
+								class="naver"><i class="fa fa-facebook"></i> Sign in With
 									Naver</a></li>
 							<li id="googlelogin"><a href="#"
 								class="google"><i class="fa fa-google"></i> Sign in With
 									Google</a></li>
 							<li onclick="kakaoLogin()"><a href="#"
-								class="twitter"><i class="fa fa-twitter"></i> Sign in With
+								class="kakao"><i class="fa fa-twitter"></i> Sign in With
 									Kakao</a></li>
 						</ul>
 					</div>
