@@ -11,6 +11,10 @@ public interface GameService {
 
 	GameVO gameSelect(GameVO vo);
 
+	List<GameVO> gamePaging(int pageNum, int amount);
+
+	int gameTotalCount();
+
 	int gameInsert(GameVO vo);
 
 	int gameUpdate(GameVO vo);

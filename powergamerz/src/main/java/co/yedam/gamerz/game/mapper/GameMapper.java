@@ -14,7 +14,11 @@ public interface GameMapper {
 	List<GameVO> gamePlatformList(@Param("val") String val);
 
 	GameVO gameSelect(GameVO vo);
+	
+	List<GameVO> gamePaging(@Param("pageNum") int pageNum, @Param("amount") int amount);
 
+	int gameTotalCount();
+	
 	int gameInsert(GameVO vo);
 
 	int gameUpdate(GameVO vo);
