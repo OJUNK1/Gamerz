@@ -74,6 +74,11 @@
 				</div>
 			</div>
 		</div>
+		<div>
+			<form id="gamefrm" action="gameinfo.do" method="post">
+				<input type="hidden" id="gameId" name="gameId">
+			</form>
+		</div>
 	</section>
 	<!-- Games end-->
 	<script type="text/javascript">
