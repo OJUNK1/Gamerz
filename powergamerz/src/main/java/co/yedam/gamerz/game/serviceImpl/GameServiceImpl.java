@@ -97,4 +97,5 @@ public class GameServiceImpl implements GameService {
 	public int gamePromotionTotalCount() {
 		return map.gamePromotionTotalCount();
 	}
+
 }

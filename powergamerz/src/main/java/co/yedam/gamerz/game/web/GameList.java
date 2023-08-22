@@ -29,11 +29,15 @@ public class GameList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
+
 		List<GameVO> gamepages = new ArrayList<GameVO>();
+
+
 
 		int pageNum = 1;
 		int amount = 12;
 		PagingVO pagingVO = null;
+
 		// 페이지 번호를 클릭하는 경우
 
 		String key = request.getParameter("key");

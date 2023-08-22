@@ -25,18 +25,16 @@
 	<!-- Page top end-->
 
 	<section class="review-section">
-		<div class="container">
+		<div class="container" >
+			<div align="center">
+			<h2 class="text-white">게시판 글쓰기</h2><br>
+			</div>
 			<form method="post" encType="multipart/form-data" action="postinsert.do" method="post">			
-				<table class="table-light">
-					<thead>
-						<tr>
-							<th>게시판 글쓰기</th>
-						</tr>
-					</thead>
+				<table class="table-light" style="position:relative; width:100%;">
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="postTitle" required="required"></td>
+								placeholder="글 제목" name="postTitle" required="required" style="color:black"></td>
 						</tr>
 						<tr>
 							<td>
@@ -99,11 +97,12 @@
 							<td><input type="file" name="file"></td>
 						</tr>
 					</tbody>
-				</table>
+				</table><br>
 				<input type="hidden" id="postWriter" name="postWriter" value="test"/>
 				<input type="hidden" id="postWriterId" name="postWriterId" value="testId">
 				<div align="right">
-				<button class="site-btn" type="submit">글쓰기 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
+				<button class="site-btn" type="submit">작성 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
+				<button class="site-btn" type="button" onclick="location.href='postlist.do'">취소 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
 				</div>
 			</form>
 		</div>

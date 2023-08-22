@@ -57,7 +57,7 @@
 
 							<div class="input__item">
 								<input type="text" id="memberId" name="memberId" placeholder="Your Id*" required="required"> <span class="icon_info"></span>
-								<button type="button" id="btn" value="NoCheck" onclick="idCheck()">중복체크</button>
+								<button type="button" id="btn" value="NoCheck" onclick="idCheck()" class="nk-btn nk-btn-rounded nk-btn-color-white ">중복체크</button>
 							</div>
 							<div class="input__item">
 								<input type="text" id="memberName" name="memberName" placeholder="Your Name*" required="required"> <span class="icon_profile"></span>
@@ -84,7 +84,7 @@
 							<button type="submit" class="site-btn2">Register</button>
 						</form>
 						<h5>
-							Already have an account? <a href="login.do">Log In!</a>
+							Already have an account? <a href="logincontroller.do">Log In!</a>
 						</h5>
 					</div>
 				</div>
@@ -93,13 +93,13 @@
 						<h3>Login With:</h3>
 						<ul>
 							<li><a id="naverIdLogin_loginButton" href="#"
-								class="facebook"><i class="fa fa-facebook"></i> Sign in With
+								class="naver"><i class="fa fa-facebook"></i> Sign in With
 									Naver</a></li>
 							<li id="googlelogin"><a href="#"
 								class="google"><i class="fa fa-google"></i> Sign in With
 									Google</a></li>
 							<li onclick="kakaoLogin()"><a href="#"
-								class="twitter"><i class="fa fa-twitter"></i> Sign in With
+								class="kakao"><i class="fa fa-twitter"></i> Sign in With
 									Kakao</a></li>
 						</ul>
 					</div>

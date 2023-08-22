@@ -19,7 +19,8 @@ public class AdminController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String viewName = "admin/ad";
+
+		String viewName = "manager/admin/admin";
 		ViewResolve.forward(request, response, viewName);
 	}
 

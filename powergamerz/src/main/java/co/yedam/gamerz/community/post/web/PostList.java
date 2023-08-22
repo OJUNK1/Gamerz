@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+import co.yedam.gamerz.common.vo.PagingVO;
 import co.yedam.gamerz.community.post.service.PostService;
 import co.yedam.gamerz.community.post.service.PostVO;
 import co.yedam.gamerz.community.post.serviceImpl.PostServiceImpl;
@@ -30,6 +31,22 @@ public class PostList extends HttpServlet {
 		
 		posts = dao.postSelectList();
 		request.setAttribute("posts", posts);
+		
+		int pageNum = 1;
+		int amount = 10;
+		// 페이지 번호를 클릭하는 경우
+		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+			amount =Integer.parseInt(request.getParameter("amount"));
+		}
+		
+		List<PostVO> postpages = dao.postPaging(pageNum, amount);
+		int total = dao.postTotalCount();
+		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
+
+//		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
+		request.setAttribute("postpages", postpages);
+		request.setAttribute("pagingVO", pagingVO);
 		
 		String viewName = "community/postlist";
 		ViewResolve.forward(request, response, viewName);
