@@ -51,7 +51,7 @@
 									<li>플랫폼<span>${g.gamePlatform }</span></li>
 								</ul>
 								<form id="qty" action="#">
-									<button type="submit">
+									<button type="submit" onclick="location.href='cartadd.do'">
 										<i class="fa fa-shopping-bag"></i> ADD TO CART
 									</button>
 								</form>
@@ -83,8 +83,8 @@
 
 										<div class="anime__review__item__text">
 											<h6>
-												${r.memberName } - <span>${r.reviewDate }</span>
-												<a class="general_btn panel_btn" href=""
+												${r.memberName } - <span>${r.reviewDate }</span> <a
+													class="general_btn panel_btn" href=""
 													onclick="editReview()"> <img class="toolsIcon"
 													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_edit.png">
 													Edit
@@ -104,8 +104,11 @@
 						<div>
 							<form id="frm" method="post">
 								<input type="hidden" id="reviewId" name="reviewId"
-									value="${n.reviewId }">
+									value="${r.reviewId }">
 							</form>
+							<input type="hidden" id="itemId" name="itemId"
+								value="${g.gameId }"> <input type="hidden"
+								id="cartTotal" name="cartTotal" value="${g.gamePrice }">
 						</div>
 					</div>
 					<div class="anime__details__form">

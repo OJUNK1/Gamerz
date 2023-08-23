@@ -1,12 +1,12 @@
 package co.yedam.gamerz.cart.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import co.yedam.gamerz.cart.service.CartVO;
 
-
 public interface CartMapper {
-	List<CartVO> cartList();
+	List<HashMap<String, Object>> cartList();
 	
 	CartVO cartSelect(CartVO vo);
 	

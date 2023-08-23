@@ -30,7 +30,7 @@ public class GameInfoController extends HttpServlet {
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
 		GameVO vo = new GameVO();
-		vo.setGameId(Integer.valueOf(request.getParameter("gameId")));
+		vo.setGameId(Integer.parseInt(request.getParameter("gameId")));
 		
 		vo= dao.gameSelect(vo);
 		request.setAttribute("g", vo);
