@@ -11,6 +11,9 @@ tr td h2 {
 	color: #4cde03;
 	padding: 30px;
 }
+#pdset{
+	padding-left: 30px;
+}
 </style>
 </head>
 <body>
@@ -34,14 +37,14 @@ tr td h2 {
 					<tbody>
 						<!--  ITEM in Cart start -->
 						<c:forEach items="${carts }" var="c">
-						<c:if test="${not empty carts }">
+						<c:if test="${not empty carts}">
 							<tr>
 								<td class="nk-product-cart-thumb"><a
 									href="javascript:selectGame(${c.gameId })" class="nk-image-box-1 nk-post-image">
 										<img src="${c.gameIllustMini }" alt="" width="115">
 								</a></td>
 								<td class="nk-product-cart-title">
-									<h5 class="h6">Product:</h5>
+									<h5 class="h6" id="pdset">Product:</h5>
 									<div class="nk-gap-1"></div>
 									<h2 class="nk-post-title h4">
 										<a href="javascript:selectGame(${c.gameId })">${c.gameName }</a>
@@ -55,14 +58,14 @@ tr td h2 {
 								</td>
 
 								<td class="nk-product-cart-quantity">
-									<h5 class="h6">Sale-Price:</h5> 
+									<h5 class="h6">Discount:</h5> 
 									<c:if test="${c.gamePriceDiscount == 0 }">
 										<div class="nk-gap-1"></div>
 										<strong> - </strong>
 									</c:if> 
 									<c:if test="${c.gamePriceDiscount != 0 }">
 										<div class="nk-gap-1"></div>
-										<strong> ${c.gamePrice - c.gamePriceDiscount }원 </strong>
+										<strong> ${c.gamePrice - c.gamePriceDiscount } </strong>
 									</c:if>
 								</td>
 
@@ -83,7 +86,7 @@ tr td h2 {
 							</tr>
 						</c:if>
 						</c:forEach>
-						<c:if test="${empty carts }">
+						<c:if test="${empty carts}">
 							<tr>
 								<td colspan="6" align="center"><h2>CAN PUT EVERYTHING
 										TO HERE</h2></td>
