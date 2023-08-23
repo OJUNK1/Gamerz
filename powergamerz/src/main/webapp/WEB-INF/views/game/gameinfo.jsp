@@ -84,14 +84,14 @@
 										<div class="anime__review__item__text">
 											<h6>
 												${r.memberName } - <span>${r.reviewDate }</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-												<c:if test="${id eq r.memberId }">
+												<c:if test="${id eq r.memberId }">																										
 													<a class="general_btn panel_btn" href=""
-														onclick="editReview()"> <img class="toolsIcon"
+														onclick="reviewUpdate('E')"> <img class="toolsIcon"
 														src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_edit.png">
 														Edit
 													</a>
 													<a class="general_btn panel_btn" href=""
-														onclick="deleteReview()"> <img class="toolsIcon"
+														onclick="reviewDelete('D')"> <img class="toolsIcon"
 														src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
 														Delete
 													</a>
@@ -107,7 +107,7 @@
 						<div>
 							<form id="frm" method="post">
 								<input type="hidden" id="reviewId" name="reviewId"
-									value="${n.reviewId }">
+									value="${re.reviewId }">
 							</form>
 						</div>
 					</div>
@@ -115,25 +115,43 @@
 						<div class="section-title">
 							<h5>Your Comment</h5>
 						</div>
-						<form action="reviewinsert.do">
+						<c:if test="${not empty id }">
+							<form action="reviewinsert.do">
+								<input type="hidden" name="reviewWriter" id="reviewWriter"
+									value="${name }"> <input type="hidden"
+									name="reviewLocation" id="reviewLocation"
+									value="${g.gameName }">
+								<textarea placeholder="Your Comment" id="reviewComment"
+									name="reviewComment"></textarea>
+								<button type="submit" onclick="location.href='reviewinsert.do'">
+									<i class="fa fa-location-arrow"></i> Review
+								</button>
+							</form>
+						</c:if>
+						<c:if test="${empty id }">
+							<form action = "logincontroller.do" method="post">
 							<input type="hidden" name="reviewWriter" id="reviewWriter"
-								value="이박사"> <input type="hidden" name="reviewLocation"
-								id="reviewLocation" value="${g.gameName }">
+								value="${name }">
+							<input type="hidden" name="reviewLocation" id="reviewLocation"
+								value="${g.gameName }">
 							<textarea placeholder="Your Comment" id="reviewComment"
-								name="reviewComment"></textarea>
+								name="reviewComment" readonly>로그인 후 이용하세요</textarea>
 							<button type="submit" onclick="location.href='reviewinsert.do'">
-								<i class="fa fa-location-arrow"></i> Review
+								<i class="fa fa-location-arrow"></i> Login
 							</button>
-						</form>
+							</form>
+						</c:if>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<script type="text/javascript">
-		function noticeUpdate(str) {
+		function reviewUpdate(str) {
 			if (str == 'D') {
 				document.getElementById("frm").action = "reviewdelete.do"
+			} else {
+				document.getElementByid("frm").action = "reviewedit.do"
 			}
 
 			document.getElementById("frm").submit();

@@ -35,7 +35,7 @@
 			<if test="reviewDate != null"> REVIEW_DATE = #{reviewDate},</if>
 			<if test="reviewComment != null"> REVIEW_COMMENT = #{reviewComment}</if>
 		</set>
-		WHERE REVIEW_WRITER = #{reviewWriter}
+		WHERE REVIEW_ID = #{reviewId}
 	</update>
 
 	<delete id="reviewDelete"
