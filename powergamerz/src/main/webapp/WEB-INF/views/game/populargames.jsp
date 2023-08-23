@@ -26,7 +26,7 @@
 				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row" id="gen">
 						<c:forEach items="${gamepages }" var="g">
-							<c:if test="${g.gameClassfication == 'popular' }">
+							<c:if test="${g.gameClassfication == 'Popular' }">
 
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
@@ -46,7 +46,7 @@
 						<c:forEach var="num" begin="${pagingVO.startPage}"
 							end="${pagingVO.endPage}">
 							<c:set var="pageLink"
-								value="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}" />
+								value="populargames.do?pageNum=${num}&amount=${pagingVO.amount}" />
 							<c:choose>
 								<c:when test="${not empty param.key}">
 									<c:set var="pageLink" value="${pageLink}&key=${param.key}" />

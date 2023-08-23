@@ -63,7 +63,7 @@
 				<c:forEach var="num" begin="${pagingVO.startPage}"
 					end="${pagingVO.endPage}">
 					<c:set var="pageLink"
-						value="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}" />
+						value="promotion.do?pageNum=${num}&amount=${pagingVO.amount}" />
 					<c:choose>
 						<c:when test="${not empty param.key}">
 							<c:set var="pageLink" value="${pageLink}&key=${param.key}" />

@@ -47,9 +47,10 @@ public class PromotionController extends HttpServlet {
 			pagingVO = new PagingVO(pageNum, amount, total);
 		} else {
 			// 전체 프로모션 중인 게임 목록을 가져오는 로직
-			gamepages = dao.gamePaging(pageNum, amount);
-			int total = dao.gameTotalCount();
+			gamepages = dao.gamePromotionList(pageNum, amount);
+			int total = dao.gamePromotionTotalCount();
 			pagingVO = new PagingVO(pageNum, amount, total);
+			System.out.println("총 게임 개수는 몇개 =====" + total);
 		}
 		
 		request.setAttribute("gamepages", gamepages);
