@@ -15,8 +15,7 @@
 			<h2>Games Library</h2>
 			<div class="site-breadcrumb">
 
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Games
-					Library</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <a href="gamelibrary.do"><span>Games Library</span></a>
 
 			</div>
 		</div>

@@ -13,7 +13,7 @@
 		<div class="page-info">
 			<h2>Indie Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a>  / <span>Indie Games</span>
+				<a href="home.do">Home</a> / <a>Games</a>  / <a href="indiegames.do"><span>Indie Games</span></a>
 			</div>
 		</div>
 	</section>

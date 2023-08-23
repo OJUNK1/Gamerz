@@ -36,6 +36,7 @@ public class GameList extends HttpServlet {
 
 		int pageNum = 1;
 		int amount = 12;
+
 		PagingVO pagingVO = null;
 
 		// 페이지 번호를 클릭하는 경우

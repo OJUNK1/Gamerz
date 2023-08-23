@@ -13,7 +13,7 @@
 		<div class="page-info">
 			<h2>Coming Soon</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Coming Soon</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <a href="comingsoon.do"><span>Coming Soon</span></a>
 			</div>
 		</div>
 	</section>
