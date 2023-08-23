@@ -25,8 +25,8 @@ public class CartAdd extends HttpServlet {
 		CartService dao = new CartServiceImpl();
 		CartVO vo = new CartVO();
 		
-		vo.setItemId(Integer.parseInt(request.getParameter("gameId")));
-        vo.setCartTotal(Integer.parseInt(request.getParameter("cartTotal")));
+		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
+        vo.setCartTotal(Integer.valueOf(request.getParameter("cartTotal")));
 		
 		int num = dao.cartInsert(vo);
 		

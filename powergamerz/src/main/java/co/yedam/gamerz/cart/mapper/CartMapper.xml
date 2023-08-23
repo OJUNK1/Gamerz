@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="cartInsert" parameterType="co.yedam.gamerz.cart.service.CartVO">
-		INSERT INTO CART(ITEM_ID) VALUES(#{itemId})
+		INSERT INTO CART(ITEM_ID, CART_TOTAL) VALUES(#{itemId}, #{cartTotal})
 	</insert>
 	
 	<delete id="cartDelete" parameterType="co.yedam.gamerz.cart.service.CartVO">
