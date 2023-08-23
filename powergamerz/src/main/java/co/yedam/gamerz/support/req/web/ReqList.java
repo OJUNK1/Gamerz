@@ -1,4 +1,4 @@
-package co.yedam.gamerz.community.post.web;
+package co.yedam.gamerz.support.req.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,46 +12,58 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
 import co.yedam.gamerz.common.vo.PagingVO;
-import co.yedam.gamerz.community.post.service.PostService;
-import co.yedam.gamerz.community.post.service.PostVO;
-import co.yedam.gamerz.community.post.serviceImpl.PostServiceImpl;
+import co.yedam.gamerz.support.req.service.ReqService;
+import co.yedam.gamerz.support.req.service.ReqVO;
+import co.yedam.gamerz.support.req.serviceImpl.ReqServiceImpl;
 
-@WebServlet("/postlist.do")
-public class PostList extends HttpServlet {
+/**
+ * Servlet implementation class ReqList
+ */
+@WebServlet("/reqlist.do")
+public class ReqList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public PostList() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ReqList() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PostService dao = new PostServiceImpl();
-		List<PostVO> posts = new ArrayList<PostVO>();
+		ReqService dao = new ReqServiceImpl();
+		List<ReqVO> reqs = new ArrayList<ReqVO>();
 		
-		posts = dao.postSelectList();
-		request.setAttribute("posts", posts);
+		reqs = dao.reqSelectList();
+		request.setAttribute("reqs", reqs);
 		
 		int pageNum = 1;
-		int amount = 5;
+		int amount = 10;
 		// 페이지 번호를 클릭하는 경우
 		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			amount =Integer.parseInt(request.getParameter("amount"));
 		}
 		
-		List<PostVO> postpages = dao.postPaging(pageNum, amount);
-		int total = dao.postTotalCount();
+		List<ReqVO> reqqpages = dao.reqPaging(pageNum, amount);
+		int total = dao.reqTotalCount();
 		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
 
 //		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
-		request.setAttribute("postpages", postpages);
+		request.setAttribute("reqpages", reqqpages);
 		request.setAttribute("pagingVO", pagingVO);
 		
-		String viewName = "community/postlist";
+		String viewName = "req/reqlist";
 		ViewResolve.forward(request, response, viewName);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

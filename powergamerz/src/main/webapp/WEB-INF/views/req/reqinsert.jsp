@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/button.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- Page top section -->
+<!-- Page top section -->
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/4.jpg">
 		<div class="page-info">
 			<h2>Support</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / FAQ
+				<a href="home.do">Home</a> / Contact Us
 			</div>
 		</div>
 	</section>
@@ -24,37 +23,37 @@
 		<div class="container">
 			<div align="center">
 				<div>
-					<h2 class="text-white">FAQ 작성</h2>
+					<h2 class="text-white">1:1문의 작성</h2>
 				</div>
 				<br>
 				<div>
-					<form id="noticefrm" action="faqinsert.do" method="post">
+					<form id="reqfrm" action="reqinsert.do" method="post">
 						<div style="background-color: white;">
 							<table class="table table-bordered">
 								<tr>
 									<th width="100">작성자</th>
-									<td><input type="text" id="faqWriter" name="faqWriter"
+									<td><input type="text" id="reqWriter" name="reqWriter"
 										value="test" readonly="readonly" /></td>
 									<th width="100">작성일자</th>
-									<td><input type="date" id="faqDate" name="faqDate"
+									<td><input type="date" id="reqDate" name="reqDate"
 										required="required" /></td>
 								</tr>
 								<tr>
 									<th>제목</th>
-									<td colspan="3"><input type="text" size="125" id="faqTitle"
-										name="faqTitle" required="required" /></td>
+									<td colspan="3"><input type="text" size="125" id="reqTitle"
+										name="reqTitle" required="required" /></td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td colspan="3"><textarea id="faqSubject"
-											name="faqSubject" cols="125" rows="20"></textarea></td>
+									<td colspan="3"><textarea id="reqSubject"
+											name="reqSubject" cols="125" rows="20"></textarea></td>
 								</tr>
 							</table>
 						</div>
-						<br> <input type="hidden" id="faqWriterId" name="faqWriterId"
+						<br> <input type="hidden" id="reqWriterId" name="reqWriterId"
 							value="testId">
 						<div align="right">		
-							<button  type="submit" class="btn btn-primary btn-lg btn-round btn-jelly">작성</button>&nbsp;
+							<button  type="submit" class="btn btn-primary btn-lg btn-jelly">작성</button>&nbsp;
 							<button  type="submit" class="btn btn-danger btn-lg btn-jelly">취소</button>
 						</div>
 						<br>
@@ -64,7 +63,7 @@
 		</div>
 	</section>
 	<script type="text/javascript">
-	document.getElementById('faqDate').value = new Date().toISOString().substring(0, 10);;
+	document.getElementById('reqDate').value = new Date().toISOString().substring(0, 10);;
 	</script>
 </body>
 </html>

@@ -46,7 +46,8 @@
 												class="nk-cart-toggle"> <span
 													class="fa fa-shopping-cart"></span>
 											</span></a></li>
-
+										
+										
 										<c:if test="${not empty id}">
 											<li>${name}님 접속중</li>
 
@@ -76,7 +77,7 @@
 						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faqlist.do">FAQ</a></li>
-								<li><a href="contactus.do">Contact Us</a>
+								<li><a href="reqlist.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
@@ -87,5 +88,11 @@
 			</div>
 		</div>
 	</header>
+	<script type="text/javascript">
+		function useLogin() {
+			alert('USE in to LOGIN');
+			document.getElementById("logincontroller.do");
+		}
+	</script>
 </body>
 </html>

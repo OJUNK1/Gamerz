@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.gamerz.support.req.Mapper.ReqMapper">
+
+<select id="reqSelectList" resultType="co.yedam.gamerz.support.req.service.ReqVO">
+	SELECT * FROM REQUIRE ORDER BY REQ_ID DESC
+</select>
+
+<select id="reqSearchtList" resultType="co.yedam.gamerz.support.req.service.ReqVO">
+	SELECT * FROM REQUIRE WHERE
+	<if test="key == 'title'">REQ_TITLE LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'subject'">REQ_SUBJECT LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'writer'">REQ_WRITER LIKE '%'||#{val}||'%'</if>
+	ORDER BY REQ_ID DESC
+</select>
+
+<select id="reqSelect" resultType="co.yedam.gamerz.support.req.service.ReqVO">
+	SELECT * FROM REQUIRE WHERE REQ_ID = #{reqId}
+</select>
+
+<select id="reqPaging"
+	resultType="co.yedam.gamerz.support.req.service.ReqVO">
+	<![CDATA[
+	SELECT *
+	FROM ( SELECT ROWNUM RN, V.* FROM ( SELECT * FROM REQUIRE ORDER BY REQ_ID DESC) V )
+	WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
+	]]> 
+</select>
+
+<select id="reqTotalCount" resultType="int">
+	SELECT COUNT(*) AS TOTAL
+	FROM REQUIRE
+</select>
+
+<insert id="reqInsert" parameterType="co.yedam.gamerz.support.req.service.ReqVO">
+	<selectKey resultType="int" keyProperty="reqId" order="BEFORE">
+		SELECT CASE WHEN MAX(REQ_ID) IS NULL THEN 1
+         	   ELSE MAX(REQ_ID) + 1 END  AS reqId FROM REQUIRE
+	</selectKey>
+
+	INSERT INTO REQUIRE(REQ_ID,REQ_TITLE, REQ_SUBJECT,REQ_WRITER,REQ_WRITER_ID)
+	VALUES(#{reqId},#{reqTitle},#{reqSubject},#{reqWriter},#{reqWriterId})
+</insert>
+
+<update id="reqUpdate" parameterType="co.yedam.gamerz.support.req.service.ReqVO">
+	UPDATE REQUIRE
+	<set>
+		<if test="reqTitle != null">REQ_TITLE = #{reqTitle},</if>	
+		<if test="reqSubject != null">REQ_SUBJECT = #{reqSubject},</if>
+		<if test="reqDate != null">REQ_DATE = #{reqDate},</if>
+		<if test="reqDone != null">REQ_DONE = #{reqDone},</if>
+	</set>
+	WHERE REQ_ID = #{reqId}
+</update>
+
+<delete id="reqDelete" parameterType="co.yedam.gamerz.support.req.service.ReqVO">
+	DELETE REQUIRE WHERE REQ_ID = #{reqId}
+</delete>
+
+</mapper>
