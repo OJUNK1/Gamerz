@@ -29,10 +29,7 @@ public class GameList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
-
 		List<GameVO> gamepages = new ArrayList<GameVO>();
-
-
 
 		int pageNum = 1;
 		int amount = 12;
