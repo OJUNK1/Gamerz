@@ -50,8 +50,11 @@
 									<li>개발사<span>${g.gameDeveloper }</span></li>
 									<li>플랫폼<span>${g.gamePlatform }</span></li>
 								</ul>
-								<form id="qty" action="#">
-									<button type="submit" onclick="location.href='cartadd.do'">
+								<form id="qty" action="cartadd.do" method="post">
+									<input type="hidden" id="itemId" name="itemId"
+										value="${g.gameId }"> <input type="hidden"
+										id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+									<button type="submit">
 										<i class="fa fa-shopping-bag"></i> ADD TO CART
 									</button>
 								</form>
@@ -106,9 +109,7 @@
 								<input type="hidden" id="reviewId" name="reviewId"
 									value="${r.reviewId }">
 							</form>
-							<input type="hidden" id="itemId" name="itemId"
-								value="${g.gameId }"> <input type="hidden"
-								id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+							
 						</div>
 					</div>
 					<div class="anime__details__form">
