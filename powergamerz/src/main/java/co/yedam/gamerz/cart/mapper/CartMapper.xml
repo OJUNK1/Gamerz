@@ -2,20 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.gamerz.cart.mapper.CartMapper">
 
-	<select id="cartList" resultType="co.yedam.gamerz.cart.service.CartVO">
-			SELECT * FROM CART
+	<select id="cartList" resultType="co.yedam.gamerz.common.CamelHashMap">
+		SELECT T.*, V.*, M.* 
+		FROM CART T, VIDEOGAMES V, MEMBER M 
+		WHERE
+		ITEM_ID = GAME_ID
+		AND
+		CART_PERSONAL = MEMBER_NAME
 	</select>
 	
 	<select id="cartSelect" resultType="co.yedam.gamerz.cart.service.CartVO">
-	
+	 	SELECT * FROM CART WHERE ITEM_ID = #{itemId}
 	</select>
 	
 	<insert id="cartInsert" parameterType="co.yedam.gamerz.cart.service.CartVO">
-	
+		INSERT INTO CART VALUES(#{itemId}, #{cartTotal}, #{cartPersonal})
 	</insert>
 	
 	<delete id="cartDelete" parameterType="co.yedam.gamerz.cart.service.CartVO">
-		DELETE FROM CART WHERE ITEM_ID = #{itemId}
+		DELETE FROM CART WHERE ITEM_ID = #{itemId} AND CART_PERSONAL = #{cartPersonal}
 	</delete>
 	
 	<update id="cartUpdate" parameterType="co.yedam.gamerz.cart.service.CartVO">
