@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+tr td h2 {
+	color: #4cde03;
+}
+</style>
 </head>
 <body>
-	<!-- Page top section -->
+
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/images/bg-top-4.png">
 		<div class="page-info">
@@ -25,160 +31,141 @@
 				<!-- START: Products in Cart -->
 				<table class="table nk-store-cart-products">
 					<tbody>
+						<!--  ITEM in Cart start -->
+						<c:if test="${not empty carts }">
+								<tr>
+									<td class="nk-product-cart-thumb"><a
+										href="store-product.html" class="nk-image-box-1 nk-post-image">
+											<img src="" alt="" width="115">
+									</a></td>
+									<td class="nk-product-cart-title">
+										<h5 class="h6">Product:</h5>
+										<div class="nk-gap-1"></div>
 
-						<tr>
-							<td class="nk-product-cart-thumb"><a
-								href="store-product.html" class="nk-image-box-1 nk-post-image">
-									<img src="usertemplet/img/images/product-2-xs.jpg"
-									alt="However, I have reason" width="115">
-							</a></td>
-							<td class="nk-product-cart-title">
-								<h5 class="h6">Product:</h5>
-								<div class="nk-gap-1"></div>
-
-								<h2 class="nk-post-title h4">
-									<a href="store-product.html">However, I have reason</a>
-								</h2>
-							</td>
-							<td class="nk-product-cart-price">
-								<h5 class="h6">Price:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 32.00</strong>
-							</td>
-							<td class="nk-product-cart-quantity">
-								<h5 class="h6">Quantity:</h5>
-								<div class="nk-gap-1"></div>
-
-								<div class="nk-form">
-									<input type="number" class="form-control" value="1" min="1"
-										max="21">
-								</div>
-							</td>
-							<td class="nk-product-cart-total">
-								<h5 class="h6">Total:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 32.00</strong>
-							</td>
-							<td class="nk-product-cart-remove"><a href="#"><span
-									class="ion-android-close"></span></a></td>
-						</tr>
-
-						<tr>
-							<td class="nk-product-cart-thumb"><a
-								href="store-product.html" class="nk-image-box-1 nk-post-image">
-									<img src="usertemplet/img/images/product-4-xs.jpg"
-									alt="She was bouncing" width="115">
-							</a></td>
-							<td class="nk-product-cart-title">
-								<h5 class="h6">Product:</h5>
-								<div class="nk-gap-1"></div>
-
-								<h2 class="nk-post-title h4">
-									<a href="store-product.html">She was bouncing</a>
-								</h2>
-							</td>
-							<td class="nk-product-cart-price">
-								<h5 class="h6">Price:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 20.00</strong>
-							</td>
-							<td class="nk-product-cart-quantity">
-								<h5 class="h6">Quantity:</h5>
-								<div class="nk-gap-1"></div>
-
-								<div class="nk-form">
-									<input type="number" class="form-control" value="1" min="1"
-										max="21">
-								</div>
-							</td>
-							<td class="nk-product-cart-total">
-								<h5 class="h6">Total:</h5>
-								<div class="nk-gap-1"></div> <strong>€ 20.00</strong>
-							</td>
-							<td class="nk-product-cart-remove"><a href="#"><span
-									class="ion-android-close"></span></a></td>
-						</tr>
-
+										<h2 class="nk-post-title h4">
+											<a href="">g.gameName </a>
+										</h2>
+									</td>
+									<td class="nk-product-cart-price">
+										<h5 class="h6">Price:</h5>
+										<div class="nk-gap-1"></div> <strong>g.gamePrice </strong>
+									</td>
+									<td class="nk-product-cart-quantity">
+										<h5 class="h6">Sale-Price:</h5>
+										<div class="nk-gap-1"></div> <strong>g.gamePrice - g.gamePriceDiscount원</strong>
+									</td>
+									<td class="nk-product-cart-total">
+										<h5 class="h6">Total:</h5>
+										<div class="nk-gap-1"></div> <strong>g.gamePrice - g.gamePriceDiscount원</strong>
+									</td>
+									<td class="nk-product-cart-remove"><a href="#"><span
+											class="ion-android-close"></span></a></td>
+								</tr>
+						</c:if>
+						<c:if test="${empty carts }">
+							<tr>
+								<td colspan="6" align="center"><h2>CAN PUT EVERYTHING
+										TO HERE</h2></td>
+							</tr>
+							<tr>
+								<td colspan="6" align="center"><h2>JUST ENJOY THE GAME
+										IN LIFE ! ! !</h2></td>
+							</tr>
+						</c:if>
+						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
+				<c:if test="${empty carts }">
+					<div class="nk-gap-1"></div>
+					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-r ight"
+						href="promotion.do">GO LIFE!</a>
+				</c:if>
 				<!-- END: Products in Cart -->
-
 			</div>
-			<div class="nk-gap-1"></div>
-			<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
-				href="#">Update Cart</a>
+			<c:if test="${not empty carts }">
+					<div class="nk-gap-1"></div>
+					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
+						href="#">Update Cart</a>
 
-			<div class="clearfix"></div>
-			<div class="nk-gap-2"></div>
-			<div class="row vertical-gap">
-				<div class="col-md-6">
+					<div class="clearfix"></div>
+					<div class="nk-gap-2"></div>
+					<div class="row vertical-gap">
+						<div class="col-md-6">
 
-					<!-- START: Calculate Shipping -->
-					<div class="section title text-white">
-						<h4>CALCULATE SHIPPING</h4>
-						<div class="nk-gap-1"></div>
-					</div>
+							<!-- START: Calculate Shipping -->
 
-					<form action="#" class="nk-form">
-						<label for="country-sel">Country <span class="text-main-1">*</span>:
-						</label> <select name="country" class="form-control required"
-							id="country-sel">
-							<option value="">Select a country...</option>
-						</select>
-
-						<div class="nk-gap-1"></div>
-						<div class="row vertical-gap">
-							<div class="col-sm-6">
-								<label for="state">State / Country <span
-									class="text-main-1">*</span>:
-								</label> <input type="text" class="form-control required" name="state"
-									id="state">
+							<div class="section title text-white">
+								<h4>CALCULATE SHIPPING</h4>
+								<div class="nk-gap-1"></div>
 							</div>
-							<div class="col-sm-6">
-								<label for="zip">Postcode / ZIP <span
+
+							<form action="#" class="nk-form">
+								<label for="country-sel">Country <span
 									class="text-main-1">*</span>:
-								</label> <input type="tel" class="form-control required" name="zip"
-									id="zip">
-							</div>
+								</label> <select name="country" class="form-control required"
+									id="country-sel">
+									<option value="">Select a country...</option>
+								</select>
+
+								<div class="nk-gap-1"></div>
+								<div class="row vertical-gap">
+									<div class="col-sm-6">
+										<label for="state">State / Country <span
+											class="text-main-1">*</span>:
+										</label> <input type="text" class="form-control required" name="state"
+											id="state">
+									</div>
+									<div class="col-sm-6">
+										<label for="zip">Postcode / ZIP <span
+											class="text-main-1">*</span>:
+										</label> <input type="tel" class="form-control required" name="zip"
+											id="zip">
+									</div>
+								</div>
+
+								<div class="nk-gap-1"></div>
+								<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
+									href="#">Update Totals</a>
+							</form>
+							<!-- END: Calculate Shipping -->
+
 						</div>
-
-						<div class="nk-gap-1"></div>
-						<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
-							href="#">Update Totals</a>
-					</form>
-					<!-- END: Calculate Shipping -->
-
-				</div>
-				<div class="col-md-6">
-					<!-- START: Cart Totals -->
-					<div class="section title text-white">
-						<h4>CART TOTALS</h4>
-						<div class="nk-gap-1"></div>
+						<div class="col-md-6">
+							<!-- START: Cart Totals -->
+							<div class="section title text-white">
+								<h4>CART TOTALS</h4>
+								<div class="nk-gap-1"></div>
+							</div>
+							<table class="nk-table nk-table-sm">
+								<tbody>
+									<tr class="nk-store-cart-totals-subtotal">
+										<td>First Cost</td>
+										<td>itemPrice합 원</td>
+									</tr>
+									<tr class="nk-store-cart-totals-shipping">
+										<td>Total Discount Price</td>
+										<td>itemSale합 원</td>
+									</tr>
+									<tr class="nk-store-cart-totals-total">
+										<td>Total</td>
+										<td>g.gamePrice 원</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END: Cart Totals -->
+						</div>
 					</div>
-					<table class="nk-table nk-table-sm">
-						<tbody>
-							<tr class="nk-store-cart-totals-subtotal">
-								<td>Subtotal</td>
-								<td>€ 52.00</td>
-							</tr>
-							<tr class="nk-store-cart-totals-shipping">
-								<td>Shipping</td>
-								<td>Free Shipping</td>
-							</tr>
-							<tr class="nk-store-cart-totals-total">
-								<td>Total</td>
-								<td>€ 52.00</td>
-							</tr>
-						</tbody>
-					</table>
-					<!-- END: Cart Totals -->
-				</div>
-			</div>
 
-			<div class="nk-gap-2"></div>
-			<a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right"
-				href="store-checkout.html">Proceed to Checkout</a>
-			<div class="clearfix"></div>
+					<div class="nk-gap-2"></div>
+					<a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right"
+						href="store-checkout.html">Proceed to Checkout</a>
+					<div class="clearfix"></div>
+			</c:if>
 		</div>
 	</div>
 
 	<div class="nk-gap-2"></div>
+	
+	
 </body>
 </html>

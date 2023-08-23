@@ -30,12 +30,14 @@ public class GameList extends HttpServlet {
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
 		List<GameVO> games = new ArrayList<GameVO>();
+		
 
 		games = dao.gameSelectList();
 		request.setAttribute("games", games);
 
+
 		int pageNum = 1;
-		int amount = 10;
+		int amount = 12;
 		// 페이지 번호를 클릭하는 경우
 		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));

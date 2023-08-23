@@ -11,9 +11,9 @@
 	<section class="page-top-section set-bg"
 		data-setbg="usertemplet/img/page-top-bg/1.jpg">
 		<div class="page-info">
-			<h2>Games</h2>
+			<h2>Popular Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <span>Games</span>
+				<a href="home.do">Home</a> / <a>Games</a>  / <span>Popular Games</span>
 			</div>
 		</div>
 	</section>
@@ -23,7 +23,7 @@
 
 			<div class="row">
 				<div class="col-xl-7 col-lg-8 col-md-7">
-					<div class="row">
+					<div class="row"  id="gen">
 						<c:forEach items="${games }" var="g">
 							<c:if test="${g.gameClassfication == 'popular' }">
 
@@ -48,25 +48,24 @@
 						<div class="widget-item">
 							<div class="categories-widget">
 								<h4 class="widget-title">Genre</h4>
-								<ul>
-									<li><a href="">액션</a></li>
-									<li><a href="">어드벤처</a></li>
-									<li><a href="">롤플레잉</a></li>
-									<li><a href="">스포츠</a></li>
-									<li><a href="">전략</a></li>
+								<ul id="key">
+									<li><a href="javascript:genreList('액션')">액션</a></li>
+									<li><a href="javascript:genreList('어드벤처')">어드벤처</a></li>
+									<li><a href="javascript:genreList('롤플레잉')">롤플레잉</a></li>
+									<li><a href="javascript:genreList('스포츠')">스포츠</a></li>
+									<li><a href="javascript:genreList('전략')">전략</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="widget-item">
 							<div class="categories-widget">
 								<h4 class="widget-title">platform</h4>
-								<ul>
-									<li><a href="">Xbox</a></li>
-									<li><a href="">X box 360</a></li>
-									<li><a href="">Play Station</a></li>
-									<li><a href="">Play Station VR</a></li>
-									<li><a href="">Nintendo Wii</a></li>
-									<li><a href="">Nintendo Wii U</a></li>
+								<ul id="val">
+									<li><a href="javascript:platformList('PC')">PC</a></li>
+									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
+									<li><a href="javascript:platformList('Play Station')">Play Station</a></li>
+									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo Switch</a></li>
+									<li><a href="javascript:platformList('VR')">VR</a></li>
 								</ul>
 							</div>
 						</div>
@@ -86,6 +85,71 @@
 			document.getElementById("gameId").value = n;
 			document.getElementById("gamefrm").submit();
 		}
+
+	    function genreList(selectedGenre) {//genre
+	        let key = selectedGenre;
+	        let payload = "key=" + key;
+	        let url = "ajaxgenre.do";
+
+	        fetch(url, {
+	            method: "POST",
+	            headers: {
+	                "Content-Type": "application/x-www-form-urlencoded",
+	            },
+	            body: payload,
+	        })
+	        .then(response => response.json())
+	        .then(json => updateGenreSection(json));
+	    }
+	    function updateGenreSection(datas) {
+	        const genreSection = document.querySelector('#gen');
+	        const existingItems = genreSection.querySelectorAll('.game-item');
+	        existingItems.forEach(item => item.remove());
+
+	        datas.forEach(data => {
+	            const newGameItem = createGameItem(data);
+	            genreSection.appendChild(newGameItem);
+	        });
+	    }
+	    
+	    function platformList(selectedPlatform) {//platform
+	        let val = selectedPlatform;
+	        let payload = "val=" + val;
+	        let url = "ajaxplatform.do";
+
+	        fetch(url, {
+	            method: "POST",
+	            headers: {
+	                "Content-Type": "application/x-www-form-urlencoded",
+	            },
+	            body: payload,
+	        })
+	        .then(response => response.json())
+	        .then(json => updatePlatformSection(json));
+	    }
+	    function updatePlatformSection(datas) {
+	        const platformSection = document.querySelector('#gen');
+	        const existingItems = platformSection.querySelectorAll('.game-item');
+	        existingItems.forEach(item => item.remove());
+
+	        datas.forEach(data => {
+	            const newGameItem = createGameItem(data);
+	            platformSection.appendChild(newGameItem);
+	        });
+	    }
+
+	    function createGameItem(data) {
+	        const gameItem = document.createElement('div');
+	        gameItem.className = 'col-lg-4 col-md-6 game-item';
+	        gameItem.innerHTML = `
+	            <img src="\${data.gameIllustMini}" alt="#">
+	            <h5>\${data.gameName}</h5>
+	            <a href="javascript:selectGame(\${data.gameId})"
+	                class="read-more">Read More <img src="usertemplet/img/icons/double-arrow.png" alt="#">
+	            </a>
+	        `;
+	        return gameItem;
+	    }
 	</script>
 </body>
 </html>

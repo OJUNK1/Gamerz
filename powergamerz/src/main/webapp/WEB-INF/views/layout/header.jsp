@@ -22,12 +22,34 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
+
+										<c:if test="${empty id}">
+
 										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
+										</c:if>
+										<c:if test="${not empty id}">
+
+											<c:choose>
+											<c:when test="${author eq 'ADMIN'}">
+												<li><a href="admin.do">admin page</a></li>
+											</c:when>
+											<c:otherwise>
+												<li><a href="#">my page</a></li>
+											</c:otherwise>
+											</c:choose>
+										<li><a href="logout.do"> log out </a></li>
+										</c:if>
+										
 										<li><a href="cart.do"><span
 												class="nk-cart-toggle"> <span
 													class="fa fa-shopping-cart"></span>
-											</span></a>
+											</span></a></li>
+
+										<c:if test="${not empty id}">
+											<li>${name}님 접속중</li>
+
+										</c:if>
 									</ul>
 								</div>
 							</div>
@@ -42,7 +64,7 @@
 								<li><a href="populargames.do">Popular Games</a></li>
 								<li><a href="comingsoon.do">Coming Soon</a></li>
 								<li><a href="gamelibrary.do">Games Library</a></li>
-								<li><a href="">인디게임</a></li>
+								<li><a href="indiegames.do">Indie Games</a></li>
 							</ul></li>
 						<li><a href="promotion.do">Promotion</a></li>
 						<li><a href="postlist.do">Community</a>

@@ -41,7 +41,8 @@ public class Login extends HttpServlet {
 			String viewName = "home/home";
 			ViewResolve.forward(request, response, viewName);
 			// 홈으로
-		} else {
+		} 
+		else {
 			// 아이디/비번 틀림 혹은 없음 알림
 			response.setContentType("text/html; charset=UTF-8");
 		    PrintWriter out = response.getWriter();
