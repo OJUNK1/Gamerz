@@ -43,6 +43,21 @@
 
 					<!-- ============= 페이징 ===============  -->
 					<div class="site-pagination" id="pagination">
+						<c:if test="${pagingVO.prev }">
+							<c:set var="prevPageLink"
+								value="populargames.do?pageNum=${pagingVO.pageNum - 1 }&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<a href="${prevPageLink}">이전</a>
+						</c:if>
 						<c:forEach var="num" begin="${pagingVO.startPage}"
 							end="${pagingVO.endPage}">
 							<c:set var="pageLink"
@@ -58,6 +73,21 @@
 							<a href="${pageLink}"
 								class="${pagingVO.pageNum eq num ? 'active' : ''}">${num}</a>
 						</c:forEach>
+						<c:if test="${pagingVO.next}">
+							<c:set var="nextPageLink"
+								value="populargames.do?pageNum=${pagingVO.endPage + 1}&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<li><a href="${nextPageLink}">다음</a></li>
+						</c:if>
 					</div>
 					<!-- ============= 페이징 끝 ===============  -->
 
