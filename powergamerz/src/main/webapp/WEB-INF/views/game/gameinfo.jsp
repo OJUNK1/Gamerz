@@ -83,16 +83,19 @@
 
 										<div class="anime__review__item__text">
 											<h6>
-												${r.memberName } - <span>${r.reviewDate }</span>
-												<a class="general_btn panel_btn" href=""
-													onclick="editReview()"> <img class="toolsIcon"
-													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_edit.png">
-													Edit
-												</a> <a class="general_btn panel_btn" href=""
-													onclick="deleteReview()"> <img class="toolsIcon"
-													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
-													Delete
-												</a>
+												${r.memberName } - <span>${r.reviewDate }</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+												<c:if test="${id eq r.memberId }">
+													<a class="general_btn panel_btn" href=""
+														onclick="editReview()"> <img class="toolsIcon"
+														src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_edit.png">
+														Edit
+													</a>
+													<a class="general_btn panel_btn" href=""
+														onclick="deleteReview()"> <img class="toolsIcon"
+														src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
+														Delete
+													</a>
+												</c:if>
 											</h6>
 											<p>${r.reviewComment }</p>
 
