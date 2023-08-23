@@ -74,12 +74,12 @@
 						<div class="login__social__links">
 							<span>or</span>
 							<ul>
-								<li><a  id="naverIdLogin_loginButton" href="#" class="facebook">
+								<li><a  id="naverIdLogin_loginButton" href="#" class="naver">
 								<i class="fa fa-facebook"></i> Sign in With Naver</a></li>
 								<li id="googlelogin"><a href="javascript:void(0)" class="google"><i class="fa fa-google"></i>
 									Sign in With Google</a></li>
 								<li onclick="kakaoLogin()"><a href="#" 
-								class="twitter"><i class="fa fa-twitter"></i> Sign in With
+								class="kakao"><i class="fa fa-twitter"></i> Sign in With
 								Kakao</a></li>
 							</ul>
 						</div>
