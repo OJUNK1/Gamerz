@@ -11,6 +11,12 @@
 		SELECT * FROM VIDEOGAMES WHERE GAME_ID = #{gameId}
 	</select>
 
+	<select id="gameSearchList"
+		resultType="co.yedam.gamerz.game.service.GameVO">
+		SELECT * FROM VIDEOGAMES WHERE
+		<if test="key != null">GAME_NAME LIKE '%'||#{key}||'%'</if>
+	</select>
+
 	<select id="gameGenreList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
@@ -100,14 +106,14 @@
 		<if test="key != null">WHERE GAME_GENRE = #{key} </if>
 		<if test="cla != null">AND GAME_CLASSFICATION = #{cla} </if>
 	</select>
-	
-		<select id="gamePcTotalCount" resultType="int">
+
+	<select id="gamePcTotalCount" resultType="int">
 		SELECT COUNT(*) AS TOTAL
 		FROM VIDEOGAMES
 		<if test="val != null">WHERE GAME_PLATFORM = #{val} </if>
 		<if test="cla != null">AND GAME_CLASSFICATION = #{cla} </if>
 	</select>
-	
+
 	<select id="gamePlatformTotalCount" resultType="int">
 		SELECT COUNT(*) AS TOTAL
 		FROM VIDEOGAMES
