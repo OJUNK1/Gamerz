@@ -53,7 +53,7 @@
 						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faqlist.do">FAQ</a></li>
-								<li><a href="contactus.do">Contact Us</a>
+								<li><a href="reqlist.do">Contact Us</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
