@@ -17,6 +17,11 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> memberSelectList() {
 		return map.memberSelectList();
 	}
+	
+	@Override
+	public List<MemberVO> memberAuthorList(String value) {
+		return map.memberAuthorList(value);
+	}
 
 	@Override
 	public MemberVO memberSelect(MemberVO vo) {

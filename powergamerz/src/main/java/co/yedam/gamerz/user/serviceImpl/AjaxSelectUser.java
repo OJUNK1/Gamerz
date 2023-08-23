@@ -1,4 +1,4 @@
-package co.yedam.gamerz.user.web;
+package co.yedam.gamerz.user.serviceImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,31 +10,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.gamerz.common.ViewResolve;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import co.yedam.gamerz.user.service.MemberService;
 import co.yedam.gamerz.user.service.MemberVO;
-import co.yedam.gamerz.user.serviceImpl.MemberServiceImpl;
 
-@WebServlet("/memberlist.do")
-public class MemberList extends HttpServlet {
+@WebServlet("/ajaxselectuser.do")
+public class AjaxSelectUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MemberList() {
+    public AjaxSelectUser() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	MemberService dao = new MemberServiceImpl();
-	List<MemberVO> members = new ArrayList<MemberVO>();
-	
-	String value = request.getParameter("selectauthor");
-	
-	members = dao.memberAuthorList(value);
-	
-	request.setAttribute("members", members);
-	String viewName = "manager/admin/accounts"; 
-	ViewResolve.forward(request, response, viewName);
-	
+		MemberService dao = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+		
+		String val = request.getParameter("val");
+		System.out.println(val);
+		vo = dao.memberSelect(vo);
+		
+		ObjectMapper objectmapper = new ObjectMapper();
+		
+		String data = objectmapper.writeValueAsString(vo);
+		
+		System.out.println(data);
+		response.setContentType("text/html; charset=UTF-8");
+		response.getWriter().append(data);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
