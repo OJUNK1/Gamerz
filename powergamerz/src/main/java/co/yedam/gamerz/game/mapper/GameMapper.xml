@@ -55,21 +55,21 @@
         WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
     ]]>
 	</select>
-
-	<select id="gamePromotionList"
+		
+		<select id="gamePromotionList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
         SELECT *
-        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT != 0 ORDER BY GAME_PRICE_DISCOUNT) V )
+        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT IS NOT NULL ORDER BY GAME_PRICE_DISCOUNT) V )
         WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
     ]]>
 	</select>
-
-	<select id="gamePromotionGenreList"
+		
+		<select id="gamePromotionGenreList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
         SELECT *
-        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT != 0 AND GAME_GENRE = #{key} ORDER BY GAME_PRICE_DISCOUNT) V )
+        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT IS NOT NULL AND GAME_GENRE = #{key} ORDER BY GAME_PRICE_DISCOUNT) V )
         WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
     ]]>
 	</select>
@@ -135,6 +135,30 @@
 		</if>
 	</select>
 
+	<select id="gamePlatformTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+		<if test="val != null">WHERE GAME_PLATFORM = #{val} </if>
+	</select>
+
+	<select id="gameClassficationTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+		<if test="cla != null">WHERE GAME_CLASSFICATION = #{cla} </if>
+	</select>
+	
+	<select id="gamePromotionTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+		<if test="key != null">WHERE GAME_PRICE_DISCOUNT IS NOT NULL</if>
+	</select>
+	
+	<select id="gamePromotionGenreTotalCount" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM VIDEOGAMES
+		<if test="key != null">WHERE GAME_PRICE_DISCOUNT IS NOT NULL AND GAME_GENRE = #{key}</if>
+	</select>
+	
 	<insert id="gameInsert"
 		parameterType="co.yedam.gamerz.game.service.GameVO">
 		INSERT INTO VIDEOGAMES
