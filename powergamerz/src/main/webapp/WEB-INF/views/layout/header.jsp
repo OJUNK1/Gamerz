@@ -22,24 +22,23 @@
 										<li><a href="#" data-toggle="modal"
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
-
-										<c:if test="${empty id}">
+	
+										<c:choose>
+										<c:when test="${empty id}">
 
 										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
-										</c:if>
-										<c:if test="${not empty id}">
-
-											<c:choose>
-											<c:when test="${author eq 'ADMIN'}">
-												<li><a href="admin.do">admin page</a></li>
-											</c:when>
-											<c:otherwise>
-												<li><a href="#">my page</a></li>
-											</c:otherwise>
+										</c:when>
+										<c:when test="${author eq 'ADMIN'}">
+											<li><a href="admin.do">admin page</a></li>
+											<li><a href="logout.do"> log out </a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="#">my page</a></li>
+											<li><a href="logout.do"> log out </a></li>
+										</c:otherwise>
 											</c:choose>
-										<li><a href="logout.do"> log out </a></li>
-										</c:if>
+
 										
 										<li><a href="cart.do"><span
 												class="nk-cart-toggle"> <span

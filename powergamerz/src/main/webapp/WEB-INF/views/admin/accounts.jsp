@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,24 +8,60 @@
 </head>
 <body>
 	
-      <!-- Account Start -->
+      <!-- Select Account Author Start -->
       <div class="container mt-5">
         <div class="row tm-content-row">
           <div class="col-12 tm-block-col">
             <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
               <h2 class="tm-block-title">List of Accounts</h2>
               <p class="text-white">Accounts</p>
-              <select class="custom-select">
+              <select class="custom-select" onchange="typeFn();">
                 <option value="0">Select account</option>
                 <option value="1">Admin</option>
                 <option value="2">Member</option>
-                <button id="click">search</button>
               </select>
             </div>
           </div>
         </div>
-        <!-- row -->
-        <div class="row tm-content-row">
+        <!-- Select Account Author Start -->
+        <!-- User List Start -->
+        <div class="col-12 tm-block-col" >
+			<div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+				<h2 class="tm-block-title">Member List</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Birth</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Address</th>
+							<th scope="col">Email</th>
+							<th scope="col">Author</th>
+							<th scope="col">Edate</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${members}" var="m">
+						<tr>
+							<th scope="row"><b>${m.memberId}</b></th>
+							<td><b>${m.memberName}</b></td>
+							<td><b>${m.memberBirth}</b></td>
+							<td><b>${m.memberPhone}</b></td>
+							<td><b>${m.memberAddress}</b></td>
+							<td>${m.memberEmail}</td>
+							<td>${m.memberAuthor}</td>
+							<td>${m.memberEdate}</td>
+						</tr>
+						</c:forEach>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- User List End -->
+		<!-- row -->
+        <div class="row tm-content-row" style="display:none">
           <div class="tm-block-col tm-col-avatar">
             <div class="tm-bg-primary-dark tm-block tm-block-avatar">
               <h2 class="tm-block-title">Change Avatar</h2>
@@ -114,6 +150,7 @@
             </div>
           </div>
         </div>
+        <!-- row End -->
       </div>
       
       <script>
