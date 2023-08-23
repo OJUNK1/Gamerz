@@ -17,6 +17,9 @@ import co.yedam.gamerz.game.service.GameVO;
 import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
 import co.yedam.gamerz.review.service.ReviewService;
 import co.yedam.gamerz.review.serviceImpl.ReviewServiceImpl;
+import co.yedam.gamerz.user.service.MemberService;
+import co.yedam.gamerz.user.service.MemberVO;
+import co.yedam.gamerz.user.serviceImpl.MemberServiceImpl;
 
 @WebServlet("/gameinfo.do")
 public class GameInfoController extends HttpServlet {
@@ -35,6 +38,7 @@ public class GameInfoController extends HttpServlet {
 		
 		vo= dao.gameSelect(vo);
 		request.setAttribute("g", vo);
+		
 		
 		ReviewService dao2 = new ReviewServiceImpl();
 		List<HashMap<String, Object>> reviewList = new ArrayList<HashMap<String, Object>>();

@@ -50,14 +50,29 @@
 									<li>개발사<span>${g.gameDeveloper }</span></li>
 									<li>플랫폼<span>${g.gamePlatform }</span></li>
 								</ul>
-								<form id="qty" action="cartadd.do" method="post">
-									<input type="hidden" id="itemId" name="itemId"
-										value="${g.gameId }"> <input type="hidden"
-										id="cartTotal" name="cartTotal" value="${g.gamePrice }">
-									<button type="submit">
-										<i class="fa fa-shopping-bag"></i> ADD TO CART
-									</button>
-								</form>
+								<c:if test="${not empty id }">
+									<form id="qty" action="cartadd.do" method="post">
+										<input type="hidden" id="itemId" name="itemId"
+											value="${g.gameId }"> 
+										<input type="hidden" id="cartTotal" name="cartTotal" 
+											value="${g.gamePrice }">
+										<input type="hidden" id="cartPersonal" name="cartPersonal"
+											value="${ name}"> 
+										<button type="submit">
+											<i class="fa fa-shopping-bag"></i> ADD TO CART
+										</button>
+									</form>
+								</c:if>
+								<c:if test="${empty id }">
+									<form id="qty" action="logincontroller.do" method="post">
+										<input type="hidden" id="itemId" name="itemId"
+											value="${g.gameId }"> <input type="hidden"
+											id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+										<button type="submit">
+											<i class="fa fa-shopping-bag"></i> LOGIN TO USE
+										</button>
+									</form>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -98,7 +113,6 @@
 												</a>
 											</h6>
 											<p>${r.reviewComment }</p>
-
 										</div>
 									</div>
 								</c:if>
@@ -109,7 +123,7 @@
 								<input type="hidden" id="reviewId" name="reviewId"
 									value="${r.reviewId }">
 							</form>
-							
+
 						</div>
 					</div>
 					<div class="anime__details__form">
@@ -139,6 +153,7 @@
 
 			document.getElementById("frm").submit();
 		}
+				
 	</script>
 </body>
 </html>

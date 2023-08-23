@@ -1,7 +1,6 @@
 package co.yedam.gamerz.cart.web;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +12,11 @@ import co.yedam.gamerz.cart.service.CartVO;
 import co.yedam.gamerz.cart.serviceImpl.CartServiceImpl;
 import co.yedam.gamerz.common.ViewResolve;
 
-@WebServlet("/cartadd.do")
-public class CartAdd extends HttpServlet {
+@WebServlet("/cartitemdelete.do")
+public class CartItemDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public CartAdd() {
+       
+    public CartItemDelete() {
         super();
     }
 
@@ -26,19 +25,17 @@ public class CartAdd extends HttpServlet {
 		CartVO vo = new CartVO();
 		
 		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
-        vo.setCartTotal(Integer.valueOf(request.getParameter("cartTotal")));
         vo.setCartPersonal(request.getParameter("cartPersonal"));
 		
-		int num = dao.cartInsert(vo);
+		int num = dao.cartDelete(vo);
 		
 		if (num == 1 ) {
-			request.setAttribute("message", "Succeed Add to Cart");
-		} else {
-			request.setAttribute("message", "Fail Add to Cart");
+			request.setAttribute("message", "Succeed Delete to Cart");
 		}
 		
 		String viewName = "user/cartmessage";
 		ViewResolve.forward(request, response, viewName);
+	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

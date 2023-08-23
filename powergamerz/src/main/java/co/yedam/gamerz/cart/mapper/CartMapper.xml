@@ -16,11 +16,11 @@
 	</select>
 	
 	<insert id="cartInsert" parameterType="co.yedam.gamerz.cart.service.CartVO">
-		INSERT INTO CART(ITEM_ID, CART_TOTAL) VALUES(#{itemId}, #{cartTotal})
+		INSERT INTO CART VALUES(#{itemId}, #{cartTotal}, #{cartPersonal})
 	</insert>
 	
 	<delete id="cartDelete" parameterType="co.yedam.gamerz.cart.service.CartVO">
-		DELETE FROM CART WHERE ITEM_ID = #{itemId}
+		DELETE FROM CART WHERE ITEM_ID = #{itemId} AND CART_PERSONAL = #{cartPersonal}
 	</delete>
 	
 	<update id="cartUpdate" parameterType="co.yedam.gamerz.cart.service.CartVO">

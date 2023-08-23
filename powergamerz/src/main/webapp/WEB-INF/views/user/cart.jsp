@@ -11,6 +11,10 @@ tr td h2 {
 	color: #4cde03;
 	padding: 30px;
 }
+tr td h1 {
+	color: #ee626b;
+	padding: 20px;
+}
 #pdset{
 	padding-left: 30px;
 }
@@ -37,7 +41,8 @@ tr td h2 {
 					<tbody>
 						<!--  ITEM in Cart start -->
 						<c:forEach items="${carts }" var="c">
-						<c:if test="${not empty carts}">
+						
+						<c:if test="${c.cartPersonal == name }">
 							<tr>
 								<td class="nk-product-cart-thumb"><a
 									href="javascript:selectGame(${c.gameId })" class="nk-image-box-1 nk-post-image">
@@ -81,12 +86,16 @@ tr td h2 {
 									</c:if>
 								</td>
 
-								<td class="nk-product-cart-remove"><a href="#"> <span
-										class="ion-android-close">X</span></a></td>
+								<td class="nk-product-cart-remove">
+								<a href="cartitemdelete.do"> 
+								<span class="ion-android-close">X</span>
+								</a>
+								</td>
 							</tr>
+						
 						</c:if>
 						</c:forEach>
-						<c:if test="${empty carts}">
+						<c:if test="${empty carts && c.cartPersonal == name }">
 							<tr>
 								<td colspan="6" align="center"><h2>CAN PUT EVERYTHING
 										TO HERE</h2></td>
@@ -96,17 +105,32 @@ tr td h2 {
 										IN LIFE ! ! !</h2></td>
 							</tr>
 						</c:if>
+						<c:if test="${empty carts && empty id}">
+							<tr>
+								<td colspan="6" align="center">
+								<h2>CAN USE EVERYTHING</h2></td>
+							</tr>
+							<tr>
+								<td colspan="6" align="center">
+								<h1>GAMERZ MEMBERZ !</h1></td>
+							</tr>
+						</c:if>
 						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
-				<c:if test="${empty carts }">
+				<c:if test="${empty name && not empty id}">
 					<div class="nk-gap-1"></div>
-					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
-						href="promotion.do">GO LIFE!</a>
+					<a class="btn btn-primary btn-round btn-marquee display-block"
+						href="promotion.do">GO LIFE ! DO GAME !</a>
+				</c:if>
+				<c:if test="${empty carts && empty id}">
+					<div class="nk-gap-1"></div>
+					<a class="btn btn-primary btn-round btn-marquee display-block"
+						href="promotion.do">GO LOGIN ! DO SIGNUP !</a>
 				</c:if>
 				<!-- END: Products in Cart -->
 			</div>
-			<c:if test="${not empty carts }">
+			<c:if test="${not empty carts && not empty id}">
 				<div class="nk-gap-1"></div>
 				<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 					href="#">Update Cart</a>
@@ -194,11 +218,7 @@ tr td h2 {
 			<input type="hidden" id="gameId" name="gameId">
 		</form>
 	</div>
-	<script type="text/javascript">
-		function selectGame(n) {
-			document.getElementById("gameId").value = n;
-			document.getElementById("gamefrm").submit();
-		}
-	</script>
+	
+	
 </body>
 </html>
