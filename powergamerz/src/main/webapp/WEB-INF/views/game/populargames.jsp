@@ -37,6 +37,7 @@
 									</div>
 								</div>
 							</c:if>
+							
 						</c:forEach>
 					</div>
 					<div class="site-pagination">
