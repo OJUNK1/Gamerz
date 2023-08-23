@@ -49,6 +49,16 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
+	public List<GameVO> gameGcList(String key, String cla, int pageNum, int amount) {
+		return map.gameGcList(key, cla, pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gamePcList(String val, String cla, int pageNum, int amount) {
+		return map.gamePcList(val, cla, pageNum, amount);
+	}
+
+	@Override
 	public int gameInsert(GameVO vo) {
 		return map.gameInsert(vo);
 	}
@@ -96,6 +106,16 @@ public class GameServiceImpl implements GameService {
 	@Override
 	public int gamePromotionTotalCount() {
 		return map.gamePromotionTotalCount();
+	}
+
+	@Override
+	public int gameGcTotalCount(String key, String cla) {
+		return map.gameGcTotalCount(key, cla);
+	}
+
+	@Override
+	public int gamePcTotalCount(String val, String cla) {
+		return map.gamePcTotalCount(val, cla);
 	}
 
 }

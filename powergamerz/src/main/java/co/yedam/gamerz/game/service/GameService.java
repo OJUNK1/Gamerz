@@ -13,6 +13,10 @@ public interface GameService {
 	
 	List<GameVO> gamePromotionList(int pageNum, int amount);
 	List<GameVO> gamePromotionGenreList(String key, int pageNum, int amount);
+		
+	List<GameVO> gameGcList(String key, String cla, int pageNum, int amount);
+	
+	List<GameVO> gamePcList(String val, String cla, int pageNum, int amount);
 	
 	GameVO gameSelect(GameVO vo);
 
@@ -28,6 +32,10 @@ public interface GameService {
 	
 	int gamePromotionTotalCount();
 	int gamePromotionGenreTotalCount(String key);
+	
+	int gameGcTotalCount(String key, String cla);
+	
+	int gamePcTotalCount(String val, String cla);
 	
 	int gameInsert(GameVO vo);
 
