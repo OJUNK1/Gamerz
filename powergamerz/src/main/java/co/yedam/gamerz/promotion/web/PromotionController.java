@@ -31,7 +31,7 @@ public class PromotionController extends HttpServlet {
 		List<GameVO> gamepages = new ArrayList<GameVO>();
 
 		int pageNum = 1;
-		int amount = 12;
+		int amount = 8;
 		PagingVO pagingVO = null;
 		String key = request.getParameter("key");
 
@@ -46,11 +46,10 @@ public class PromotionController extends HttpServlet {
 			int total = dao.gamePromotionGenreTotalCount(key);
 			pagingVO = new PagingVO(pageNum, amount, total);
 		} else {
-			// 전체 프로모션 중인 게임 목록을 가져오는 로직
+			//  프로모션 중인 전체 게임 목록을 가져오는 로직
 			gamepages = dao.gamePromotionList(pageNum, amount);
 			int total = dao.gamePromotionTotalCount();
 			pagingVO = new PagingVO(pageNum, amount, total);
-			System.out.println("총 게임 개수는 몇개 =====" + total);
 		}
 		
 		request.setAttribute("gamepages", gamepages);
