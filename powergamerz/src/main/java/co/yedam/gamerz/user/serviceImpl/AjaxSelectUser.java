@@ -28,7 +28,7 @@ public class AjaxSelectUser extends HttpServlet {
 		MemberVO vo = new MemberVO();
 		
 		String val = request.getParameter("val");
-		System.out.println(val);
+
 		vo = dao.memberSelect(vo);
 		
 		ObjectMapper objectmapper = new ObjectMapper();
