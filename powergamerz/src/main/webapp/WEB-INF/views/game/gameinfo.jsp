@@ -70,8 +70,17 @@
 								<c:if test="${not empty id }">
 									<form id="qty" action="cartadd.do" method="post">
 										<input type="hidden" id="itemId" name="itemId"
-											value="${g.gameId }"> <input type="hidden"
-											id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+
+											value="${g.gameId }"> 
+											<c:if test="${g.gamePriceDiscount == 0 }">
+												<input type="hidden" id="cartTotal" name="cartTotal" 
+													value="${g.gamePrice }">
+											</c:if>
+											<c:if test="${g.gamePriceDiscount != 0 }">
+												<input type="hidden" id="cartTotal" name="cartTotal" 
+													value="${g.gamePriceDiscount }">
+											</c:if>
+
 										<input type="hidden" id="cartPersonal" name="cartPersonal"
 											value="${ name}">
 										<button type="submit">
@@ -148,6 +157,7 @@
 										</div>
 										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
 									</div>
+
 								</div>
 							</c:if>
 						</c:forEach>
@@ -186,6 +196,7 @@
 		</div>
 	</section>
 	<script type="text/javascript">
+
 		function toggleEditForm(reviewId) {
 			var editForm = document.getElementById('editForm_' + reviewId);
 			var reviewText = document.getElementById('reviewText_' + reviewId);
@@ -196,6 +207,7 @@
 			} else {
 				editForm.style.display = 'none';
 				reviewText.style.display = 'block';
+
 			}
 		}
 
