@@ -42,7 +42,9 @@
 							<option value="writer">작성자</option>
 						</select>
 					</div>
-					<br> <input type="text" id="val" name="val"
+					<br> 
+					
+					<input type="text" id="val" name="val"
 						placeholder="검색할 내용입력" />
 					<button type="button" onclick="searchlistPaging()" class="site-btn">
 						검색 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
@@ -91,7 +93,14 @@
 				<div class="site-pagination" id="pagination">
 					<c:forEach var="num" begin="${pagingVO.startPage }"
 						end="${pagingVO.endPage }">
-						<a href="postlist.do?pageNum=${num}&amount=${pagingVO.amount}"
+						<c:set var="pageLink"
+								value="postlist.do?pageNum=${num}&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key && not empty param.val}">
+									<c:set var="pageLink" value="${pageLink}&key=${param.key}&val=${param.val}" />
+								</c:when>
+							</c:choose>		
+						<a href="${pageLink}"
 							class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
 					</c:forEach>
 					<input type="hidden" id="page" value=${pagingVO.pageNum } />

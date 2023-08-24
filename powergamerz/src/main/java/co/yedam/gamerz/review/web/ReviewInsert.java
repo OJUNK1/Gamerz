@@ -30,10 +30,12 @@ public class ReviewInsert extends HttpServlet {
 		vo.setReviewLocation(request.getParameter("reviewLocation"));				
 		vo.setReviewWriter(request.getParameter("reviewWriter"));
 		vo.setReviewComment(request.getParameter("reviewComment"));
-
+		
 		int num = dao.reviewInsert(vo);
 
 		if (num == 1) {
+			request.setAttribute("reviewPage", request.getParameter("reviewPage"));
+			request.setAttribute("reviewPageId", request.getParameter("reviewPageId"));
 			request.setAttribute("message", "리뷰 등록 성공");
 		} else {
 			request.setAttribute("message", "리뷰 등록 실패");
