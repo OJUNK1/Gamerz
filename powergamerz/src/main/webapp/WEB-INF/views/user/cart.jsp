@@ -20,6 +20,10 @@ tr td h1 {
 #pdset {
 	padding-left: 30px;
 }
+
+h1 {
+	
+}
 </style>
 
 <script src="https://js.tosspayments.com/v1/payment-widget"></script>
@@ -88,19 +92,25 @@ tr td h1 {
 											<strong>${c.gamePriceDiscount }원</strong>
 										</c:if>
 									</td>
-									<form action="cartitemdelete.do" method="post">
-										<input type="hidden" id="cartPersonal" name="cartPersonal"
-											value="${name }"> <input type="hidden" id="cartId"
-											name="cartId" value="${c.cartId }">
-										<td class="nk-product-cart-remove"><a
-											href="cartitemdelete.do"> <span class="ion-android-close">X</span>
-										</a></td>
-									</form>
+									<td class="nk-product-cart-remove">
+										<form action="cartitemdelete.do" method="post"
+											onsubmit="return confirmDelete();">
+											<input type="hidden" id="itemId" name="itemId"
+												value="${c.itemId}"> 
+											<input type="hidden" id="cartPersonal" name="cartPersonal"
+												value="${c.cartPersonal}">
+											<button type="submit" class="btn btn-primary btn-round"
+												aria-label="Remove">
+												<span class="ion-android-close">X</span>
+											</button>
+										</form>
+									</td>
+
 								</tr>
 
 							</c:if>
 						</c:forEach>
-						<c:if test="${ empty carts && not empty id }">
+						<c:if test="${empty carts && not empty id }">
 							<tr>
 								<td colspan="6" align="center"><h2>CAN PUT EVERYTHING
 										TO HERE</h2></td>
@@ -110,7 +120,7 @@ tr td h1 {
 										IN LIFE ! ! !</h2></td>
 							</tr>
 						</c:if>
-						<c:if test="${empty carts && empty id}">
+						<c:if test="${empty id}">
 							<tr>
 								<td colspan="6" align="center">
 									<h2>CAN USE EVERYTHING</h2>
@@ -125,12 +135,13 @@ tr td h1 {
 						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
+
 				<c:if test="${empty carts && not empty id}">
 					<div class="nk-gap-1"></div>
 					<a class="btn btn-primary btn-round btn-marquee float-right"
 						href="promotion.do">GO LIFE ! DO GAME !</a>
 				</c:if>
-				<c:if test="${empty carts && empty id}">
+				<c:if test="${empty id}">
 					<div class="nk-gap-1"></div>
 					<a class="btn btn-primary btn-round btn-marquee float-right"
 						href="promotion.do">GO LOGIN ! DO SIGNUP !</a>
@@ -138,7 +149,7 @@ tr td h1 {
 				<!-- END: Products in Cart -->
 			</div>
 			<c:forEach items="${carts }" var="c">
-				<c:if test="${not empty carts && not empty id}">
+				<c:if test="${not empty carts && c.cartPersonal == name }">
 					<div class="nk-gap-1"></div>
 					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 						href="gamelibrary.do">more games!</a>
@@ -180,8 +191,11 @@ tr td h1 {
 					</div>
 
 					<div class="nk-gap-2"></div>
-					<a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right"
-						href="">Proceed to Checkout</a>
+
+					<input id="tosspay"
+						class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right"
+						value="Proceed to Checkout" onclick='toggleToss()' "/>
+
 					<div class="clearfix"></div>
 				</c:if>
 			</c:forEach>
@@ -190,18 +204,17 @@ tr td h1 {
 		<!-- 상품 정보 영역-->
 		<c:forEach items="${carts }" var="c">
 			<c:if test="${not empty id }">
-				<div class="title">상품 정보</div>
-				<p>${c.gameName }</p>
-				<p>결제 금액: ${c.gamePrice }원</p>
 
 				<hr>
 
 				<!-- 결제 방법 영역-->
-				<div class="title"></div>
-				<div id="payment-method"></div>
-				<div id="agreement"></div>
-				<button id="payment-button"
-					class="btn btn-primary btn-ghost btn-through">결제하기</button>
+				<div id="toss" style="display: none;">
+					<div class="title"></div>
+					<div id="payment-method"></div>
+					<div id="agreement"></div>
+					<button id="payment-button"
+						class="btn btn-primary btn-ghost btn-through">결제하기</button>
+				</div>
 			</c:if>
 		</c:forEach>
 
@@ -222,7 +235,7 @@ tr td h1 {
 <c:if test="${not empty id }">
   const clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq' // 상점을 특정하는 키
   const customerKey = 'YbX2HuSlsC9uVJW6NMRMj' // 결제 고객을 특정하는 키
-  const amount = "${c.gamePrice + c.gamePriceDiscount}"// 결제 금액
+  const amount = "${c.cartTotal}"// 결제 금액
 
 
   /*결제위젯 영역 렌더링*/
@@ -237,8 +250,8 @@ tr td h1 {
     paymentWidget.requestPayment({
       orderId: '${c.gameId}',
       orderName: '${c.gameName}',
-      successUrl: 'http://localhost:8080/success',
-      failUrl: 'http://localhost:8080/fail',
+      successUrl: 'http://localhost/success.jsp',
+      failUrl: 'http://localhost/fail.jsp',
       customerEmail: '${c.memberEmail}', 
       customerName: '${c.memberName}'
       }).catch(function (error) {
@@ -252,6 +265,29 @@ tr td h1 {
 
   </c:if>
   </c:forEach>
+  
+  
+</script>
+<script type="text/javascript">
+function toggleToss() {
+	  
+	  // 토글 할 버튼 선택 (toss)
+	  const toss = document.getElementById('toss');
+	  
+	  // btn1 숨기기 (display: none)
+	  if(toss.style.display !== 'none') {
+	    toss.style.display = 'none';
+	  }
+	  // btn` 보이기 (display: block)
+	  else {
+	    toss.style.display = 'block';
+	  }
+	  
+	}
+function confirmDelete() {
+    return confirm("Are you sure you want to delete this item?");
+}
+
 </script>
 
 </html>

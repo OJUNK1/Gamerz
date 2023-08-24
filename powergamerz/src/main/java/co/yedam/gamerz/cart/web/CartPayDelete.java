@@ -12,20 +12,19 @@ import co.yedam.gamerz.cart.service.CartVO;
 import co.yedam.gamerz.cart.serviceImpl.CartServiceImpl;
 import co.yedam.gamerz.common.ViewResolve;
 
-@WebServlet("/cartitemdelete.do")
-public class CartItemDelete extends HttpServlet {
+@WebServlet("/cartpaydelete.do")
+public class CartPayDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+   
+    public CartPayDelete() {
+        super();
+    }
 
-	public CartItemDelete() {
-		super();
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CartService dao = new CartServiceImpl();
 		CartVO vo = new CartVO();
-
-		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
+		
+		
 		vo.setCartPersonal(request.getParameter("cartPersonal"));
 
 		int num = dao.cartDelete(vo);
@@ -34,17 +33,16 @@ public class CartItemDelete extends HttpServlet {
 		
 
 		if (num == 1) {
-			request.setAttribute("message", "Succeed Delete to Cart");
+			request.setAttribute("message", "Succeed Buy the Game");
 			ViewResolve.forward(request, response, viewName);
 		} else {
-			request.setAttribute("message", "Fail Delete to Cart.");
+			request.setAttribute("message", "실패.");
 			ViewResolve.forward(request, response, viewName);
 		}
 
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
