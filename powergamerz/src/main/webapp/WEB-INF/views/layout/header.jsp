@@ -31,14 +31,14 @@
 										</c:if>
 										<c:if test="${not empty id}">
 
-											<%-- <c:choose>
-											<c:when test="${author ep 'ADMIN'}">
+											  <c:choose>
+											<c:when test="${author eq 'ADMIN'}">
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
-											<c:otherwise> --%>
-											<%-- 												<li><a href="#">my page</a></li>
+											<c:otherwise> 
+																							<li><a href="#">my page</a></li>
 											</c:otherwise>
-											</c:choose> --%>
+											</c:choose>  
 
 											<li><a href="logout.do"> log out </a></li>
 										</c:if>
