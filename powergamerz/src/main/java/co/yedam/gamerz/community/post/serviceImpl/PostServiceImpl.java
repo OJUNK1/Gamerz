@@ -68,4 +68,16 @@ public class PostServiceImpl implements PostService {
 		return map.postTotalCount();
 	}
 
+	@Override
+	public int postTotalCnt(String key, String val) {
+		// TODO Auto-generated method stub
+		return map.postTotalCnt(key, val);
+	}
+
+	@Override
+	public List<PostVO> postPagingC(int pageNum, int amount, String key, String val) {
+		// TODO Auto-generated method stub
+		return map.postPagingC(pageNum, amount, key, val);
+	}
+
 }

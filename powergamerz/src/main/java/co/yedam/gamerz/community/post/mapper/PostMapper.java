@@ -16,4 +16,6 @@ public interface PostMapper {
 	void postUpdateHit(int id);
 	List<PostVO> postPaging(@Param("pageNum") int pageNum, @Param("amount") int amount);
 	int postTotalCount();
+	int postTotalCnt(@Param("key") String key, @Param("val") String val);
+	List<PostVO> postPagingC(@Param("pageNum") int pageNum, @Param("amount") int amount, @Param("key") String key, @Param("val") String val );
 }

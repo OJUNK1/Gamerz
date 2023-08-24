@@ -19,15 +19,15 @@
 								<div class="nk-contacts-right">
 									<ul class="nk-contacts-icons">
 
-										<li><a href="#" data-toggle="modal"
-											data-target="#modalSearch"> <span class="fa fa-search"></span>
-										</a></li>
-	
-										<c:choose>
-										<c:when test="${empty id}">
+										<li><a href="#" class="search-switch"
+											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
-										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
-										</a></li>
+
+										<c:if test="${empty id}">
+
+											<li><a href="logincontroller.do"> <span
+													class="fa fa-user"></span>
+											</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
 
@@ -36,21 +36,20 @@
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
 											<c:otherwise> --%>
-<%-- 												<li><a href="#">my page</a></li>
+											<%-- 												<li><a href="#">my page</a></li>
 											</c:otherwise>
 											</c:choose> --%>
 
-										<li><a href="logout.do"> log out </a></li>
+											<li><a href="logout.do"> log out </a></li>
 										</c:if>
-										
-										<li><a href="cart.do"><span
-												class="nk-cart-toggle"> <span
-													class="fa fa-shopping-cart"></span>
+
+										<li><a href="cart.do"><span class="nk-cart-toggle">
+													<span class="fa fa-shopping-cart"></span>
 											</span></a></li>
-										
-										
+
+
 										<c:if test="${not empty id}">
-											<li>${name}님 접속중</li>
+											<li>${name}님접속중</li>
 
 										</c:if>
 									</ul>
@@ -78,7 +77,7 @@
 						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faqlist.do">FAQ</a></li>
-								<li><a href="reqlist.do">Contact Us</a>
+								<li><a href="qnalist.do">Q&A</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
@@ -88,11 +87,49 @@
 				</nav>
 			</div>
 		</div>
+		<div id="search-container" class="search-model" style='display: none;'>
+			<div class="h-100 d-flex align-items-center justify-content-center">
+				<div class="search-close-switch" onclick="toggleSearchBox()">
+					<i class="icon_close"></i>
+				</div>
+				<form class="search-model-form">
+					<input type="text" id="search-input" placeholder="Search here....."
+						onkeydown="handleKeyPress(event)">
+				</form>
+			</div>
+		</div>
+		<div>
+			<form id="gamefrmheader" action="gamesearch.do" method="post">
+				<input type="hidden" id="gameName" name="gameName">
+			</form>
+		</div>
 	</header>
 	<script type="text/javascript">
 		function useLogin() {
 			alert('USE in to LOGIN');
 			document.getElementById("logincontroller.do");
+		}
+
+		function toggleSearchBox() {
+			var searchContainer = document.getElementById("search-container");
+			if (searchContainer.style.display === "none") {
+				searchContainer.style.display = "block";
+			} else {
+				searchContainer.style.display = "none";
+			}
+		}
+
+		function handleKeyPress(event) {
+			if (event.key === "Enter") {
+				event.preventDefault(); // 엔터 키 기본 동작 중지
+				var gameName = document.getElementById("search-input").value;
+				searchGame(gameName); // 검색 함수 호출에 gameName 전달
+			}
+		}
+
+		function searchGame(gameName) {
+			document.getElementById("gameName").value = gameName;
+			document.getElementById("gamefrmheader").submit();
 		}
 	</script>
 </body>

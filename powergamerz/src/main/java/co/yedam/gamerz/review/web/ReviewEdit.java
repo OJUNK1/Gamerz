@@ -1,7 +1,9 @@
 package co.yedam.gamerz.review.web;
 
 import java.io.IOException;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,20 +29,22 @@ public class ReviewEdit extends HttpServlet {
 		ReviewService dao = new ReviewServiceImpl();
 		ReviewVO vo = new ReviewVO();
 
-		vo.setReviewDate(LocalDate.parse(request.getParameter("reviewDate")));
-		vo.setReviewComment(request.getParameter("reviewComment"));
-		vo.setReviewId(Integer.parseInt("reviewId"));
 		
-		int n = dao.reviewUpdate(vo);
-		String viewName = "game/gameinfo";
+		vo.setReviewDate(LocalDateTime.now());
+		
+		vo.setReviewComment(request.getParameter("reviewComment"));
+		vo.setReviewId(Integer.parseInt(request.getParameter("reviewId"))); // Fix this line
 
-		if (n == 1) {
+		String viewName = "review/reviewmessage";
+		int n = dao.reviewUpdate(vo);
+
+		if (n == 1) {			
 			vo = dao.reviewSelect(vo);
-			request.setAttribute("re", vo);
+			request.setAttribute("r", vo);
+			request.setAttribute("message", "리뷰 수정 완료.");
 			ViewResolve.forward(request, response, viewName);
-			response.getWriter().write("Success");
 		} else {
-			response.getWriter().write("Failure");
+
 		}
 	}
 

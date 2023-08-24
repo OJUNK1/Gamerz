@@ -17,9 +17,6 @@ import co.yedam.gamerz.game.service.GameVO;
 import co.yedam.gamerz.game.serviceImpl.GameServiceImpl;
 import co.yedam.gamerz.review.service.ReviewService;
 import co.yedam.gamerz.review.serviceImpl.ReviewServiceImpl;
-import co.yedam.gamerz.user.service.MemberService;
-import co.yedam.gamerz.user.service.MemberVO;
-import co.yedam.gamerz.user.serviceImpl.MemberServiceImpl;
 
 @WebServlet("/gameinfo.do")
 public class GameInfoController extends HttpServlet {
@@ -33,19 +30,26 @@ public class GameInfoController extends HttpServlet {
 			throws ServletException, IOException {
 		GameService dao = new GameServiceImpl();
 		GameVO vo = new GameVO();
-		
-		vo.setGameId(Integer.valueOf(request.getParameter("gameId")));
-		
-		vo= dao.gameSelect(vo);
+
+		String gameIdParam = request.getParameter("gameId");
+		if (gameIdParam != null) {
+			try {
+				vo.setGameId(Integer.valueOf(gameIdParam));
+			} catch (NumberFormatException e) {
+				// gameId 파라미터가 숫자 형식이 아닐 경우 처리
+				// 예: 오류 페이지로 리다이렉트 또는 오류 메시지 출력
+			}
+		}
+
+		vo = dao.gameSelect(vo);
 		request.setAttribute("g", vo);
-		
-		
+
 		ReviewService dao2 = new ReviewServiceImpl();
 		List<HashMap<String, Object>> reviewList = new ArrayList<HashMap<String, Object>>();
-		
+
 		reviewList = dao2.reviewSelectList();
 		request.setAttribute("reviewlist", reviewList);
-		
+
 		String viewName = "game/gameinfo";
 		ViewResolve.forward(request, response, viewName);
 	}
