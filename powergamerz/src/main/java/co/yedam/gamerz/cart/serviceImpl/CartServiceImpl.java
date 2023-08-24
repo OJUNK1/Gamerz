@@ -33,6 +33,11 @@ public class CartServiceImpl implements CartService {
 	public int cartDelete(CartVO vo) {
 		return map.cartDelete(vo);
 	}
+	
+	@Override
+	public int cartPayDelete(CartVO vo) {
+		return map.cartPayDelete(vo);
+	}
 
 	@Override
 	public int cartUpdate(CartVO vo) {

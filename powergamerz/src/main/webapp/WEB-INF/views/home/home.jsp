@@ -183,7 +183,7 @@
 									<li><a href="populargames.do">Popular Games</a></li>
 									<li><a href="latestgames.do">Latest Games</a></li>
 									<li><a href="promotion.do">Promotion</a></li>
-									<li><a href="<discussion class="d"></discussion>o">Community</a></li>
+									<li><a href="postlist.do">Community</a></li>
 									<li><a href="aboutus.do">About Gamerz</a></li>
 
 								</ul>
