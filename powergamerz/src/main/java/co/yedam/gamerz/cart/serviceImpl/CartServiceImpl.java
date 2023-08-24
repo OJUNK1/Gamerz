@@ -1,5 +1,6 @@
 package co.yedam.gamerz.cart.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,7 +15,7 @@ public class CartServiceImpl implements CartService {
 	private CartMapper map = sqlSession.getMapper(CartMapper.class);
 	
 	@Override
-	public List<CartVO> cartList() {
+	public List<HashMap<String, Object>> cartList() {
 		return map.cartList();
 	}
 
@@ -31,6 +32,11 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int cartDelete(CartVO vo) {
 		return map.cartDelete(vo);
+	}
+	
+	@Override
+	public int cartPayDelete(CartVO vo) {
+		return map.cartPayDelete(vo);
 	}
 
 	@Override

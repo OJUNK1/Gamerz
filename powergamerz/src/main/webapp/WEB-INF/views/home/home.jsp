@@ -44,8 +44,9 @@
 					</div>
 					<!-- Blog item -->
 					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="img/games/SF 6 mini.jpg" alt="">
+						<div class="blog-thumb ">
+							<a href="javascript:selectGame(1320910)"><img src="img/games/SF 6 mini.jpg" alt=""></a>
+							
 						</div>
 						<div class="blog-text text-box text-white">
 						
@@ -66,7 +67,7 @@
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="img/games/Starfield mini.jpg" alt="">
+							<a href="javascript:selectGame(1815612)"><img src="img/games/Starfield mini.jpg" alt=""></a>
 						</div>
 						<div class="blog-text text-box text-white">
 							<div class="top-meta">
@@ -84,7 +85,7 @@
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="img/games/elden ring home.jpg" alt="">
+							<a href="javascript:selectGame(1815604)"><img src="img/games/elden ring home.jpg" alt=""></a>
 						</div>
 						<div class="blog-text text-box text-white">
 							<div class="top-meta">
@@ -107,47 +108,69 @@
 							<div class="trending-widget">
 								<div class="tw-item">
 									<div class="tw-thumb">
-										<img src="img/games/Undertale home.jpg" alt="#">
+										<a href="javascript:selectGame(1815608)">
+										<img src="img/games/Undertale home.jpg" alt="#"></a>
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
 											15.09.15 to <a href="javascript:selectGame(1815608)">tobyfox</a>
 										</div>
-										<h5><a href="javascript:selectGame(1815608)"> UNDERTALE </a></h5>
+										<h5>
+										<a href="javascript:selectGame(1815608)"> UNDERTALE </a>
+										</h5>
+										<h5>
+										<a href="javascript:selectGame(1815608)" class="read-more">in the here!
+										<img src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
+										</h5>
+										
 									</div>
 								</div>
 								<div class="tw-item">
 									<div class="tw-thumb">
-										<img src="img/games/Red Dead Redemption 2 home.jpg" alt="#">
+										<a href="javascript:selectGame(1320904)">
+										<img src="img/games/Red Dead Redemption 2 home.jpg" alt="#"></a>
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
 											19.12.06 / in <a href="javascript:selectGame(1320904)">Rockstar Games</a>
 										</div>
-										<h5><a href="javascript:selectGame(1320904)"> Red Dead Redemption 2 </a></h5>
+										<h5><a href="javascript:selectGame(1320904)"> R D R 2 </a></h5>
+										<h5>
+										<a href="javascript:selectGame(1320904)" class="read-more">in the here!
+										<img src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
+										</h5>
 									</div>
 								</div>
 								<div class="tw-item">
 									<div class="tw-thumb">
-										<img src="img/games/Stardew Valley home.jpg" alt="#">
+										<a href="javascript:selectGame(9569501)">
+										<img src="img/games/Stardew Valley home.jpg" alt="#"></a>
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
 											16.02.27 / to <a href="javascript:selectGame(9569501)">ConcernedApe</a>
 										</div>
 										<h5><a href="javascript:selectGame(9569501)"> Stardew Valley </a></h5>
-										<h5><a href="javascript:selectGame(9569501)"> </a></h5>
+										<h5>
+										<a href="javascript:selectGame(9569501)" class="read-more">in the here!
+										<img src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
+										</h5>
 									</div>
 								</div>
 								<div class="tw-item">
 									<div class="tw-thumb">
-										<img src="img/games/Raft home.jpg" alt="#">
+										<a href="javascript:selectGame(1422502)">
+										<img src="img/games/Raft home.jpg" alt="#"></a>
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
 											22.06.21 / in <a href="javascript:selectGame(1422502)">Redbeet</a>
 										</div>
 										<h5><a href="javascript:selectGame(1422502)"> RAFT </a></h5>
+										<h5>
+										<a href="javascript:selectGame(1422502)" class="read-more">in the here!
+										<img src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -160,7 +183,7 @@
 									<li><a href="populargames.do">Popular Games</a></li>
 									<li><a href="latestgames.do">Latest Games</a></li>
 									<li><a href="promotion.do">Promotion</a></li>
-									<li><a href="<discussion class="d"></discussion>o">Community</a></li>
+									<li><a href="postlist.do">Community</a></li>
 									<li><a href="aboutus.do">About Gamerz</a></li>
 
 								</ul>

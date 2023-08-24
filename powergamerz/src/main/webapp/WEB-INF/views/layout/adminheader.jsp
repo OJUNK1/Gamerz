@@ -38,7 +38,7 @@
 							<i class="fas fa-shopping-cart"></i> Products
 					</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="accounts.do">
+					<li class="nav-item"><a class="nav-link" href="memberlist.do">
 							<i class="far fa-user"></i> Accounts
 					</a></li>
 					<li class="nav-item dropdown"><a
@@ -63,5 +63,6 @@
 		</div>
 
 	</nav>
+
 </body>
 </html>

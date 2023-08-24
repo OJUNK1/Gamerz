@@ -4,7 +4,10 @@ import java.util.List;
 
 public interface GameService {
 	List<GameVO> gameSelectList();
-
+	
+	
+	List<GameVO> gameSearchList(String key);
+	
 	List<GameVO> gameGenreList(String key, int pageNum, int amount);
 
 	List<GameVO> gamePlatformList(String val, int pageNum, int amount);
