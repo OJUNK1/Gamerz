@@ -3,7 +3,7 @@
 <mapper namespace="co.yedam.gamerz.review.mapper.ReviewMapper">
 	<select id="reviewSelectList"
 		resultType="co.yedam.gamerz.common.CamelHashMap">
-		SELECT R.*, M.MEMBER_NAME
+		SELECT R.*, M.*
 		FROM REVIEW R , MEMBER M
 		WHERE
 		REVIEW_WRITER = MEMBER_NAME
@@ -35,7 +35,7 @@
 			<if test="reviewDate != null"> REVIEW_DATE = #{reviewDate},</if>
 			<if test="reviewComment != null"> REVIEW_COMMENT = #{reviewComment}</if>
 		</set>
-		WHERE REVIEW_WRITER = #{reviewWriter}
+		WHERE REVIEW_ID = #{reviewId}
 	</update>
 
 	<delete id="reviewDelete"

@@ -15,30 +15,36 @@ import co.yedam.gamerz.common.ViewResolve;
 @WebServlet("/cartitemdelete.do")
 public class CartItemDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public CartItemDelete() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartService dao = new CartServiceImpl();
-		CartVO vo = new CartVO();
-		
-		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
-        vo.setCartPersonal(request.getParameter("cartPersonal"));
-		
-		int num = dao.cartDelete(vo);
-		
-		if (num == 1 ) {
-			request.setAttribute("message", "Succeed Delete to Cart");
-		}
-		
-		String viewName = "user/cartmessage";
-		ViewResolve.forward(request, response, viewName);
-	
+	public CartItemDelete() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		CartService dao = new CartServiceImpl();
+		CartVO vo = new CartVO();
+
+		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
+		vo.setCartPersonal(request.getParameter("cartPersonal"));
+
+		int num = dao.cartDelete(vo);
+		String viewName = "user/cartmessage";
+
+		
+
+		if (num == 1) {
+			request.setAttribute("message", "Succeed Delete to Cart");
+			ViewResolve.forward(request, response, viewName);
+		} else {
+			request.setAttribute("message", "실패.");
+			ViewResolve.forward(request, response, viewName);
+		}
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
