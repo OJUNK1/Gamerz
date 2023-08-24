@@ -30,21 +30,32 @@ public class PostList extends HttpServlet {
 		List<PostVO> posts = new ArrayList<PostVO>();
 		
 		posts = dao.postSelectList();
-		request.setAttribute("posts", posts);
+			
+		String key = request.getParameter("key");
+		String val = request.getParameter("val");
 		
 		int pageNum = 1;
-		int amount = 10;
+		int amount = 5;
 		// 페이지 번호를 클릭하는 경우
 		if (request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			amount =Integer.parseInt(request.getParameter("amount"));
 		}
-		
-		List<PostVO> postpages = dao.postPaging(pageNum, amount);
-		int total = dao.postTotalCount();
-		PagingVO pagingVO = new PagingVO(pageNum, amount, total);
+		List<PostVO> postpages = null; 
+		PagingVO pagingVO = null;
+		if (key != null && val != null) {
+			posts = dao.postSearchtList(key, val);	
+			int total = dao.postTotalCnt(key,val);		
+			pagingVO = new PagingVO(pageNum, amount, total);
+			postpages = dao.postPagingC(pageNum, amount, key, val);
+			
+		}else {
+			int total = dao.postTotalCount();
+			pagingVO = new PagingVO(pageNum, amount, total);
+			postpages = dao.postPaging(pageNum, amount);
+		}	
 
-//		System.out.printf("시작페이지 %d, 마지막 페이지 %d",endPage, startPage);
+		request.setAttribute("posts", posts);
 		request.setAttribute("postpages", postpages);
 		request.setAttribute("pagingVO", pagingVO);
 		

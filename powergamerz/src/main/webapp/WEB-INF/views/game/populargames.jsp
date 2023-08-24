@@ -13,8 +13,9 @@
 		<div class="page-info">
 			<h2>Popular Games</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Popular
-					Games</span>
+
+				<a href="home.do">Home</a> / <a>Games</a>  / <a href="populargames.do"><span>Popular Games</span></a>
+
 			</div>
 		</div>
 	</section>
@@ -26,7 +27,7 @@
 				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row" id="gen">
 						<c:forEach items="${gamepages }" var="g">
-							<c:if test="${g.gameClassfication == 'popular' }">
+							<c:if test="${g.gameClassfication == 'Popular' }">
 
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
@@ -38,15 +39,31 @@
 									</div>
 								</div>
 							</c:if>
+							
 						</c:forEach>
 					</div>
 
 					<!-- ============= 페이징 ===============  -->
 					<div class="site-pagination" id="pagination">
+						<c:if test="${pagingVO.prev }">
+							<c:set var="prevPageLink"
+								value="populargames.do?pageNum=${pagingVO.pageNum - 1 }&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<a href="${prevPageLink}">이전</a>
+						</c:if>
 						<c:forEach var="num" begin="${pagingVO.startPage}"
 							end="${pagingVO.endPage}">
 							<c:set var="pageLink"
-								value="gamelibrary.do?pageNum=${num}&amount=${pagingVO.amount}" />
+								value="populargames.do?pageNum=${num}&amount=${pagingVO.amount}" />
 							<c:choose>
 								<c:when test="${not empty param.key}">
 									<c:set var="pageLink" value="${pageLink}&key=${param.key}" />
@@ -58,6 +75,21 @@
 							<a href="${pageLink}"
 								class="${pagingVO.pageNum eq num ? 'active' : ''}">${num}</a>
 						</c:forEach>
+						<c:if test="${pagingVO.next}">
+							<c:set var="nextPageLink"
+								value="populargames.do?pageNum=${pagingVO.endPage + 1}&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<li><a href="${nextPageLink}">다음</a></li>
+						</c:if>
 					</div>
 					<!-- ============= 페이징 끝 ===============  -->
 

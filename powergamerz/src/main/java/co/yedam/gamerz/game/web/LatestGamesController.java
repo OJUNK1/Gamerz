@@ -44,19 +44,19 @@ public class LatestGamesController extends HttpServlet {
 		}
 
 		if (key != null) {
-			// 해당 장르에 대한 게임 목록을 가져오는 로직을 작성
-			gamepages = dao.gameGenreList(key, pageNum, amount);
-			int total = dao.gameGenreTotalCount(key);
+			// 해당 장르에 대한 게임 목록을 가져오는 로직
+			gamepages = dao.gameGcList(key, cla, pageNum, amount);
+			int total = dao.gameGcTotalCount(key, cla);
 			pagingVO = new PagingVO(pageNum, amount, total);
 		} else if (val != null) {
-			// 전체 게임 목록을 가져오는 로직을 작성
-			gamepages = dao.gameClassficationList(cla, pageNum, amount);
-			int total = dao.gameClassficationTotalCount(cla);
+			// 해당 플랫폼에 대한 게임 목록을 가져오는 로직
+			gamepages = dao.gamePcList(val, cla, pageNum, amount);
+			int total = dao.gamePcTotalCount(val, cla);
 			pagingVO = new PagingVO(pageNum, amount, total);
 		} else {
-			// 전체 게임 목록을 가져오는 로직을 작성
-			gamepages = dao.gamePaging(pageNum, amount);
-			int total = dao.gameTotalCount();
+			// 전체 게임 목록을 가져오는 로직
+			gamepages = dao.gameClassficationList(cla, pageNum, amount);
+			int total = dao.gameClassficationTotalCount(cla);
 			pagingVO = new PagingVO(pageNum, amount, total);
 		}
 

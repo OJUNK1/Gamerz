@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-</style>
-
+<link href="css/button.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -55,14 +53,9 @@
 						</div>
 						<br> <input type="hidden" id="faqWriterId" name="faqWriterId"
 							value="testId">
-						<div align="right">
-							<button class="site-btn" type="submit">
-								작성 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-							</button>
-							&nbsp;&nbsp;&nbsp;
-							<button class="site-btn" type="reset">
-								취소 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-							</button>
+						<div align="right">		
+							<button  type="submit" class="btn btn-primary btn-lg btn-round btn-jelly">작성</button>
+							<button  type="submit" class="btn btn-danger btn-lg btn-jelly">취소</button>
 						</div>
 						<br>
 					</form>

@@ -1,9 +1,10 @@
 package co.yedam.gamerz.cart.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface CartService {
-	List<CartVO> cartList();
+	List<HashMap<String, Object>> cartList();
 	
 	CartVO cartSelect(CartVO vo);
 	

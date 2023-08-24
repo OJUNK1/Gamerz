@@ -2,6 +2,7 @@ package co.yedam.gamerz.cart.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.cart.service.CartService;
-import co.yedam.gamerz.cart.service.CartVO;
 import co.yedam.gamerz.cart.serviceImpl.CartServiceImpl;
 import co.yedam.gamerz.common.ViewResolve;
 
@@ -28,7 +28,8 @@ public class CartController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		CartService dao = new CartServiceImpl();
-		List<CartVO> carts = new ArrayList<CartVO>();
+		List<HashMap<String, Object>> carts = new ArrayList<HashMap<String, Object>>();
+		
 		
 		carts = dao.cartList();
 		request.setAttribute("carts", carts);
@@ -39,7 +40,6 @@ public class CartController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 

@@ -4,56 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-:root {
-	--background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-	--gray: #FFF;
-	--darkgray: #FFF;
-}
 
-select {
-	/* Reset Select */
-	appearance: none;
-	outline: 0;
-	border: 0;
-	box-shadow: none;
-	/* Personalize */
-	flex: 1;
-	padding: 0 1em;
-	color: #000;
-	background-color: var(--darkgray);
-	background-image: none;
-	cursor: pointer;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-	display: none;
-}
-/* Custom Select wrapper */
-.select {
-	position: relative;
-	display: flex;
-	width: 20em;
-	height: 3em;
-	border-radius: .25em;
-	overflow: hidden;
-}
-/* Arrow */
-.select::after {
-	content: '\25BC';
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 1em;
-	background-color: #b01ba5;
-	transition: .25s all ease;
-	pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-	color: #fff;
-}
-</style>
+<link href="css/faq.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -70,127 +22,94 @@ select::-ms-expand {
 		</div>
 	</section>
 	<!-- Page top end-->
-	<section class="review-section">
-		<div class="container">
-			<div>
-				<div>
-					<h2 class="text-white">FAQ 목록</h2>
-				</div>
-				<br>
-				<div>
-					<div align="left">
-						<form id="searchfrm" class="newsletter-form">
-							<div class="select">
-								<select name="key" id="key">
-									<option value="title">제목</option>
-									<option value="subject">내용</option>
-									<option value="writer">작성자</option>
-								</select>
-							</div>
-							<br> <input type="text" id="val" name="val"
-								placeholder="검색할 내용입력" />
-							<button type="button" onclick="searchlist()" class="site-btn">
-								검색 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-							</button>
-						</form>
-					</div>
-					<br>
 
-					<table class="table table-light table-striped table-hover">
-						<thead>
-							<tr>
-								<th width="100">순번</th>
-								<th width="250">제목</th>
-								<th width="100">작성자</th>
-								<th width="100">작성일자</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${not empty faqs }">
-								<c:forEach items="${faqpages }" var="f">
-									<tr onclick="selectFaq(${f.faqId })">
-										<td>${f.faqId }</td>
-										<td>${f.faqTitle }</td>
-										<td>${f.faqWriter }</td>
-										<td>${f.faqDate }</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${empty faqs }">
-								<tr>
-									<td colspan="4" align="center">데이터가 존재하지 않습니다.</td>
-								</tr>
-							</c:if>
-						</tbody>
-					</table>
-					<!-- ============= 페이징 ===============  -->
-					<div class="site-pagination" id="pagination">
-						<c:forEach var="num" begin="${pagingVO.startPage }"
-							end="${pagingVO.endPage }">
-							<a href="faqlist.do?pageNum=${num}&amount=${pagingVO.amount}"
-								class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
-						</c:forEach>
+	<section class="faq-section">
+		<div class="container">
+			<div class="row">
+				<!-- ***** FAQ Start ***** -->
+				<div class="col-md-12 offset-md-1">
+
+					<div class="faq-title text-center pb-3">
+						<h2>FAQ</h2>
 					</div>
-					<!-- ============= 페이징 끝 ===============  -->
 				</div>
-				<br>
-				<div align="right">
-					<%-- 		<c:if test="${not empty id }"> --%>
-					<button type="button" class="site-btn"
-						onclick="location.href='faqform.do'">글쓰기</button>
-					<%-- 		</c:if> --%>
-				</div>
-				<div>
-					<form id="faqfrm" method="post">
-						<input type="hidden" id="faqId" name="faqId" />
-					</form>
+				<div class="col-md-12 offset-md-1">
+					<div class="faq" id="accordion">
+						
+						<c:if test="${not empty faqs }">
+							<c:forEach items="${faqpages }" var="f">					
+							<div class="card">
+								<div class="card-header" id="faqHeading-${f.faqId }">
+									<div class="mb-0">
+										<h5 class="faq-title" data-toggle="collapse"
+											data-target="#faqCollapse-${f.faqId }" data-aria-expanded="true"
+											data-aria-controls="faqCollapse-${f.faqId }">
+											<span class="badge">${f.faqId }</span>${f.faqTitle }
+										</h5>
+									</div>
+								</div>
+								<div id="faqCollapse-${f.faqId }" class="collapse"
+									aria-labelledby="faqHeading-${f.faqId }" data-parent="#accordion">
+									<div class="card-body" onclick="selectFaq(${f.faqId })">
+										<p>${f.faqSubject }</p>
+									</div>
+								</div>
+							</div>				
+							</c:forEach>
+						</c:if>
+						
+					</div>
 				</div>
 			</div>
-			<script type="text/javascript">
+			<!-- ============= 페이징 ===============  -->
+		<div class="site-pagination" id="pagination" style="margin-left:400px; margin-top:50px;">
+			<c:forEach var="num" begin="${pagingVO.startPage }"
+				end="${pagingVO.endPage }">
+				<a href="faqlist.do?pageNum=${num}&amount=${pagingVO.amount}" style="color:#b01ba5;"
+					class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
+			</c:forEach>
+		</div>
+		<!-- ============= 페이징 끝 ===============  -->
+		</div>	
+	</section>
+	
+	
+
+	<br>
+	<div align="right">
+		<c:if test="${author eq 'ADMIN' }">
+		<button type="button" class="site-btn"
+			onclick="location.href='faqform.do'">글쓰기</button>
+		</c:if>
+	</div>
+	<div>
+		<form id="faqfrm" method="post">
+			<input type="hidden" id="faqId" name="faqId" />
+		</form>
+	</div>
+	<script type="text/javascript">
 	function selectFaq(n){
 		document.getElementById("faqId").value = n;
 		document.getElementById("faqfrm").action ="faqselect.do"; 
 		document.getElementById("faqfrm").submit();
 	}
-	
- 	function searchlist(){
-		//ajax를 이용해서 검색결과를 가져오고 화면을 재구성한다
-		let key = document.getElementById("key").value;
-		let val = document.getElementById("val").value;
-		let payload = "key="+key+"&val="+val;
-		let url = "ajaxfaqsearch.do";
 		
-		fetch(url,{
-			method:"post",
-			headers:{
-				'content-type' :'application/x-www-form-urlencoded'
-			},
-			body: payload
-		}).then(response => response.json())
-		   .then(json => htmlConvert(json));
-	} 
-	
- 	function htmlConvert(datas){
- 		document.querySelector('tbody').remove();
- 		const tbody = document.createElement('tbody');
- 		// tbody에 데이터 추가
- 		tbody.innerHTML = datas.map(data=>htmlView(data)).join('');
- 		// table 테그에 tbody 추가
- 		document.querySelector('table').appendChild(tbody);
+ 	const items = document.querySelectorAll(".accordion button");
+
+ 	function toggleAccordion() {
+ 	  const itemToggle = this.getAttribute('aria-expanded');
+ 	  
+ 	  for (i = 0; i < items.length; i++) {
+ 	    items[i].setAttribute('aria-expanded', 'false');
+ 	  }
+ 	  
+ 	  if (itemToggle == 'false') {
+ 	    this.setAttribute('aria-expanded', 'true');
+ 	  }
  	}
+
+ 	items.forEach(item => item.addEventListener('click', toggleAccordion));
  	
- 	function htmlView(data){
- 		return `
-	 	<tr onclick="selectFaq(\${data.faqId })">
-			<td>\${data.faqId }</td>
-			<td>\${data.faqTitle }</td>
-			<td>\${data.faqWriter }</td>
-			<td>\${data.faqDate }</td>
-		</tr>
- 		`
- 	}
 </script>
-		</div>
-	</section>
 </body>
 </html>

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import co.yedam.gamerz.community.post.service.PostService;
 import co.yedam.gamerz.community.post.service.PostVO;
 import co.yedam.gamerz.community.post.serviceImpl.PostServiceImpl;
@@ -33,9 +32,9 @@ public class AjaxPostSearch extends HttpServlet {
 		
 		String key = request.getParameter("key");
 		String val = request.getParameter("val");
-
-		posts = dao.postSearchtList(key, val);
 		
+		posts = dao.postSearchtList(key, val);
+			
 		System.out.println("key: " + key + ",val: " + val);
 		
 		ObjectMapper objectMapper = new ObjectMapper();	//json 객체를 만들기 위해 필요한 객체
@@ -44,7 +43,7 @@ public class AjaxPostSearch extends HttpServlet {
 		objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		
 		String data = objectMapper.writeValueAsString(posts); //json 형태로 결과를 만들어줌
-		
+
 		System.out.println(data);
 		
 		response.setContentType("text/html; charset=UTF-8");

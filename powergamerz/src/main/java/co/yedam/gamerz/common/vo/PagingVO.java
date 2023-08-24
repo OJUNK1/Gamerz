@@ -45,7 +45,7 @@ public class PagingVO {
 		}
 
 		// 4. prev결정 ( startPage의 번호는 1, 11, 21... )
-		this.prev = this.startPage > 1;
+		this.prev = this.pageNum > 1;
 
 		// 5. next결정
 //				 ex: 131개 게시물

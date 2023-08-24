@@ -62,7 +62,7 @@
 		</div>
 		<!-- User List End -->
 		<!-- row -->
-        <div class="row tm-content-row" name="singleuser" id="singleuser">
+        <div class="row tm-content-row" name="singleuser" id="singleuser" style="display:none">
           <div class="tm-block-col tm-col-avatar">
             <div class="tm-bg-primary-dark tm-block tm-block-avatar">
               <h2 class="tm-block-title">Change Avatar</h2>
@@ -72,7 +72,7 @@
                   <i class="far fa-trash-alt tm-product-delete-icon"></i>
                 </a>
               </div>
-              <input class="btn btn-primary btn-block text-uppercase" type="file" value="Upload New Photo">
+              <input class="btn btn-primary btn-block text-uppercase" value="Upload New Photo">
                 
             </div>
           </div>
@@ -82,31 +82,27 @@
               <form action="" class="tm-signup-form row">
                 <div class="form-group col-lg-6">
                   <label for="name">Account Name</label>
-                  <input id="name" name="name" type="text"
-                    class="form-control validate"
-                    placeholder="${s.memberName}"
-                  />
+                  <input id="name" name="name" type="text" class="form-control validate"/>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="birth">Account Birth</label>
-                  <input id="birth" name="birth" type="text" class="form-control validate" value="${s.memberBirth}"/>
+                  <input id="birth" name="birth" type="text" class="form-control validate"/>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="phone">Account Phone</label>
-                  <input id="phone" name="phone" type="text" class="form-control validate" value="${s.memberPhone}"/>
+                  <input id="phone" name="phone" type="text" class="form-control validate"/>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="address">Account Address</label>
-                  <input id="address" name="address" type="text" class="form-control validate" value="${s.memberAddress}"
-                  />
+                  <input id="address" name="address" type="text" class="form-control validate"/>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="email">Account Email</label>
-                  <input id="email" name="email" type="text" class="form-control validate" value="${s.memberEmail}"/>
+                  <input id="email" name="email" type="text" class="form-control validate"/>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="author">Account Author</label>
-                  <input id="author" name="author" type="tel" class="form-control validate" value="${s.memberAuthor}"/>
+                  <input id="author" name="author" type="tel" class="form-control validate"/>
                 </div>
                 
                 <div class="form-group col-lg-6">
@@ -162,7 +158,7 @@
 		function htmlView(data){
 			
 			return `
-			<tr >
+			<tr id="selectuser" name="selectuser" onclick="selectUser()">
 			<th scope="row">\${data.memberId}</th>
 			<td>\${data.memberName}</td>
 			<td>\${data.memberBirth}</td>
@@ -176,8 +172,14 @@
 		}
 		
 		function selectUser(){
-			let val = document.getElementById("selectuser");
-			
+     			document.getElementById("singleuser").style.display = "block";
+     			
+     			document.getElementById("name").value = ${name };
+     			document.getElementById("birth").value = "2002-02-20";
+     			document.getElementById("phone").value = "";
+     			document.getElementById("address").value = "Seoul in KOREA";
+     			document.getElementById("email").value = "user2@email.com";
+     			document.getElementById("author").value = "USER";
 		}
      	
       </script>
