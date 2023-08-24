@@ -24,6 +24,11 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
+	public List<GameVO> gameSearchList(String key) {
+		return map.gameSearchList(key);
+	}
+
+	@Override
 	public List<GameVO> gameGenreList(String key, int pageNum, int amount) {
 		return map.gameGenreList(key, pageNum, amount);
 	}
