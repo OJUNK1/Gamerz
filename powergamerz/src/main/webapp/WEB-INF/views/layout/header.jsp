@@ -77,7 +77,7 @@
 						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faqlist.do">FAQ</a></li>
-								<li><a href="reqlist.do">Contact Us</a>
+								<li><a href="qnalist.do">Q&A</a>
 							</ul>
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div>
-			<form id="gamefrm" action="gamesearch.do" method="post">
+			<form id="gamefrmheader" action="gamesearch.do" method="post">
 				<input type="hidden" id="gameName" name="gameName">
 			</form>
 		</div>
@@ -129,7 +129,7 @@
 
 		function searchGame(gameName) {
 			document.getElementById("gameName").value = gameName;
-			document.getElementById("gamefrm").submit();
+			document.getElementById("gamefrmheader").submit();
 		}
 	</script>
 </body>

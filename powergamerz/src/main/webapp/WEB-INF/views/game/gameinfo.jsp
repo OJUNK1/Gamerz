@@ -67,11 +67,28 @@
 									<li>개발사<span>${g.gameDeveloper }</span></li>
 									<li>플랫폼<span>${g.gamePlatform }</span></li>
 								</ul>
-								<form id="qty" action="#">
-									<button type="submit">
-										<i class="fa fa-shopping-bag"></i> ADD TO CART
-									</button>
-								</form>
+								<c:if test="${not empty id }">
+									<form id="qty" action="cartadd.do" method="post">
+										<input type="hidden" id="itemId" name="itemId"
+											value="${g.gameId }"> <input type="hidden"
+											id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+										<input type="hidden" id="cartPersonal" name="cartPersonal"
+											value="${ name}">
+										<button type="submit">
+											<i class="fa fa-shopping-bag"></i> ADD TO CART
+										</button>
+									</form>
+								</c:if>
+								<c:if test="${empty id }">
+									<form id="qty" action="logincontroller.do" method="post">
+										<input type="hidden" id="itemId" name="itemId"
+											value="${g.gameId }"> <input type="hidden"
+											id="cartTotal" name="cartTotal" value="${g.gamePrice }">
+										<button type="submit">
+											<i class="fa fa-shopping-bag"></i> LOGIN TO USE
+										</button>
+									</form>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -124,8 +141,9 @@
 												<textarea placeholder="Your Comment" name="reviewComment"
 													class="review_edit_text_area" maxlength="400" rows="2"
 													cols="30" autofocus>${r.reviewComment}</textarea>
-												<button type="submit">Save</button>
-												<button type="button" onclick="cancelEdit('${r.reviewId}')">Cancel</button>
+												<button type="submit" class="button condensed save">저장</button>
+												<button type="button" class="button condensed cancel"
+													onclick="cancelEdit('${r.reviewId}')">취소</button>
 											</form>
 										</div>
 										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>

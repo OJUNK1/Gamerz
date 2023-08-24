@@ -28,36 +28,36 @@
 				<table class="table table-bordered">
 					<tr>
 						<th width="100">작성자</th>
-						<td align="center">${r.reqWriter }</td>
+						<td align="center">${q.qnaWriter }</td>
 						<th width="100">작성일자</th>
-						<td align="center">${r.reqDate }</td>
+						<td align="center">${q.qnaDate }</td>
 						<th width="100">답변여부</th>
-						<td align="center">${r.reqDone }</td>
+						<td align="center">${q.qnaDone }</td>
 					</tr>
 					<tr>
 						<th>제목</th>
 						<td colspan="5">
-							${r.reqTitle }
+							${r.qnaTitle }
 						</td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td colspan="5">
-							<textarea id="reqSubject" name="reqSubject" cols="125" rows="20" readonly="readonly">${r.reqSubject }</textarea>
+							<textarea id="qnaSubject" name="qnaSubject" cols="125" rows="20" readonly="readonly">${q.qnaSubject }</textarea>
 						</td>
 					</tr>
 				</table>
 			</div><br>
 			<div>
 			<%-- <c:if test="${name eq p.postWriter }"> --%>
-			<button type="button" class="site-btn" onclick="reqUpdate('E')">수정 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
-			<button type="button" class="site-btn" onclick="reqUpdate('D')">삭제 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;			
+			<button type="button" class="site-btn" onclick="qnaUpdate('E')">수정 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
+			<button type="button" class="site-btn" onclick="qnaUpdate('D')">삭제 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;			
 			<%-- </c:if> --%>
-			<button type="button" class="site-btn" onclick="location.href='reqlist.do'">목록 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
+			<button type="button" class="site-btn" onclick="location.href='qnalist.do'">목록 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
 			</div>			
 			<div>
 				<form id="frm" method="post">
-					<input type="hidden" id="reqId" name="reqId" value="${r.reqId }" />
+					<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }" />
 				</form>
 			</div>
 	</div>

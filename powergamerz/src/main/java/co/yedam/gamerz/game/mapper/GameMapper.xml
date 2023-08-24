@@ -14,7 +14,7 @@
 	<select id="gameSearchList"
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		SELECT * FROM VIDEOGAMES WHERE
-		<if test="key != null">GAME_NAME LIKE '%'||#{key}||'%'</if>
+		<if test="key != null">UPPER(GAME_NAME) LIKE '%'|| UPPER(#{key}) ||'%' </if>
 	</select>
 
 	<select id="gameGenreList"
