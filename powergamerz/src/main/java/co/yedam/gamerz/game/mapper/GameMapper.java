@@ -22,8 +22,7 @@ public interface GameMapper {
 
 	List<GameVO> gamePromotionGenreList(@Param("key") String key, @Param("pageNum") int pageNum,
 			@Param("amount") int amount);
-
-
+  
 	List<GameVO> gameGcList(@Param("key") String key, @Param("cla") String cla, @Param("pageNum") int pageNum,
 			@Param("amount") int amount);
 	

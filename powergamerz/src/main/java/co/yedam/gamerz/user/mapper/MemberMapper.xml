@@ -4,7 +4,6 @@
 	<select id="memberSelectList"
 		resultType="co.yedam.gamerz.user.service.MemberVO">
 		SELECT * FROM MEMBER
-
 	</select>
 
 	<select id="memberSelect"
@@ -14,7 +13,7 @@
 			AND MEMBER_PW = #{memberPassword}
 		</if>
 	</select>
-
+  
 	<select id="memberAuthorList"
 		resultType="co.yedam.gamerz.user.service.MemberVO">
 		SELECT * FROM MEMBER

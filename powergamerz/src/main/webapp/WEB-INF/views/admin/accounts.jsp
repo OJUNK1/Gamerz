@@ -1,6 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  
 	<!-- Select Account Author Start -->
 	<div class="container mt-5">
 		<div class="row tm-content-row">
@@ -32,6 +34,7 @@
 			style="display: none">
 			<div
 				class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+
 				<h2 class="tm-block-title">Member List</h2>
 				<table class="table" id="table11">
 					<thead>
@@ -47,7 +50,6 @@
 						</tr>
 					</thead>
 					<tbody id="tablebody">
-
 						<tr>
 							<td></td>
 							<td></td>
@@ -58,13 +60,13 @@
 							<td></td>
 							<td></td>
 						</tr>
-
 					</tbody>
 				</table>
 			</div>
 		</div>
 		<!-- User List End -->
 		<!-- row -->
+
 		<div class="row tm-content-row" name="singleuser" id="singleuser">
 			<div class="tm-block-col tm-col-avatar">
 				<div class="tm-bg-primary-dark tm-block tm-block-avatar">
@@ -132,8 +134,8 @@
 		<!-- row End -->
 	</div>
 
-
 	<script type="text/javascript">
+
    	       	     	
      	function searchList(){
 			
@@ -180,8 +182,7 @@
 		</tr>
 				`
 		}
-		
-		
+				
 		function selectUser() {
 			let key = document.getElementById("key").textContent;
 			
