@@ -62,15 +62,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:if test="${not empty qnapages }">
-							<c:forEach items="${qnapages }" var="q">
-								<tr onclick="${q.qnaWriterId eq id ? 'selectQna(' + q.qnaId + ')' : ''}">
+						<c:if test="${not empty qnapages}">
+							<c:forEach items="${qnapages}" var="q">
+								<tr
+									onclick="handleClickEvent('${q.qnaWriterId}', '${id}', '${q.qnaId}', '${author}')">
 									<td class="subject"
-										style="text-align: center; cursor: pointer;">${q.qnaId }</td>
-									<td style="text-align: center; cursor: pointer;">${q.qnaTitle }</td>
-									<td style="text-align: center; cursor: pointer;">${q.qnaWriter }</td>
-									<td style="text-align: center; cursor: pointer;">${q.qnaDate }</td>
-									<td style="text-align: center; cursor: pointer;">${q.qnaDone }</td>
+										style="text-align: center; cursor: pointer;">${q.qnaId}</td>
+									<td style="text-align: center; cursor: pointer;">${q.qnaTitle}</td>
+									<td style="text-align: center; cursor: pointer;">${q.qnaWriter}</td>
+									<td style="text-align: center; cursor: pointer;">${q.qnaDate}</td>
+									<td style="text-align: center; cursor: pointer;">${q.qnaDone}</td>
 								</tr>
 							</c:forEach>
 						</c:if>
@@ -140,12 +141,18 @@
 	</section>
 	<!-- End Table Section -->
 	<script type="text/javascript">
-	function selectQna(n){
-		document.getElementById("qnaId").value = n;
-		document.getElementById("qnafrm").action ="qnaselect.do"; 
-		document.getElementById("qnafrm").submit();
-	}
-</script>
+		function selectQna(n) {
+			document.getElementById("qnaId").value = n;
+			document.getElementById("qnafrm").action = "qnaselect.do";
+			document.getElementById("qnafrm").submit();
+		}
+
+		function handleClickEvent(qnaWriterId, id, qnaId, author) {
+		    if (author === "ADMIN" || qnaWriterId === id) {
+		        selectQna(qnaId);
+		    }
+		}
+	</script>
 
 </body>
 </html>

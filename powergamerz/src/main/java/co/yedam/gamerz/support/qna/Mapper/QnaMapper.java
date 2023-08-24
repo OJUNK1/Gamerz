@@ -12,7 +12,9 @@ public interface QnaMapper {
 	List<QnaVO> qnaSearchtList(@Param("key") String key, @Param("val") String val);
 
 	List<QnaVO> qnaMyList(@Param("key") String key, @Param("pageNum") int pageNum, @Param("amount") int amount);
-
+	
+	void updateQnaDone(QnaVO qna);
+	
 	QnaVO qnaSelect(QnaVO vo);
 
 	int qnaInsert(QnaVO vo);

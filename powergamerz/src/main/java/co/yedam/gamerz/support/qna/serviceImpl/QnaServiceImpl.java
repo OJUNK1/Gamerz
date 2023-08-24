@@ -30,6 +30,11 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
+	public void updateQnaDone(QnaVO qna) {
+		map.updateQnaDone(qna);
+	}
+
+	@Override
 	public QnaVO qnaSelect(QnaVO vo) {
 		return map.qnaSelect(vo);
 	}
