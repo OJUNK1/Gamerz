@@ -27,30 +27,30 @@
 				</div>
 				<br>
 				<div>
-					<form id="reqfrm" action="reqinsert.do" method="post">
+					<form id="qnafrm" action="qnainsert.do" method="post">
 						<div style="background-color: white;">
 							<table class="table table-bordered">
 								<tr>
 									<th width="100">작성자</th>
-									<td><input type="text" id="reqWriter" name="reqWriter"
+									<td><input type="text" id="qnaWriter" name="qnaWriter"
 										value="test" readonly="readonly" /></td>
 									<th width="100">작성일자</th>
-									<td><input type="date" id="reqDate" name="reqDate"
+									<td><input type="date" id="qnaDate" name="qnaDate"
 										required="required" /></td>
 								</tr>
 								<tr>
 									<th>제목</th>
-									<td colspan="3"><input type="text" size="125" id="reqTitle"
-										name="reqTitle" required="required" /></td>
+									<td colspan="3"><input type="text" size="125" id="qnaTitle"
+										name="qnaTitle" required="required" /></td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td colspan="3"><textarea id="reqSubject"
-											name="reqSubject" cols="125" rows="20"></textarea></td>
+									<td colspan="3"><textarea id="qnaSubject"
+											name="qnaSubject" cols="125" rows="20"></textarea></td>
 								</tr>
 							</table>
 						</div>
-						<br> <input type="hidden" id="reqWriterId" name="reqWriterId"
+						<br> <input type="hidden" id="qnaWriterId" name="qnaWriterId"
 							value="testId">
 						<div align="right">		
 							<button  type="submit" class="btn btn-primary btn-lg btn-jelly">작성</button>&nbsp;
@@ -63,7 +63,7 @@
 		</div>
 	</section>
 	<script type="text/javascript">
-	document.getElementById('reqDate').value = new Date().toISOString().substring(0, 10);;
+	document.getElementById('qnaDate').value = new Date().toISOString().substring(0, 10);;
 	</script>
 </body>
 </html>

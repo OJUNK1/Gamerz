@@ -40,6 +40,6 @@
 
 	<delete id="reviewDelete"
 		parameterType="co.yedam.gamerz.review.service.ReviewVO">
-		DELETE FROM REVIEW WHERE REVIEW_WRITER = #{reviewWriter}
+		DELETE FROM REVIEW WHERE REVIEW_ID = #{reviewId}
 	</delete>
 </mapper>
