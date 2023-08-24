@@ -3,6 +3,7 @@
 <mapper namespace="co.yedam.gamerz.user.mapper.MemberMapper">
 	<select id="memberSelectList" resultType="co.yedam.gamerz.user.service.MemberVO">
 		SELECT * FROM MEMBER
+		
 	</select>
 	
 	<select id="memberSelect" resultType="co.yedam.gamerz.user.service.MemberVO">
@@ -10,6 +11,11 @@
 		<if test = "memberPassword != null">
 			AND MEMBER_PW = #{memberPassword}
 		</if>
+	</select>
+	
+	<select id="memberAuthorList" resultType="co.yedam.gamerz.user.service.MemberVO">
+		SELECT * FROM MEMBER 
+			<if test="val != 'All'">WHERE MEMBER_AUTHOR = #{val}</if>
 	</select>
 	
 	<insert id="memberInsert" parameterType="co.yedam.gamerz.user.service.MemberVO">
@@ -26,7 +32,7 @@
 			<if test="memberPhone != null">MEMBER_PHONE = #{memberPhone},</if>
 			<if test="memberEmail != null">MEMBER_EMAIL = #{memberEmail},</if>
 			<if test="memberEdate != null">MEMBER_EDATE = #{memberEdate},</if>
-			<if test="memberAuthor != null">MEMBER_AUTHOR = #{memberAuthor}</if>
+			<if test="memberAuthor != null">MEMBER_AUTHOR = #{memberAuthor}, </if>
 			<if test="memberImg != null">MEMBER_IMG = #{memberImg}</if>
 		</set>
 		WHERE MEMBER_ID = #{memberId}

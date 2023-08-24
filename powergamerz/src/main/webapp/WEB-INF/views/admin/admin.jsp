@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,10 +40,7 @@
 						</div>
 						<div class="media-body">
 							<p class="mb-2">
-								<b>Jessica</b> and <b>6 others</b> sent you new <a href="#"
-									class="tm-notification-link">product updates</a>. Check new
-								orders.
-							</p>
+								<b>Jessica</b> and <b>6 others</b> sent you new <a href="#"	class="tm-notification-link">product updates</a>. Check new orders.</p>
 							<span class="tm-small tm-text-color-secondary">6h ago.</span>
 						</div>
 					</div>
@@ -158,8 +154,7 @@
 			</div>
 		</div>
 		<div class="col-12 tm-block-col">
-			<div
-				class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+			<div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
 				<h2 class="tm-block-title">Realtime User List</h2>
 				<table class="table">
 					<thead>
