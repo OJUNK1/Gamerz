@@ -1,62 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-
-<style>
-:root {
-	--background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-	--gray: #FFF;
-	--darkgray: #FFF;
-}
-
-select {
-	/* Reset Select */
-	appearance: none;
-	outline: 0;
-	border: 0;
-	box-shadow: none;
-	/* Personalize */
-	flex: 1;
-	padding: 0 1em;
-	color: #000;
-	background-color: var(--darkgray);
-	background-image: none;
-	cursor: pointer;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-	display: none;
-}
-/* Custom Select wrapper */
-.select {
-	position: relative;
-	display: flex;
-	width: 20em;
-	height: 3em;
-	border-radius: .25em;
-	overflow: hidden;
-}
-/* Arrow */
-.select::after {
-	content: '\25BC';
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 1em;
-	background-color: #b01ba5;
-	transition: .25s all ease;
-	pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-	color: #fff;
-}
-</style>
-
+<link href="css/searchbar.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -94,7 +44,7 @@ select::-ms-expand {
 					</div>
 					<br> <input type="text" id="val" name="val"
 						placeholder="검색할 내용입력" />
-					<button type="button" onclick="searchlist()" class="site-btn">
+					<button type="button" onclick="searchlistPaging()" class="site-btn">
 						검색 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
 					</button>
 				</form>
@@ -111,10 +61,10 @@ select::-ms-expand {
 										<div class="review-pic">
 											<c:if test="${not empty d.postAttach}">
 												<img src="attach/post/${d.postAttach }" height="300"
-													width="400">
+													width="500">
 											</c:if>
 											<c:if test="${empty d.postAttach}">
-												<img src="attach/post/noimg.jpg" height="300" width="400">
+												<img src="attach/post/noimg.jpg" height="300" width="500">
 											</c:if>
 										</div>
 									</div>
@@ -137,20 +87,26 @@ select::-ms-expand {
 				</div>
 			</div>
 			<!-- ============= 페이징 ===============  -->
-			<div class="site-pagination" id="pagination">
-				<c:forEach var="num" begin="${pagingVO.startPage }"
-					end="${pagingVO.endPage }">
-					<a href="postlist.do?pageNum=${num}&amount=${pagingVO.amount}"
-						class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
-				</c:forEach>
-			</div>
+			<div id="paging-p">
+				<div class="site-pagination" id="pagination">
+					<c:forEach var="num" begin="${pagingVO.startPage }"
+						end="${pagingVO.endPage }">
+						<a href="postlist.do?pageNum=${num}&amount=${pagingVO.amount}"
+							class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
+					</c:forEach>
+					<input type="hidden" id="page" value=${pagingVO.pageNum } />
+				</div>
+			</div>		
 			<!-- ============= 페이징 끝 ===============  -->
-
+			
+			
 			<div align="right">
+			<c:if test="${not empty id }">
 				<button class="site-btn" type="button"
 					onclick="location.href='postform.do'">
 					글쓰기 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
 				</button>
+			</c:if>
 			</div>
 			<div>
 				<form id="postfrm" method="post">
@@ -170,6 +126,7 @@ select::-ms-expand {
 		//ajax를 이용해서 검색결과를 가져오고 화면을 재구성한다
  		let key = document.getElementById("key").value;
 		let val = document.getElementById("val").value;
+		
 		let payload = "key="+key+"&val="+val;
 		let url = "ajaxpostsearch.do";
 		
@@ -180,8 +137,15 @@ select::-ms-expand {
 			},
 			body: payload
 		}).then(response => response.json())
-		   .then(json => htmlConvert(json)); 
+		   .then(json => htmlConvert(json));
 	} 
+ 	
+ 	function searchlistPaging(){
+ 		let key = document.getElementById("key").value;
+		let val = document.getElementById("val").value;
+		
+		location.href = "postlist.do?key="+key+"&val="+val;
+ 	}
 	
  	function htmlConvert(datas){
 		var myDiv = document.getElementById("contents");
@@ -203,7 +167,7 @@ select::-ms-expand {
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="review-pic">
-								<img src="attach/post/\${data.postAttach }" height="300" width="400">
+								<img src="attach/post/\${data.postAttach }" height="300" width="500">
 							</div>
 						</div>
 						<div class="col-lg-8">
@@ -218,6 +182,7 @@ select::-ms-expand {
 				</div>
  		`
  	} 
+
 </script>
 	</section>
 	<!-- Review section end-->

@@ -13,7 +13,7 @@
 		<div class="page-info">
 			<h2>Coming Soon</h2>
 			<div class="site-breadcrumb">
-				<a href="home.do">Home</a> / <a>Games</a> / <span>Coming Soon</span>
+				<a href="home.do">Home</a> / <a>Games</a> / <a href="comingsoon.do"><span>Coming Soon</span></a>
 			</div>
 		</div>
 	</section>
@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-xl-7 col-lg-8 col-md-7">
 					<div class="row" id="gen">
-						<c:forEach items="${games }" var="g">
+						<c:forEach items="${gamepages }" var="g">
 							<c:if test="${g.gameClassfication == 'Coming Soon' }">
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
@@ -37,9 +37,55 @@
 							</c:if>
 						</c:forEach>
 					</div>
-					<div class="site-pagination">
-						<a href="#" class="active">01.</a> <a href="#">02.</a> <a href="#">03.</a>
+					<!-- ============= 페이징 ===============  -->
+					<div class="site-pagination" id="pagination">
+						<c:if test="${pagingVO.prev }">
+							<c:set var="prevPageLink"
+								value="comingsoon.do?pageNum=${pagingVO.pageNum - 1 }&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="prevPageLink"
+										value="${prevPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<a href="${prevPageLink}">이전</a>
+						</c:if>
+						<c:forEach var="num" begin="${pagingVO.startPage}"
+							end="${pagingVO.endPage}">
+							<c:set var="pageLink"
+								value="comingsoon.do?pageNum=${num}&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="pageLink" value="${pageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="pageLink" value="${pageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<a href="${pageLink}"
+								class="${pagingVO.pageNum eq num ? 'active' : ''}">${num}</a>
+						</c:forEach>
+						<c:if test="${pagingVO.next}">
+							<c:set var="nextPageLink"
+								value="comingsoon.do?pageNum=${pagingVO.endPage + 1}&amount=${pagingVO.amount}" />
+							<c:choose>
+								<c:when test="${not empty param.key}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&key=${param.key}" />
+								</c:when>
+								<c:when test="${not empty param.val}">
+									<c:set var="nextPageLink"
+										value="${nextPageLink}&val=${param.val}" />
+								</c:when>
+							</c:choose>
+							<li><a href="${nextPageLink}">다음</a></li>
+						</c:if>
 					</div>
+					<!-- ============= 페이징 끝 ===============  -->
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar game-page-sideber">
 					<div id="stickySidebar">
@@ -47,11 +93,11 @@
 							<div class="categories-widget">
 								<h4 class="widget-title">Genre</h4>
 								<ul id="key">
-									<li><a href="javascript:genreList('액션')">액션</a></li>
-									<li><a href="javascript:genreList('어드벤처')">어드벤처</a></li>
-									<li><a href="javascript:genreList('롤플레잉')">롤플레잉</a></li>
-									<li><a href="javascript:genreList('스포츠')">스포츠</a></li>
-									<li><a href="javascript:genreList('전략')">전략</a></li>
+									<li><a href="comingsoon.do?key=액션">액션</a></li>
+									<li><a href="comingsoon.do?key=어드벤처">어드벤처</a></li>
+									<li><a href="comingsoon.do?key=롤플레잉">롤플레잉</a></li>
+									<li><a href="comingsoon.do?key=스포츠">스포츠</a></li>
+									<li><a href="comingsoon.do?key=전략">전략</a></li>
 								</ul>
 							</div>
 						</div>
@@ -59,13 +105,13 @@
 							<div class="categories-widget">
 								<h4 class="widget-title">platform</h4>
 								<ul id="val">
-									<li><a href="javascript:platformList('PC')">PC</a></li>
-									<li><a href="javascript:platformList('Xbox')">Xbox</a></li>
-									<li><a href="javascript:platformList('Play Station')">Play
+									<li><a href="comingsoon.do?val=PC">PC</a></li>
+									<li><a href="comingsoon.do?val=Xbox">Xbox</a></li>
+									<li><a href="comingsoon.do?val=Play Station">Play
 											Station</a></li>
-									<li><a href="javascript:platformList('Nintendo Switch')">Nintendo
+									<li><a href="comingsoon.do?val=Nintendo Switch">Nintendo
 											Switch</a></li>
-									<li><a href="javascript:platformList('VR')">VR</a></li>
+									<li><a href="comingsoon.do?val=VR">VR</a></li>
 								</ul>
 							</div>
 						</div>
@@ -80,79 +126,10 @@
 		</div>
 	</section>
 	<script type="text/javascript">
-    function selectGame(n) {
-        document.getElementById("gameId").value = n;
-        document.getElementById("gamefrm").submit();
-    }
-
-    function genreList(selectedGenre) {//genre
-        let key = selectedGenre;
-        let payload = "key=" + key;
-        let url = "ajaxgenre.do";
-
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: payload,
-        })
-        .then(response => response.json())
-        .then(json => updateGenreSection(json));
-    }
-    function updateGenreSection(datas) {
-        const genreSection = document.querySelector('#gen');
-        const existingItems = genreSection.querySelectorAll('.game-item');
-        existingItems.forEach(item => item.remove());
-
-        datas.forEach(data => {
-            if(data.gameClassfication == 'Coming Soon') {
-        	const newGameItem = createGameItem(data);
-            genreSection.appendChild(newGameItem);
-          }
-       });
-    }
-    
-    function platformList(selectedPlatform) {//platform
-        let val = selectedPlatform;
-        let payload = "val=" + val;
-        let url = "ajaxplatform.do";
-
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: payload,
-        })
-        .then(response => response.json())
-        .then(json => updatePlatformSection(json));
-    }
-    function updatePlatformSection(datas) {
-        const platformSection = document.querySelector('#gen');
-        const existingItems = platformSection.querySelectorAll('.game-item');
-        existingItems.forEach(item => item.remove());
-
-        datas.forEach(data => {
-        	 if(data.gameClassfication == 'Coming Soon') {
-        	const newGameItem = createGameItem(data);
-             platformSection.appendChild(newGameItem);
-        	 }
-         });
-    }
-
-    function createGameItem(data) {
-        const gameItem = document.createElement('div');
-        gameItem.className = 'col-lg-4 col-md-6 game-item';
-        gameItem.innerHTML = `
-            <img src="\${data.gameIllustMini}" alt="#">
-            <h5>\${data.gameName}</h5>
-            <a href="javascript:selectGame(\${data.gameId})"
-                class="read-more">Read More <img src="usertemplet/img/icons/double-arrow.png" alt="#">
-            </a>
-        `;
-        return gameItem;
-    }
+		function selectGame(n) {
+			document.getElementById("gameId").value = n;
+			document.getElementById("gamefrm").submit();
+		}
 	</script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 	SELECT * FROM COMMUNITY ORDER BY POST_ID DESC
 </select>
 
-<select id="postSearchtList" resultType="co.yedam.gamerz.community.post.service.PostVO">
+<select id="postSearchtList" resultType="co.yedam.gamerz.community.post.service.PostVO">	
 	SELECT * FROM COMMUNITY WHERE
 	<if test="key == 'title'">POST_TITLE LIKE '%'||#{val}||'%'</if>
 	<if test="key == 'subject'">POST_SUBJECT LIKE '%'||#{val}||'%'</if>
@@ -24,13 +24,32 @@
 	SELECT *
 	FROM ( SELECT ROWNUM RN, V.* FROM ( SELECT * FROM COMMUNITY ORDER BY POST_ID DESC ) V )
 	WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
-	ORDER BY POST_ID DESC
 	]]> 
+</select>
+
+<select id="postPagingC"
+	resultType="co.yedam.gamerz.community.post.service.PostVO">
+	<![CDATA[
+	SELECT *
+	FROM ( SELECT ROWNUM RN, V.* FROM ( SELECT * FROM COMMUNITY ORDER BY POST_ID DESC ) V )
+	WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
+	]]> 
+	<if test="key == 'title'">AND POST_TITLE LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'subject'">AND POST_SUBJECT LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'writer'">AND POST_WRITER LIKE '%'||#{val}||'%'</if>
 </select>
 
 <select id="postTotalCount" resultType="int">
 	SELECT COUNT(*) AS TOTAL
 	FROM COMMUNITY
+</select>
+
+<select id="postTotalCnt" resultType="int">
+	SELECT COUNT(*) AS TOTAL
+	FROM COMMUNITY WHERE
+	<if test="key == 'title'">POST_TITLE LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'subject'">POST_SUBJECT LIKE '%'||#{val}||'%'</if>
+	<if test="key == 'writer'">POST_WRITER LIKE '%'||#{val}||'%'</if>
 </select>
 
 <insert id="postInsert" parameterType="co.yedam.gamerz.community.post.service.PostVO">

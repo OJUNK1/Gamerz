@@ -1,7 +1,5 @@
 package co.yedam.gamerz.game.serviceImpl;
 
-
-
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,13 +24,38 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public List<GameVO> gameGenreList(String key) {
-		return map.gameGenreList(key);
+	public List<GameVO> gameGenreList(String key, int pageNum, int amount) {
+		return map.gameGenreList(key, pageNum, amount);
 	}
 
 	@Override
-	public List<GameVO> gamePlatformList(String val) {
-		return map.gamePlatformList(val);
+	public List<GameVO> gamePlatformList(String val, int pageNum, int amount) {
+		return map.gamePlatformList(val, pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gameClassficationList(String cla, int pageNum, int amount) {
+		return map.gameClassficationList(cla, pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gamePromotionList(int pageNum, int amount) {
+		return map.gamePromotionList(pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gamePromotionGenreList(String key, int pageNum, int amount) {
+		return map.gamePromotionGenreList(key, pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gameGcList(String key, String cla, int pageNum, int amount) {
+		return map.gameGcList(key, cla, pageNum, amount);
+	}
+
+	@Override
+	public List<GameVO> gamePcList(String val, String cla, int pageNum, int amount) {
+		return map.gamePcList(val, cla, pageNum, amount);
 	}
 
 	@Override
@@ -50,9 +73,6 @@ public class GameServiceImpl implements GameService {
 		return map.gameDelete(vo);
 	}
 
-
-
-
 	@Override
 	public List<GameVO> gamePaging(int pageNum, int amount) {
 		return map.gamePaging(pageNum, amount);
@@ -60,9 +80,42 @@ public class GameServiceImpl implements GameService {
 
 	@Override
 	public int gameTotalCount() {
-		// TODO Auto-generated method stub
 		return map.gameTotalCount();
 	}
 
+	@Override
+	public int gameGenreTotalCount(String key) {
+		return map.gameGenreTotalCount(key);
+	}
+
+	@Override
+	public int gamePlatformTotalCount(String val) {
+		return map.gamePlatformTotalCount(val);
+	}
+
+	@Override
+	public int gameClassficationTotalCount(String cla) {
+		return map.gameClassficationTotalCount(cla);
+	}
+
+	@Override
+	public int gamePromotionGenreTotalCount(String key) {
+		return map.gamePromotionGenreTotalCount(key);
+	}
+
+	@Override
+	public int gamePromotionTotalCount() {
+		return map.gamePromotionTotalCount();
+	}
+
+	@Override
+	public int gameGcTotalCount(String key, String cla) {
+		return map.gameGcTotalCount(key, cla);
+	}
+
+	@Override
+	public int gamePcTotalCount(String val, String cla) {
+		return map.gamePcTotalCount(val, cla);
+	}
 
 }

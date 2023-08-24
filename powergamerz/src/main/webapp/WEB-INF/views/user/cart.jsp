@@ -77,7 +77,7 @@ tr td h2 {
 				</table>
 				<c:if test="${empty carts }">
 					<div class="nk-gap-1"></div>
-					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-r ight"
+					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 						href="promotion.do">GO LIFE!</a>
 				</c:if>
 				<!-- END: Products in Cart -->
