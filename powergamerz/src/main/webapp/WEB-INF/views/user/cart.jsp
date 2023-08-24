@@ -118,15 +118,16 @@ tr td h1 {
 						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
-				<c:if test="${empty name && not empty id}">
+				<c:if test="${empty carts && not empty id}">
 					<div class="nk-gap-1"></div>
-					<a class="btn btn-primary btn-round btn-marquee display-block"
+					<a class="btn btn-primary btn-round btn-marquee float-right"
 						href="promotion.do">GO LIFE ! DO GAME !</a>
 				</c:if>
 				<c:if test="${empty carts && empty id}">
 					<div class="nk-gap-1"></div>
-					<a class="btn btn-primary btn-round btn-marquee display-block"
+					<a class="btn btn-primary btn-round btn-marquee float-right"
 						href="promotion.do">GO LOGIN ! DO SIGNUP !</a>
+					
 				</c:if>
 				<!-- END: Products in Cart -->
 			</div>

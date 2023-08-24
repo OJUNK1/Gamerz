@@ -178,13 +178,12 @@
 						</div>
 						<br>
 						<div>
-							<button class="site-btn" type="submit">
-								수정 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
+							<button class="btn btn-primary btn-jelly btn-lg" type="submit">
+								수정
 							</button>
-							&nbsp;&nbsp;&nbsp;
-							<button class="site-btn" type="button"
+							<button class="btn btn-danger btn-jelly btn-lg" type="button"
 								onclick="location.href='postlist.do'">
-								취소 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
+								취소
 							</button>
 						</div>
 						<input type="hidden" id="postId" name="postId"

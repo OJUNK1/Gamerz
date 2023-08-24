@@ -113,7 +113,6 @@
 		<if test="val != null">WHERE GAME_PLATFORM = #{val} </if>
 		<if test="cla != null">AND GAME_CLASSFICATION = #{cla} </if>
 	</select>
-
 	<select id="gamePlatformTotalCount" resultType="int">
 		SELECT COUNT(*) AS TOTAL
 		FROM VIDEOGAMES
