@@ -178,6 +178,8 @@
 						<button type="submit" onclick="location.href='reviewinsert.do'">
 							<i class="fa fa-location-arrow"></i> Review
 						</button>
+						<input type="hidden" name="reviewPage" value="${g.gamePage }">
+						<input type="hidden" name="reviewPageId" value="${g.gameId }">
 					</form>
 				</c:if>
 				<c:if test="${empty id }">
