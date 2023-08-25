@@ -20,7 +20,7 @@
 									<ul class="nk-contacts-icons">
 
 										<li><a href="#" class="search-switch"
-											onclick="toggleSearchBox()"><span class="icon_zoom-out"></span></a></li>
+											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
 
 										 <c:if test="${empty id}">
