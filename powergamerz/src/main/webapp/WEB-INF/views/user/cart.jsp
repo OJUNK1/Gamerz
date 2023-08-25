@@ -149,7 +149,7 @@ h1 {
 				<!-- END: Products in Cart -->
 			</div>
 			<c:forEach items="${carts }" var="c">
-				<c:if test="${not empty carts && not empty id}">
+				<c:if test="${not empty carts && not empty id && c.cartPersonal == name }">
 					<div class="nk-gap-1"></div>
 					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 						href="gamelibrary.do">more games!</a>
