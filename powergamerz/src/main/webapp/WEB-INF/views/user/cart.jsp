@@ -135,7 +135,6 @@ h1 {
 						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
-
 				<c:if test="${empty carts && not empty id}">
 					<div class="nk-gap-1"></div>
 					<a class="btn btn-primary btn-round btn-marquee float-right"
@@ -144,12 +143,13 @@ h1 {
 				<c:if test="${empty id}">
 					<div class="nk-gap-1"></div>
 					<a class="btn btn-primary btn-round btn-marquee float-right"
-						href="promotion.do">GO LOGIN ! DO SIGNUP !</a>
+						href="logincontroller.do">GO LOGIN ! DO SIGNUP !</a>
+					
 				</c:if>
 				<!-- END: Products in Cart -->
 			</div>
 			<c:forEach items="${carts }" var="c">
-				<c:if test="${not empty carts && c.cartPersonal == name }">
+				<c:if test="${not empty carts && not empty id}">
 					<div class="nk-gap-1"></div>
 					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 						href="gamelibrary.do">more games!</a>

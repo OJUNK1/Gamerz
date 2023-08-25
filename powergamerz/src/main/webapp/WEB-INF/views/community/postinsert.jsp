@@ -98,11 +98,11 @@
 						</tr>
 					</tbody>
 				</table><br>
-				<input type="hidden" id="postWriter" name="postWriter" value="test"/>
-				<input type="hidden" id="postWriterId" name="postWriterId" value="testId">
+				<input type="hidden" id="postWriter" name="postWriter" value="${name }"/>
+				<input type="hidden" id="postWriterId" name="postWriterId" value="${id }">
 				<div align="right">
-				<button class="site-btn" type="submit">작성 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
-				<button class="site-btn" type="button" onclick="location.href='postlist.do'">취소 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
+				<button class="btn btn-primary btn-jelly btn-lg" type="submit">작성</button>
+				<button class="btn btn-danger btn-jelly btn-lg" type="button" onclick="location.href='postlist.do'">취소</button>
 				</div>
 			</form>
 		</div>

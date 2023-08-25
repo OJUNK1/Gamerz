@@ -54,7 +54,7 @@
 						<br> <input type="hidden" id="faqWriterId" name="faqWriterId"
 							value="testId">
 						<div align="right">		
-							<button  type="submit" class="btn btn-primary btn-lg btn-round btn-jelly">작성</button>&nbsp;
+							<button  type="submit" class="btn btn-primary btn-lg btn-round btn-jelly">작성</button>
 							<button  type="submit" class="btn btn-danger btn-lg btn-jelly">취소</button>
 						</div>
 						<br>

@@ -12,4 +12,6 @@ public interface PostService {
 	void postUpdateHit(int id);
 	List<PostVO> postPaging(int pageNum, int amount);
 	int postTotalCount();
+	int postTotalCnt(String key,String val);	
+	List<PostVO> postPagingC(int pageNum, int amount,String key,String val);
 }

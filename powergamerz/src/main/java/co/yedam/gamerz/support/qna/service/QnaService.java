@@ -8,9 +8,11 @@ public interface QnaService {
 	List<QnaVO> qnaSearchtList(String key, String val);
 
 	List<QnaVO> qnaMyList(String key, int pageNum, int amount);
-
+	
+	void updateQnaDone(QnaVO qna);
+	
 	QnaVO qnaSelect(QnaVO vo);
-
+	
 	int qnaInsert(QnaVO vo);
 
 	int qnaUpdate(QnaVO vo);

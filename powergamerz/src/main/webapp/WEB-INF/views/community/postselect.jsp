@@ -57,11 +57,14 @@
 					</div>
 					<br>
 					<div>
-						<%-- <c:if test="${name eq p.postWriter }"> --%>
-							<button type="button" class="site-btn" onclick="postUpdate('E')">수정 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;
-							<button type="button" class="site-btn" onclick="postUpdate('D')">삭제 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>&nbsp;&nbsp;&nbsp;			
-						<%-- </c:if> --%>
-						<button type="button" class="site-btn" onclick="location.href='postlist.do'">목록 <img src="usertemplet/img/icons/double-arrow.png" alt="#"/></button>
+					 	<c:if test="${id eq p.postWriterId }"> 
+							<button type="button" class="btn btn-primary btn-jelly btn-lg" onclick="postUpdate('E')">수정 </button>
+							<button type="button" class="btn btn-danger btn-jelly btn-lg" onclick="postUpdate('D')">삭제</button>			
+						</c:if> 
+						<c:if test="${author eq 'ADMIN' }"> 
+							<button type="button" class="btn btn-danger btn-jelly btn-lg" onclick="postUpdate('D')">삭제</button>			
+						</c:if> 
+						<button type="button" class="btn btn-light btn-jelly btn-lg" onclick="location.href='postlist.do'">목록</button>
 					</div>
 					<div>
 						<form id="frm" method="post">
