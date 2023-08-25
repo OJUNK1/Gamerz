@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/searchbar.css" rel="stylesheet" type="text/css">
+<link href="css/search.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -21,6 +21,27 @@
 			<div class="site-breadcrumb">
 				<a href="home.do">Home</a> / Discussion
 			</div>
+			<!-- 검색창 영역 -->
+			<div class="serchtab">
+				<form id="searchfrm">											
+					<div class="wrap">
+					   <div class="search">
+						   <div class="select">
+							<select name="key" id="key">
+								<option value="title">제목</option>
+								<option value="subject">내용</option>
+								<option value="writer">작성자</option>
+							</select>
+							</div>&nbsp;&nbsp;
+					      <input type="text" id="val" name="val" class="searchTerm" placeholder="검색할 내용 입력.">
+					      <button type="button" class="searchButton" onclick="searchlistPaging()">
+					        <i class="fa fa-search"></i>
+					     </button>
+					   </div>
+					</div>				
+				</form>
+			</div>
+			<!-- 검색창 영역 end -->
 		</div>
 	</section>
 	<!-- Page top end-->
@@ -28,31 +49,6 @@
 	<!-- Review section -->
 	<section class="review-section">
 		<div class="container">
-			<!-- 검색창 영역 -->
-			<div>
-				<h2 class="text-white">자유게시판</h2>
-			</div>
-			<br>
-			<div>
-				<form id="searchfrm" class="newsletter-form">
-					<div class="select">
-						<select name="key" id="key">
-							<option value="title">제목</option>
-							<option value="subject">내용</option>
-							<option value="writer">작성자</option>
-						</select>
-					</div>
-					<br> 
-					
-					<input type="text" id="val" name="val"
-						placeholder="검색할 내용입력" />
-					<button type="button" onclick="searchlistPaging()" class="site-btn">
-						검색 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-					</button>
-				</form>
-			</div>
-			<br>
-			<!-- 검색창 영역 end -->
 			<div id="contents-p">
 				<div id="contents">
 					<c:if test="${not empty posts }">
@@ -111,9 +107,9 @@
 			
 			<div align="right">
 			<c:if test="${not empty id }">
-				<button class="site-btn" type="button"
+				<button class="btn btn-primary btn-jelly btn-lg" type="button"
 					onclick="location.href='postform.do'">
-					글쓰기 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
+					글쓰기
 				</button>
 			</c:if>
 			</div>

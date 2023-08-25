@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet" href="css/qna.css" />
+
 <style>
 .review_edit_text_area {
 	width: calc(100% - 20px);
@@ -54,8 +56,10 @@
 	<section class="review-section" style="padding: 0;">
 		<div class="container">
 			<div align="center">
+
 				<div class="card-header3">
 					<h2 style="color: #ffffff;">문의내역</h2>
+
 				</div>
 				<br>
 				<div>
@@ -173,8 +177,10 @@
 						value="${name }"> <input type="hidden"
 						name="reviewLocation" id="reviewLocation" value="${q.qnaReview }">
 					<input type="hidden" name="memberAuthor" id="memberAuthor"
+
 						value="${author }"> <input type="hidden" name="qnaId"
 						value="${q.qnaId }">
+
 					<textarea placeholder="Your Comment" id="reviewComment"
 						name="reviewComment"></textarea>
 					<button type="submit" onclick="location.href='reviewinsert.do'">
