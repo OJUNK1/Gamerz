@@ -1403,7 +1403,8 @@ ol {
 }
 
 .game-author-section {
-	background: #3a1854;
+	background: linear-gradient(45deg, #110e5f 0%, #00042b 100%);
+	;
 	padding: 51px 0;
 	overflow: hidden;
 }

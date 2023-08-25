@@ -37,12 +37,6 @@
 										<li><a href="cart.do"><span class="nk-cart-toggle">
 													<span class="fa fa-shopping-cart"></span>
 											</span></a></li>
-
-
-										<c:if test="${not empty id}">
-											<li>${name}님접속중</li>
-
-										</c:if> 
 									</ul>
 								</div>
 							</div>
