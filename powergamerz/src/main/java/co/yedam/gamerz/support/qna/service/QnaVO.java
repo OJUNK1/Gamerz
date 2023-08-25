@@ -1,6 +1,6 @@
 package co.yedam.gamerz.support.qna.service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,7 @@ public class QnaVO {
 	private String qnaWriterId;
 	private String qnaTitle;
 	private String qnaSubject;
-	private LocalDate qnaDate;
+	private LocalDateTime qnaDate;
 	private String qnaDone;
+	private String qnaReview;
 }

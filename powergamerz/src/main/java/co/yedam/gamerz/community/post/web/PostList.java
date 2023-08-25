@@ -34,6 +34,8 @@ public class PostList extends HttpServlet {
 		String key = request.getParameter("key");
 		String val = request.getParameter("val");
 		
+		System.out.println("key: "+key +"val: "+val);
+		
 		int pageNum = 1;
 		int amount = 5;
 		// 페이지 번호를 클릭하는 경우
@@ -43,6 +45,8 @@ public class PostList extends HttpServlet {
 		}
 		List<PostVO> postpages = null; 
 		PagingVO pagingVO = null;
+		
+
 		if (key != null && val != null) {
 			posts = dao.postSearchtList(key, val);	
 			int total = dao.postTotalCnt(key,val);		
@@ -54,7 +58,6 @@ public class PostList extends HttpServlet {
 			pagingVO = new PagingVO(pageNum, amount, total);
 			postpages = dao.postPaging(pageNum, amount);
 		}	
-
 		request.setAttribute("posts", posts);
 		request.setAttribute("postpages", postpages);
 		request.setAttribute("pagingVO", pagingVO);

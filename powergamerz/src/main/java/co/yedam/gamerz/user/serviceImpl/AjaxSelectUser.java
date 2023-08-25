@@ -27,20 +27,15 @@ public class AjaxSelectUser extends HttpServlet {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		
-		String id = request.getParameter("id");
-		
-		vo.setMemberId(request.getParameter(id));
-		
-		System.out.println(id);
-		
+		String val = request.getParameter("val");
+
 		vo = dao.memberSelect(vo);
-		 String name = vo.getMemberName();
-		 request.setAttribute("name", name);
-		 
+		
 		ObjectMapper objectmapper = new ObjectMapper();
 		
 		String data = objectmapper.writeValueAsString(vo);
 		
+		System.out.println(data);
 		response.setContentType("text/html; charset=UTF-8");
 		response.getWriter().append(data);
 		return;

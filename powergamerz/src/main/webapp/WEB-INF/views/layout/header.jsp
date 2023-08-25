@@ -23,19 +23,19 @@
 											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
 
-										<c:if test="${empty id}">
+										 <c:if test="${empty id}">
 
 											<li><a href="logincontroller.do"> <span
 													class="fa fa-user"></span>
 											</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
-
-											<c:choose>
-											<c:when test="${author ep 'ADMIN'}">
+										 <c:choose>
+											<c:when test="${author eq 'ADMIN'}">
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
-											<c:otherwise>
+
+											<c:otherwise> 
 												<li><a href="#">my page</a></li>
 											</c:otherwise>
 											</c:choose>
@@ -51,7 +51,7 @@
 										<c:if test="${not empty id}">
 											<li>${name}님접속중</li>
 
-										</c:if>
+										</c:if> 
 									</ul>
 								</div>
 							</div>
@@ -82,9 +82,7 @@
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
 								<li><a href="aboutus.do">About Gamerz</a>
-							<c:if test="${author eq 'ADMIN'}">
-								<li><a href="admin.do">Admin</a>
-							</c:if>
+								<li><a href="news.do">News(공지)</a>
 							</ul>
 				</nav>
 			</div>

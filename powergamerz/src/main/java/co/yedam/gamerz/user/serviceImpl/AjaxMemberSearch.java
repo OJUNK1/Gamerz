@@ -28,7 +28,8 @@ public class AjaxMemberSearch extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService dao = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<MemberVO>();
-				
+		
+		
 		String val = request.getParameter("val");
 		
 		members = dao.memberAuthorList(val);

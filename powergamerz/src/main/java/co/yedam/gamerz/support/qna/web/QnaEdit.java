@@ -1,7 +1,7 @@
 package co.yedam.gamerz.support.qna.web;
 
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,19 +28,20 @@ public class QnaEdit extends HttpServlet {
 		QnaVO vo = new QnaVO();
 
 		vo.setQnaId(Integer.valueOf(request.getParameter("qnaId")));
-		vo.setQnaDate(LocalDate.parse(request.getParameter("qnaDate")));
+		vo.setQnaDate(LocalDateTime.now());
 		vo.setQnaTitle(request.getParameter("qnaTitle"));
 		vo.setQnaSubject(request.getParameter("qnaSubject"));
 
-		String viewName = "qna/qnaselect";
+		String viewName = "qna/qnamessage";
+
 		int n = dao.qnaUpdate(vo);
 		if (n == 1) {
 			vo = dao.qnaSelect(vo);
 			request.setAttribute("q", vo);
+			request.setAttribute("message", "문의를 수정했습니다");
 			ViewResolve.forward(request, response, viewName);
 		} else {
-			request.setAttribute("message", "글 수정 중 오류가 발생하였습니다.");
-			viewName = "qna/qnamessage";
+			request.setAttribute("message", "글 수정 중 오류가 발생하였습니다.");	
 			ViewResolve.forward(request, response, viewName);
 		}
 	}

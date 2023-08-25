@@ -37,7 +37,7 @@ public class CartItemDelete extends HttpServlet {
 			request.setAttribute("message", "Succeed Delete to Cart");
 			ViewResolve.forward(request, response, viewName);
 		} else {
-			request.setAttribute("message", "실패.");
+			request.setAttribute("message", "Fail Delete to Cart.");
 			ViewResolve.forward(request, response, viewName);
 		}
 

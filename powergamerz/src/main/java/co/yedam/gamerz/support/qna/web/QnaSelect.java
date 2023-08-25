@@ -1,6 +1,9 @@
 package co.yedam.gamerz.support.qna.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.gamerz.common.ViewResolve;
+import co.yedam.gamerz.review.service.ReviewService;
+import co.yedam.gamerz.review.serviceImpl.ReviewServiceImpl;
 import co.yedam.gamerz.support.qna.service.QnaService;
 import co.yedam.gamerz.support.qna.service.QnaVO;
 import co.yedam.gamerz.support.qna.serviceImpl.QnaServiceImpl;
@@ -30,8 +35,14 @@ public class QnaSelect extends HttpServlet {
 		vo = dao.qnaSelect(vo);
 
 		request.setAttribute("q", vo);
-		String viewName = "qna/qnaselect";
 
+		ReviewService dao2 = new ReviewServiceImpl();
+		List<HashMap<String, Object>> reviewList = new ArrayList<HashMap<String, Object>>();
+
+		reviewList = dao2.reviewSelectList();
+		request.setAttribute("reviewlist", reviewList);
+
+		String viewName = "qna/qnaselect";
 		ViewResolve.forward(request, response, viewName);
 	}
 

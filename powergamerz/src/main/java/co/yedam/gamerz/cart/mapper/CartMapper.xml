@@ -23,6 +23,10 @@
 		DELETE FROM CART WHERE ITEM_ID = #{itemId} AND CART_PERSONAL = #{cartPersonal}
 	</delete>
 	
+	<delete id="cartPayDelete" parameterType="co.yedam.gamerz.cart.service.CartVO">
+		DELETE FROM CART WHERE CART_PERSONAL = #{cartPersonal}
+	</delete>
+	
 	<update id="cartUpdate" parameterType="co.yedam.gamerz.cart.service.CartVO">
 	
 	</update>

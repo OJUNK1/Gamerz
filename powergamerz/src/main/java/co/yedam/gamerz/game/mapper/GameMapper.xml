@@ -139,7 +139,7 @@
 			#{key}
 		</if>
 	</select>
-	
+			
 	<insert id="gameInsert"
 		parameterType="co.yedam.gamerz.game.service.GameVO">
 		INSERT INTO VIDEOGAMES
@@ -147,7 +147,7 @@
 		#{gameDeveloper}, #{gameReleaseDate}, #{gamePrice}, #{gameGenre},
 		#{gamePlatform}, #{gameDetailAbout}, #{gamePriceDiscount},
 		#{gameIllustMain}, #{gameIllustMini}, #{gameVideo},
-		#{gameClassfication}
+		#{gameClassfication}, 'gameinfo.do'
 		)
 	</insert>
 
