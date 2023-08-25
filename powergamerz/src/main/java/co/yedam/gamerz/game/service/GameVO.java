@@ -21,5 +21,6 @@ public class GameVO {
 	private String gameIllustMini;
 	private String gameVideo;
 	private String gameClassfication;
+	private String gamePage;
 
 }

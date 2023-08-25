@@ -36,8 +36,6 @@
 											</c:when>
 
 											<c:otherwise> 
-
-											<c:otherwise> 
 												<li><a href="#">my page</a></li>
 											</c:otherwise>
 											</c:choose>
