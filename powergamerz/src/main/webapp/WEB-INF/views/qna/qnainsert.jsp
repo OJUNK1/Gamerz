@@ -33,7 +33,7 @@
 								<tr>
 									<th width="100">작성자</th>
 									<td><input type="text" id="qnaWriter" name="qnaWriter"
-										value="test" readonly="readonly" /></td>
+										value="${name }" readonly="readonly" /></td>
 									<th width="100">작성일자</th>
 									<td><input type="date" id="qnaDate" name="qnaDate"
 										required="required" /></td>
@@ -51,7 +51,7 @@
 							</table>
 						</div>
 						<br> <input type="hidden" id="qnaWriterId" name="qnaWriterId"
-							value="testId">
+							value="${id }">
 						<div align="right">		
 							<button  type="submit" class="btn btn-primary btn-lg btn-jelly">작성</button>&nbsp;
 							<button  type="submit" class="btn btn-danger btn-lg btn-jelly">취소</button>

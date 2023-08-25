@@ -29,7 +29,7 @@
 	WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
 	]]>
 	</select>
-	
+
 	<select id="qnaMyList"
 		resultType="co.yedam.gamerz.support.qna.service.QnaVO">
 		<![CDATA[
@@ -59,10 +59,21 @@
 			END AS qnaId FROM QNA
 		</selectKey>
 
-		INSERT INTO QNA(QNA_ID,QNA_TITLE,
-		QNA_SUBJECT,QNA_WRITER,QNA_WRITER_ID)
-		VALUES(#{qnaId},#{qnaTitle},#{qnaSubject},#{qnaWriter},#{qnaWriterId})
+		INSERT INTO QNA(QNA_ID, QNA_TITLE,
+		QNA_SUBJECT, QNA_WRITER,
+		QNA_WRITERID, QNA_REVIEW)
+		VALUES(#{qnaId}, #{qnaTitle}, #{qnaSubject},
+		#{qnaWriter}, #{qnaWriterId}, 'qna'||#{qnaId})
 	</insert>
+
+	<update id="updateQnaDone"
+		parameterType="co.yedam.gamerz.support.qna.service.QnaVO">
+		UPDATE QNA
+		<set>
+			<if test="qnaDone != null">QNA_DONE = '답변완료'</if>
+		</set>
+		WHERE QNA_ID =#{qnaId}
+	</update>
 
 	<update id="qnaUpdate"
 		parameterType="co.yedam.gamerz.support.qna.service.QnaVO">

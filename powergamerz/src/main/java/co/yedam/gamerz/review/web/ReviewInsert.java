@@ -2,7 +2,6 @@ package co.yedam.gamerz.review.web;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +12,9 @@ import co.yedam.gamerz.common.ViewResolve;
 import co.yedam.gamerz.review.service.ReviewService;
 import co.yedam.gamerz.review.service.ReviewVO;
 import co.yedam.gamerz.review.serviceImpl.ReviewServiceImpl;
+import co.yedam.gamerz.support.qna.service.QnaService;
+import co.yedam.gamerz.support.qna.service.QnaVO;
+import co.yedam.gamerz.support.qna.serviceImpl.QnaServiceImpl;
 
 @WebServlet("/reviewinsert.do")
 public class ReviewInsert extends HttpServlet {
@@ -26,11 +28,21 @@ public class ReviewInsert extends HttpServlet {
 			throws ServletException, IOException {
 		ReviewService dao = new ReviewServiceImpl();
 		ReviewVO vo = new ReviewVO();
-		
-		vo.setReviewLocation(request.getParameter("reviewLocation"));				
+		QnaService dao2 = new QnaServiceImpl();
+		QnaVO qna = new QnaVO();
+
+		vo.setReviewLocation(request.getParameter("reviewLocation"));
 		vo.setReviewWriter(request.getParameter("reviewWriter"));
 		vo.setReviewComment(request.getParameter("reviewComment"));
-		
+
+		qna.setQnaId(Integer.parseInt(request.getParameter("qnaId")));
+
+		// 'admin' 사용자인 경우 qna_done 업데이트
+		if ("ADMIN".equals(request.getParameter("memberAuthor"))) {
+			qna.setQnaDone("답변완료");
+			dao2.updateQnaDone(qna);
+		}
+    
 		int num = dao.reviewInsert(vo);
 
 		if (num == 1) {
