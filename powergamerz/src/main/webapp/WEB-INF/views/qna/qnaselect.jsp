@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" href="css/qna.css" />
+
 <style>
 .review_edit_text_area {
 	width: calc(100% - 20px);
@@ -53,33 +56,35 @@
 	<section class="review-section" style="padding: 0;">
 		<div class="container">
 			<div align="center">
-				<div>
-					<h2 class="text-white">문의하기</h2>
+
+				<div class="card-header3">
+					<h2 style="color: #ffffff;">문의내역</h2>
+
 				</div>
 				<br>
 				<div>
-					<div style="background-color: white;">
-						<table class="table table-bordered">
-							<tr>
-								<th width="100">작성자</th>
-								<td align="center">${q.qnaWriter }</td>
-								<th width="100">작성일자</th>
-								<td align="center">${q.qnaDate }</td>
-								<th width="100">답변여부</th>
-								<td align="center">${q.qnaDone }</td>
-							</tr>
-							<tr>
-								<th>제목</th>
-								<td colspan="5">${r.qnaTitle }</td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td colspan="5"><textarea id="qnaSubject" name="qnaSubject"
-										cols="125" rows="20" readonly="readonly">${q.qnaSubject }</textarea>
-								</td>
-							</tr>
-						</table>
+					<div class="card-view">
+						<div class="title">
+							<h3 style="color: #FFFFFF;">${q.qnaTitle }</h3>
+						</div>
+						<div class="myinfo">
+							<dl>
+								<dt>이름</dt>
+								<dd style="color: #FFFFFF;">${q.qnaWriter }</dd>
+							</dl>
+
+							<dl>
+								<dt>날짜</dt>
+								<dt style="color: #FFFFFF;">${q.qnaDate }</dt>
+							</dl>
+							<dl>
+								<dt>답변여부</dt>
+								<dt style="color: #FFFFFF;">${q.qnaDone }</dt>
+							</dl>
+						</div>
+						<div class="cont" style="color: #ffffff;">${q.qnaSubject }</div>
 					</div>
+
 					<br>
 					<div>
 
@@ -91,6 +96,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<button type="button" class="_1h8gH51Art N=a:qna.write"
 							onclick="location.href='qnalist.do'">목록</button>
+							<br>
 					</div>
 				</div>
 			</div>
@@ -171,8 +177,10 @@
 						value="${name }"> <input type="hidden"
 						name="reviewLocation" id="reviewLocation" value="${q.qnaReview }">
 					<input type="hidden" name="memberAuthor" id="memberAuthor"
-						value="${author }">
-						<input type="hidden" name="qnaId" value="${q.qnaId }">
+
+						value="${author }"> <input type="hidden" name="qnaId"
+						value="${q.qnaId }">
+
 					<textarea placeholder="Your Comment" id="reviewComment"
 						name="reviewComment"></textarea>
 					<button type="submit" onclick="location.href='reviewinsert.do'">

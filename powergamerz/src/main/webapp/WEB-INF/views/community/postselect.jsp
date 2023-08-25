@@ -42,6 +42,7 @@
 	<!-- Table section -->
 	<section class="review-section">
 		<div class="container">
+
 			<div class="card">
 				<div class="card-view">
 					<div class="title">
@@ -229,6 +230,7 @@
 			editForm.style.display = 'none';
 			reviewText.style.display = 'block';
 		}
+
 
 		function reviewDelete() {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
