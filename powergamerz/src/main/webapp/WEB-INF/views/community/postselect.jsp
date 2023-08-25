@@ -107,12 +107,20 @@
 												</a>
 
 												<a class="general_btn panel_btn" href="#"
-													onclick="reviewDelete('${r.reviewId}')"> <img
+
+													onclick="reviewDelete()"> <img
 													class="toolsIcon"
 													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
 													Delete
 												</a>
 
+											<form action="reviewdelete.do" method="post" id="deleteform" >
+												<input type="hidden" name="reviewId" value="${r.reviewId}">
+												<input type="hidden" name="reviewPage" value="${p.postPage }">
+												<input type="hidden" name="reviewPageId" value="${p.postId }">
+												<input type="hidden" name="reviewPagePath" value="postId">
+											</form>
+												
 											</c:if>
 										</h6>
 										<div id="editForm_${r.reviewId}" style="display: none;">
@@ -124,6 +132,10 @@
 												<button type="submit" class="button condensed save">저장</button>
 												<button type="button" class="button condensed cancel"
 													onclick="cancelEdit('${r.reviewId}')">취소</button>
+
+												<input type="hidden" name="reviewPage" value="${p.postPage }">
+												<input type="hidden" name="reviewPageId" value="${p.postId }">
+												<input type="hidden" name="reviewPagePath" value="postId">
 											</form>
 										</div>
 										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
@@ -151,6 +163,8 @@
 						</button>
 						<input type="hidden" name="reviewPage" value="${p.postPage }">
 						<input type="hidden" name="reviewPageId" value="${p.postId }">
+
+						<input type="hidden" name="reviewPagePath" value="postId">
 					</form>
 				</c:if>
 				<c:if test="${empty id }">
@@ -203,21 +217,10 @@
 			reviewText.style.display = 'block';
 		}
 
-		function reviewDelete(reviewId) {
+
+		function reviewDelete() {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
-				var frm = document.createElement("form");
-				frm.method = "post";
-				frm.action = "reviewdelete.do";
-
-				var input = document.createElement("input");
-				input.type = "hidden";
-				input.name = "reviewId";
-				input.value = reviewId;
-
-				frm.appendChild(input);
-				document.body.appendChild(frm);
-
-				frm.submit();
+				document.getElementById('deleteform').submit();
 			}
 		}
 		
