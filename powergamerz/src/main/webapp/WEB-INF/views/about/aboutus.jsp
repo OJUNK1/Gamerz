@@ -9,7 +9,7 @@
 <body>
 	<!-- Page top section -->
 	<section class="page-top-section set-bg"
-		data-setbg="usertemplet/img/page-top-bg/4.jpg">
+		data-setbg="usertemplet/img/page-top-bg/5.jpg">
 		<div class="page-info">
 			<h2>About</h2>
 			<div class="site-breadcrumb">
