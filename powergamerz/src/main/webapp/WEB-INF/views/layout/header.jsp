@@ -20,18 +20,27 @@
 									<ul class="nk-contacts-icons">
 
 										<li><a href="#" class="search-switch"
-											onclick="toggleSearchBox()"><span class="icon_zoom-out"></span></a></li>
+											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
 
-										 <c:if test="${empty id}">
+										<c:if test="${empty id}">
 
 											<li><a href="logincontroller.do"> <span
 													class="fa fa-user"></span>
 											</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
-															
-											<li><a href="logout.do" class="search-switch"><span class="icon_logout"></span></a></li>
+
+											<c:choose>
+												<c:when test="${author eq 'ADMIN'}">
+													<li><a href="admin.do">admin page</a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="#">my page</a></li>
+												</c:otherwise>
+											</c:choose>
+
+											<li><a href="logout.do"><span class="icon_lock-open"></span></a></li>
 										</c:if>
 
 										<li><a href="cart.do"><span class="nk-cart-toggle">
@@ -42,7 +51,7 @@
 										<c:if test="${not empty id}">
 											<li>${name}님접속중</li>
 
-										</c:if> 
+										</c:if>
 									</ul>
 								</div>
 							</div>
@@ -50,45 +59,31 @@
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="home.do">Home</a>
-							<ul class="sub-menu">
-								<li><a href="home.do">the Main Page</a></li>
-							</ul></li>
+						<li><a href="home.do">Home</a></li>
 						<li><a href="gamelibrary.do">Games</a>
 							<ul class="sub-menu">
 								<li><a href="latestgames.do">Latest Games</a></li>
 								<li><a href="populargames.do">Popular Games</a></li>
 								<li><a href="comingsoon.do">Coming Soon</a></li>
 								<li><a href="gamelibrary.do">Games Library</a></li>
+								<li><a href="indiegames.do">Indie Games</a></li>
 							</ul></li>
-						<li><a href="promotion.do">Promotion</a>
-							<ul class="sub-menu">
-								<li><a href="promotion.do">Special Offers</a></li>
-							</ul></li>
-						
+						<li><a href="promotion.do">Promotion</a></li>
 						<li><a href="postlist.do">Community</a>
 							<ul class="sub-menu">
 								<li><a href="postlist.do">Discussions</a></li>
+
 							</ul></li>
-							
 						<li><a href="faqlist.do">Support</a>
 							<ul class="sub-menu">
 								<li><a href="faqlist.do">FAQ</a></li>
 								<li><a href="qnalist.do">Q&A</a>
 							</ul>
-							
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
 								<li><a href="aboutus.do">About Gamerz</a>
-								
-								<c:if test="${author eq 'ADMIN'}">
-												<li><a href="admin.do">admin page</a></li>
-								</c:if>
-								
+								<li><a href="news.do">News(공지)</a>
 							</ul>
-							</li>
-							</ul>
-							
 				</nav>
 			</div>
 		</div>
