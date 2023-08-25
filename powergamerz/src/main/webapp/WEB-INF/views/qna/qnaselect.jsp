@@ -151,10 +151,9 @@
 												<input type="hidden" name="reviewPage" value="${q.qnaPage }">
 												<input type="hidden" name="reviewPageId" value="${q.qnaId }">
 												<input type="hidden" name="reviewPagePath" value="qnaId">
-
 											</div>
-
-											<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
+										</form>
+										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
 									</div>
 
 								</div>
@@ -173,6 +172,7 @@
 						name="reviewLocation" id="reviewLocation" value="${q.qnaReview }">
 					<input type="hidden" name="memberAuthor" id="memberAuthor"
 						value="${author }">
+						<input type="hidden" name="qnaId" value="${q.qnaId }">
 					<textarea placeholder="Your Comment" id="reviewComment"
 						name="reviewComment"></textarea>
 					<button type="submit" onclick="location.href='reviewinsert.do'">

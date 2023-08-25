@@ -54,13 +54,10 @@
 						<br>
 						<div>
 							<button class="_1h8gH51Art N=a:qna.write" type="submit">
-								수정 
-							</button>
+								수정</button>
 							&nbsp;&nbsp;&nbsp;
 							<button class="_1h8gH51Art _228Dp2q_V1 N=a:qna.ask" type="button"
-								onclick="location.href='qnalist.do'">
-								취소 <img src="usertemplet/img/icons/double-arrow.png" alt="#" />
-							</button>
+								onclick="location.href='qnalist.do'">취소</button>
 						</div>
 						<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }" />
 					</form>

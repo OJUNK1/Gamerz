@@ -61,7 +61,13 @@
 							<div class="rating-widget">
 								<h4 class="widget-title">info</h4>
 								<ul>
+									<c:if test="${g.gamePriceDiscount == 0}">
 									<li>가격<span>${g.gamePrice }원</span></li>
+									</c:if>
+									<c:if test="${g.gamePriceDiscount != 0}">
+									<li>가격<span>${g.gamePriceDiscount }원</span></li>
+									</c:if>
+									
 									<li>출시일<span>${g.gameReleaseDate }</span></li>
 									<li>장르<span>${g.gameGenre }</span></li>
 									<li>개발사<span>${g.gameDeveloper }</span></li>

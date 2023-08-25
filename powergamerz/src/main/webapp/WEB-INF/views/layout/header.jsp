@@ -20,7 +20,7 @@
 									<ul class="nk-contacts-icons">
 
 										<li><a href="#" class="search-switch"
-											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
+											onclick="toggleSearchBox()"><span class="icon_zoom-out"></span></a></li>
 
 
 										 <c:if test="${empty id}">
@@ -30,17 +30,8 @@
 											</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
-										 <c:choose>
-											<c:when test="${author eq 'ADMIN'}">
-												<li><a href="admin.do">admin page</a></li>
-											</c:when>
-
-											<c:otherwise> 
-												<li><a href="#">my page</a></li>
-											</c:otherwise>
-											</c:choose>
-
-											<li><a href="logout.do"> log out </a></li>
+															
+											<li><a href="logout.do" class="search-switch"><span class="icon_logout"></span></a></li>
 										</c:if>
 
 										<li><a href="cart.do"><span class="nk-cart-toggle">
@@ -89,7 +80,11 @@
 						<li><a href="aboutus.do">About</a>
 							<ul class="sub-menu">
 								<li><a href="aboutus.do">About Gamerz</a>
-								<li><a href="news.do">News(공지)</a>
+								
+								<c:if test="${author eq 'ADMIN'}">
+												<li><a href="admin.do">admin page</a></li>
+								</c:if>
+								
 							</ul>
 							</li>
 							</ul>
