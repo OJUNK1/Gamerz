@@ -48,7 +48,7 @@ h1 {
 				<!-- START: Products in Cart -->
 				<table class="table nk-store-cart-products">
 					<tbody>
-						<!--  ITEM in Cart start -->
+						<!--  ITEM in Cart START -->
 						<c:forEach items="${carts }" var="c">
 
 							<c:if test="${c.cartPersonal == name }">
@@ -110,6 +110,8 @@ h1 {
 
 							</c:if>
 						</c:forEach>
+						<!--  ITEM in Cart END -->
+						<!--  Empty Cart Start -->
 						<c:if test="${empty carts && not empty id }">
 							<tr>
 								<td colspan="6" align="center"><h2>CAN PUT EVERYTHING
@@ -132,7 +134,6 @@ h1 {
 								</td>
 							</tr>
 						</c:if>
-						<!--  ITEM in Cart end -->
 					</tbody>
 				</table>
 				<c:if test="${empty carts && not empty id}">
@@ -146,6 +147,8 @@ h1 {
 						href="logincontroller.do">GO LOGIN ! DO SIGNUP !</a>
 					
 				</c:if>
+				<!--  Empty Cart End -->
+				
 				<!-- END: Products in Cart -->
 			</div>
 			<c:forEach items="${carts }" var="c">

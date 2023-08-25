@@ -132,7 +132,7 @@
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
-											19.12.06 / in <a href="javascript:selectGame(1320904)">Rockstar Games</a>
+											19.12.06 to <a href="javascript:selectGame(1320904)">Rockstar Games</a>
 										</div>
 										<h5><a href="javascript:selectGame(1320904)"> R D R 2 </a></h5>
 										<h5>
@@ -148,7 +148,7 @@
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
-											16.02.27 / to <a href="javascript:selectGame(9569501)">ConcernedApe</a>
+											16.02.27 to <a href="javascript:selectGame(9569501)">ConcernedApe</a>
 										</div>
 										<h5><a href="javascript:selectGame(9569501)"> Stardew Valley </a></h5>
 										<h5>
@@ -164,7 +164,7 @@
 									</div>
 									<div class="tw-text">
 										<div class="tw-meta">
-											22.06.21 / in <a href="javascript:selectGame(1422502)">Redbeet</a>
+											22.06.21 to <a href="javascript:selectGame(1422502)">Redbeet</a>
 										</div>
 										<h5><a href="javascript:selectGame(1422502)"> RAFT </a></h5>
 										<h5>
