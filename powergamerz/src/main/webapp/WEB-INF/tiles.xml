@@ -19,7 +19,7 @@
 		<put-attribute name="title" value="AdminPage" />
 		<put-attribute name="header" value="/WEB-INF/views/layout/adminheader.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/adminfooter.jsp" />
 	</definition>
 
 	<definition name="WILDCARD:*/*" extends="user.homepage">
