@@ -4,6 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.review_edit_text_area {
+	width: calc(100% - 20px);
+	height: 200px;
+	border: 1px solid #233c51;
+	border-radius: 3px;
+	max-width: 800px;
+	background-color: #222b35;
+	color: #d6d7d8;
+	padding: 10px 11px;
+	font-size: 13px;
+	font-weight: normal;
+	-webkit-box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -19,14 +36,14 @@
 		</div>
 	</section>
 	<!-- Page top end-->
-	
+
 	<!-- Table section -->
 	<section class="review-section">
 		<div class="container">
 			<div align="center">
 				<div>
-					<div style="background-color:white">
-						<table class="table table-bordered" >
+					<div style="background-color: white">
+						<table class="table table-bordered">
 							<tr>
 								<th width="100">작성자</th>
 								<td align="center">${p.postWriter }</td>
@@ -40,16 +57,15 @@
 								<td colspan="5">${p.postTitle }</td>
 							</tr>
 							<c:if test="${not empty p.postAttach }">
-							<tr>
-								<th width="100">이미지</th>
-								<td colspan="5"><img src="attach/post/${p.postAttach }" style="width:500px; height:300px;"></td>
-							</tr>
+								<tr>
+									<th width="100">이미지</th>
+									<td colspan="5"><img src="attach/post/${p.postAttach }"
+										style="width: 500px; height: 300px;"></td>
+								</tr>
 							</c:if>
 							<tr>
 								<th width="100">내용</th>
-								<td colspan="5">
-								${p.postSubject }
-								</td>
+								<td colspan="5">${p.postSubject }</td>
 							</tr>
 							<tr>
 								<th width="100">첨부파일</th>
@@ -59,11 +75,14 @@
 					</div>
 					<br>
 					<div>
-					 	<c:if test="${id eq p.postWriterId || author eq 'ADMIN' }"> 
-							<button type="button" class="btn btn-primary btn-jelly btn-lg" onclick="postUpdate('E')">수정 </button>
-							<button type="button" class="btn btn-danger btn-jelly btn-lg" onclick="postUpdate('D')">삭제</button>			
-						</c:if> 
-						<button type="button" class="btn btn-light btn-jelly btn-lg" onclick="location.href='postlist.do'">목록</button>
+						<c:if test="${id eq p.postWriterId || author eq 'ADMIN' }">
+							<button type="button" class="btn btn-primary btn-jelly btn-lg"
+								onclick="postUpdate('E')">수정</button>
+							<button type="button" class="btn btn-danger btn-jelly btn-lg"
+								onclick="postUpdate('D')">삭제</button>
+						</c:if>
+						<button type="button" class="btn btn-light btn-jelly btn-lg"
+							onclick="location.href='postlist.do'">목록</button>
 					</div>
 					<div>
 						<form id="frm" method="post">
@@ -76,7 +95,7 @@
 		</div>
 	</section>
 	<!-- End Table section -->
-	
+
 	<!-- review section -->
 	<section class="game-author-section">
 		<div class="container">
@@ -107,11 +126,17 @@
 												</a>
 
 												<a class="general_btn panel_btn" href="#"
-													onclick="reviewDelete('${r.reviewId}')"> <img
-													class="toolsIcon"
+													onclick="reviewDelete()"> <img class="toolsIcon"
 													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
 													Delete
 												</a>
+												<form action="reviewdelete.do" method="post" id="deleteform">
+													<input type="hidden" name="reviewId" value="${r.reviewId}">
+													<input type="hidden" name="reviewPage"
+														value="${p.postPage }"> <input type="hidden"
+														name="reviewPageId" value="${p.postId }"> <input
+														type="hidden" name="reviewPagePath" value="postId">
+												</form>
 
 											</c:if>
 										</h6>
@@ -124,6 +149,10 @@
 												<button type="submit" class="button condensed save">저장</button>
 												<button type="button" class="button condensed cancel"
 													onclick="cancelEdit('${r.reviewId}')">취소</button>
+												<input type="hidden" name="reviewPage"
+													value="${p.postPage }"> <input type="hidden"
+													name="reviewPageId" value="${p.postId }"> <input
+													type="hidden" name="reviewPagePath" value="postId">
 											</form>
 										</div>
 										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
@@ -143,7 +172,8 @@
 					<form action="reviewinsert.do">
 						<input type="hidden" name="reviewWriter" id="reviewWriter"
 							value="${name }"> <input type="hidden"
-							name="reviewLocation" id="reviewLocation" value="${p.postReview }">
+							name="reviewLocation" id="reviewLocation"
+							value="${p.postReview }">
 						<textarea placeholder="Your Comment" id="reviewComment"
 							name="reviewComment"></textarea>
 						<button type="submit" onclick="location.href='reviewinsert.do'">
@@ -151,13 +181,16 @@
 						</button>
 						<input type="hidden" name="reviewPage" value="${p.postPage }">
 						<input type="hidden" name="reviewPageId" value="${p.postId }">
+
+						<input type="hidden" name="reviewPagePath" value="postId">
 					</form>
 				</c:if>
 				<c:if test="${empty id }">
 					<form action="logincontroller.do" method="post">
 						<input type="hidden" name="reviewWriter" id="reviewWriter"
 							value="${name }"> <input type="hidden"
-							name="reviewLocation" id="reviewLocation" value="${p.postReview }">
+							name="reviewLocation" id="reviewLocation"
+							value="${p.postReview }">
 						<textarea placeholder="Your Comment" id="reviewComment"
 							name="reviewComment" readonly>로그인 후 이용하세요</textarea>
 						<button type="submit" onclick="location.href='reviewinsert.do'">
@@ -169,7 +202,7 @@
 		</div>
 	</section>
 	<!-- End review section -->
-	
+
 	<script type="text/javascript">
 		function postUpdate(str) {
 			if (str == 'E') {
@@ -180,7 +213,7 @@
 
 			document.getElementById("frm").submit();
 		}
-		
+
 		function toggleEditForm(reviewId) {
 			var editForm = document.getElementById('editForm_' + reviewId);
 			var reviewText = document.getElementById('reviewText_' + reviewId);
@@ -203,24 +236,12 @@
 			reviewText.style.display = 'block';
 		}
 
-		function reviewDelete(reviewId) {
+
+		function reviewDelete() {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
-				var frm = document.createElement("form");
-				frm.method = "post";
-				frm.action = "reviewdelete.do";
-
-				var input = document.createElement("input");
-				input.type = "hidden";
-				input.name = "reviewId";
-				input.value = reviewId;
-
-				frm.appendChild(input);
-				document.body.appendChild(frm);
-
-				frm.submit();
+				document.getElementById('deleteform').submit();
 			}
 		}
-		
 	</script>
 
 

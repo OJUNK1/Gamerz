@@ -96,8 +96,8 @@ h1 {
 										<form action="cartitemdelete.do" method="post"
 											onsubmit="return confirmDelete();">
 											<input type="hidden" id="itemId" name="itemId"
-												value="${c.itemId}"> 
-											<input type="hidden" id="cartPersonal" name="cartPersonal"
+												value="${c.itemId}"> <input type="hidden"
+												id="cartPersonal" name="cartPersonal"
 												value="${c.cartPersonal}">
 											<button type="submit" class="btn btn-primary btn-round"
 												aria-label="Remove">
@@ -144,12 +144,15 @@ h1 {
 					<div class="nk-gap-1"></div>
 					<a class="btn btn-primary btn-round btn-marquee float-right"
 						href="logincontroller.do">GO LOGIN ! DO SIGNUP !</a>
-					
+
 				</c:if>
 				<!-- END: Products in Cart -->
 			</div>
 			<c:forEach items="${carts }" var="c">
-				<c:if test="${not empty carts && not empty id}">
+
+				<c:if
+					test="${not empty carts && not empty id && c.cartPersonal == name }">
+
 					<div class="nk-gap-1"></div>
 					<a class="nk-btn nk-btn-rounded nk-btn-color-white float-right"
 						href="gamelibrary.do">more games!</a>
@@ -194,7 +197,7 @@ h1 {
 
 					<input id="tosspay"
 						class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right"
-						value="Proceed to Checkout" onclick='toggleToss()' "/>
+						value="Proceed to Checkout" onclick='toggleToss()' />
 
 					<div class="clearfix"></div>
 				</c:if>
@@ -250,8 +253,8 @@ h1 {
     paymentWidget.requestPayment({
       orderId: '${c.gameId}',
       orderName: '${c.gameName}',
-      successUrl: 'http://localhost/success.jsp',
-      failUrl: 'http://localhost/fail.jsp',
+      successUrl: 'http://localhost/gamerz/success.jsp',
+      failUrl: 'http://localhost/gamerz/fail.jsp',
       customerEmail: '${c.memberEmail}', 
       customerName: '${c.memberName}'
       }).catch(function (error) {
@@ -285,7 +288,10 @@ function toggleToss() {
 	  
 	}
 function confirmDelete() {
-    return confirm("Are you sure you want to delete this item?");
+	if( confirm("Are you sure you want to delete this item?") ){
+    window.location.href="cart.do";
+    return;
+	}
 }
 
 </script>

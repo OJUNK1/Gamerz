@@ -10,10 +10,12 @@
 	<script type="text/javascript">
 		var page = "${reviewPage}";
 		var pageId = "${reviewPageId}";
+
+		var pagePath = "${reviewPagePath}";
 		
 		alert("${message }");
 		if(page != null && pageId != null){
-		location.href = page+"?gameId="+pageId;
+		location.href = page+"?"+pagePath+"="+pageId;
 		}
 	</script>
 </body>

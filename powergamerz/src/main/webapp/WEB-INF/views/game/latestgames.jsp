@@ -29,7 +29,9 @@
 							<c:if test="${g.gameClassfication == 'Latest' }">
 								<div class="col-lg-4 col-md-6">
 									<div class="game-item">
+									<a href="javascript:selectGame(${g.gameId })">
 										<img src="${g.gameIllustMini }" alt="#">
+									</a>
 										<h5>${g.gameName }</h5>
 										<a href="javascript:selectGame(${g.gameId })"
 											class="read-more">Read More <img
