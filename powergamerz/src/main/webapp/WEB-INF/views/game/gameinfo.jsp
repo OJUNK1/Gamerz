@@ -127,7 +127,7 @@
 									<div class="anime__review__item__text">
 										<h6>
 											${r.memberName } - <span>${r.reviewDate }</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-											<c:if test="${id eq r.memberId }">
+											<c:if test="${id eq r.memberId || author eq 'ADMIN'}">
 												<a class="general_btn panel_btn" href="#"
 													onclick="toggleEditForm('${r.reviewId}')"> <img
 													class="toolsIcon"
