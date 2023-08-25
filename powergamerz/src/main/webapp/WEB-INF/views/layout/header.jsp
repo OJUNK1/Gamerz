@@ -20,7 +20,7 @@
 									<ul class="nk-contacts-icons">
 
 										<li><a href="#" class="search-switch"
-											onclick="toggleSearchBox()"><span class="icon_zoom-out"></span></a></li>
+											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
 
 										 <c:if test="${empty id}">
@@ -31,7 +31,7 @@
 										</c:if>
 										<c:if test="${not empty id}">
 															
-											<li><a href="logout.do" class="search-switch"><span class="icon_logout"></span></a></li>
+											<li><a href="logout.do" class="search-switch"><span class="icon_lock-open"></span></a></li>
 										</c:if>
 
 										<li><a href="cart.do"><span class="nk-cart-toggle">
