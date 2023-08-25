@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
+<link href="css/boardwrite.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -29,16 +30,18 @@
 			<div align="center">
 			<h2 class="text-white">게시판 글쓰기</h2><br>
 			</div>
-			<form method="post" encType="multipart/form-data" action="postinsert.do" method="post">			
-				<table class="table-light" style="position:relative; width:100%;">
-					<tbody>
-						<tr>
-							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="postTitle" required="required" style="color:black"></td>
-						</tr>
-						<tr>
-							<td>
-							    <textarea id="summernote" name="postSubject" ></textarea>
+			<form method="post" encType="multipart/form-data" action="postinsert.do" method="post">	
+				<div class="card">
+					<div class="card-write">
+						<div class="myinfo">
+						아이디<input type="text" id="postWriterId" name="postWriterId" value="${id }" readonly />
+						작성자명<input type="text" id="postWriter" name="postWriter" value="${name }" readonly />
+						</div>
+						<div class="title-w">
+						제목<input type="text" placeholder="제목을 입력하세요." name="postTitle" required="required">
+						</div>
+						<div class="msg">
+						내용<textarea id="summernote" name="postSubject" ></textarea>
 										    <script>
 										      $('#summernote').summernote({
 										          codeviewFilter: false, // 코드 보기 필터 비활성화
@@ -91,15 +94,11 @@
 										                'h1', 'h2', 'h3', 'h4', 'h5', 'h6',  // 제목 스타일 옵션
 										            ]
 										      });
-										    </script></td>
-						</tr>
-						<tr>
-							<td><input type="file" name="file"></td>
-						</tr>
-					</tbody>
-				</table><br>
-				<input type="hidden" id="postWriter" name="postWriter" value="${name }"/>
-				<input type="hidden" id="postWriterId" name="postWriterId" value="${id }">
+										    </script>
+						<input type="file" name="file">
+						</div>
+					</div>
+				</div>
 				<div align="right">
 				<button class="btn btn-primary btn-jelly btn-lg" type="submit">작성</button>
 				<button class="btn btn-danger btn-jelly btn-lg" type="button" onclick="location.href='postlist.do'">취소</button>

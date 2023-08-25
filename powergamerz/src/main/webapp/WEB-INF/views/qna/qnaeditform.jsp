@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/qna.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -28,42 +29,40 @@
 				<br>
 				<div>
 					<form id="frm" action="qnaedit.do" method="post">
-						<div style="background-color: white;">
-							<table class="table table-bordered">
-								<tr>
-									<th width="100">작성자</th>
-									<td><input type="text" id="qnaWriter" name="qnaWriter"
-										value="${q.qnaWriter }" readonly="readonly" /></td>
-									<th width="100">작성일자</th>
-									<td><input type="date" id="qnaDate" name="qnaDate"
-										value="${q.qnaDate }" /></td>
-								</tr>
-								<tr>
-									<th>제목</th>
-									<td colspan="3"><input size="125" type="text"
-										id="qnaTitle" name="qnaTitle" value="${q.qnaTitle }" /></td>
-								</tr>
-								<tr>
-									<th>내용</th>
-									<td colspan="3"><textarea id="qnaSubject"
-											name="qnaSubject" cols="125" rows="20">${q.qnaSubject }</textarea>
-									</td>
-								</tr>
-							</table>
+						<div class="card">
+							<div class="card-edit">
+								<div class="myinfo">
+									이름<input type="text" id="qnaWriter" name="qnaWriter"
+										value="${q.qnaWriter }" readonly="readonly">
+								</div>
+								<div class="title">
+									제목<input type="text" id="qnaTitle" name="qnaTitle"
+										value="${q.qnaTitle }" />
+								</div>
+								<div class="msg">
+									내용
+									<textarea id="qnaSubject" name="qnaSubject"
+										value="${q.qnaSubject }">
+											</textarea>
+								</div>
+							</div>
 						</div>
-						<br>
-						<div>
-							<button class="_1h8gH51Art N=a:qna.write" type="submit">
-								수정</button>
-							&nbsp;&nbsp;&nbsp;
-							<button class="_1h8gH51Art _228Dp2q_V1 N=a:qna.ask" type="button"
-								onclick="location.href='qnalist.do'">취소</button>
-						</div>
-						<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }" />
-					</form>
-					<div></div>
+
 				</div>
+
+				<br>
+				<div>
+					<button class="_1h8gH51Art N=a:qna.write" type="submit">
+						수정</button>
+					&nbsp;&nbsp;&nbsp;
+					<button class="_1h8gH51Art _228Dp2q_V1 N=a:qna.ask" type="button"
+						onclick="location.href='qnalist.do'">취소</button>
+				</div>
+				<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }" />
+				</form>
+				<div></div>
 			</div>
+		</div>
 		</div>
 	</section>
 </body>

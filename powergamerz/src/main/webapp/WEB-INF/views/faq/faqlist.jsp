@@ -65,7 +65,7 @@
 		<div class="site-pagination" id="pagination" style="margin-left:400px; margin-top:50px;">
 			<c:forEach var="num" begin="${pagingVO.startPage }"
 				end="${pagingVO.endPage }">
-				<a href="faqlist.do?pageNum=${num}&amount=${pagingVO.amount}" style="color:#b01ba5;"
+				<a href="faqlist.do?pageNum=${num}&amount=${pagingVO.amount}" style="color:#E91E63;"
 					class="${pagingVO.pageNum eq num ? 'active' : '' }">${num}</a>
 			</c:forEach>
 		</div>

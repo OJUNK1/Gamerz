@@ -23,6 +23,8 @@
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link href="css/boardview.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<!-- Page top section -->
@@ -40,58 +42,51 @@
 	<!-- Table section -->
 	<section class="review-section">
 		<div class="container">
-			<div align="center">
-				<div>
-					<div style="background-color: white">
-						<table class="table table-bordered">
-							<tr>
-								<th width="100">작성자</th>
-								<td align="center">${p.postWriter }</td>
-								<th width="100">작성일자</th>
-								<td align="center">${p.postCreateDate }</td>
-								<th width="100">조회수</th>
-								<td align="center">${p.postHit }</td>
-							</tr>
-							<tr>
-								<th>제목</th>
-								<td colspan="5">${p.postTitle }</td>
-							</tr>
-							<c:if test="${not empty p.postAttach }">
-								<tr>
-									<th width="100">이미지</th>
-									<td colspan="5"><img src="attach/post/${p.postAttach }"
-										style="width: 500px; height: 300px;"></td>
-								</tr>
-							</c:if>
-							<tr>
-								<th width="100">내용</th>
-								<td colspan="5">${p.postSubject }</td>
-							</tr>
-							<tr>
-								<th width="100">첨부파일</th>
-								<td colspan="5">${p.postAttach}</td>
-							</tr>
-						</table>
+
+			<div class="card">
+				<div class="card-view">
+					<div class="title">
+						<h3>${p.postTitle }</h3>
 					</div>
-					<br>
-					<div>
-						<c:if test="${id eq p.postWriterId || author eq 'ADMIN' }">
-							<button type="button" class="btn btn-primary btn-jelly btn-lg"
-								onclick="postUpdate('E')">수정</button>
-							<button type="button" class="btn btn-danger btn-jelly btn-lg"
-								onclick="postUpdate('D')">삭제</button>
+					<div class="myinfo">
+						<dl>
+							<dt>작성자</dt>
+							<dd>${p.postWriter }</dd>
+						</dl>
+						<dl>
+							<dt>날짜</dt>
+							<dd>${p.postCreateDate }</dd>
+						</dl>
+						<dl>
+							<dt>조회수</dt>
+							<dd>${p.postHit }</dd>
+						</dl>
+					</div>
+					<div class="cont">
+						<c:if test="${not empty p.postAttach }">
+							<img src="attach/post/${p.postAttach }"
+								style="width: 500px; height: 300px;">
 						</c:if>
-						<button type="button" class="btn btn-light btn-jelly btn-lg"
-							onclick="location.href='postlist.do'">목록</button>
-					</div>
-					<div>
-						<form id="frm" method="post">
-							<input type="hidden" id="postId" name="postId"
-								value="${p.postId }" />
-						</form>
+						${p.postSubject }
 					</div>
 				</div>
 			</div>
+			<div align="center">
+				<c:if test="${id eq p.postWriterId || author eq 'ADMIN' }">
+					<button type="button" class="btn btn-primary btn-jelly btn-lg"
+						onclick="postUpdate('E')">수정</button>
+					<button type="button" class="btn btn-danger btn-jelly btn-lg"
+						onclick="postUpdate('D')">삭제</button>
+				</c:if>
+				<button type="button" class="btn btn-light btn-jelly btn-lg"
+					onclick="location.href='postlist.do'">목록</button>
+			</div>
+			<div>
+				<form id="frm" method="post">
+					<input type="hidden" id="postId" name="postId" value="${p.postId }" />
+				</form>
+			</div>
+
 		</div>
 	</section>
 	<!-- End Table section -->
@@ -243,8 +238,6 @@
 			}
 		}
 	</script>
-
-
 
 </body>
 </html>

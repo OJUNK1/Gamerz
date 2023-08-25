@@ -1403,7 +1403,8 @@ ol {
 }
 
 .game-author-section {
-	background: #3a1854;
+	background: linear-gradient(45deg, #110e5f 0%, #00042b 100%);
+	;
 	padding: 51px 0;
 	overflow: hidden;
 }
@@ -3257,3 +3258,68 @@ a.general_btn:hover {
 	padding-right: 12px;
 	background-color: #999;
 }
+
+
+
+.btn-view a {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: tomato;
+	color: #fff;
+}
+
+.card-header4 {
+	padding: 20px;
+	text-align: center;
+}
+
+.card-edit {
+	padding: 20px;
+}
+
+.card-edit input {
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid #999;
+	border-radius: 10px;
+}
+
+.card-edit .myinfo input[type="text"] {
+	width: 85.5%;
+}
+
+.card-edit .myinfo input[type="password"] {
+	width: 31%;
+}
+
+.card-edit .title input {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 85.5%;
+}
+
+.card-edit .msg textarea {
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: inset 3px 3px 10px #e6e6e6;
+	min-width: 85.5%;
+	max-width: 85.5%;
+	min-height: 200px;
+	max-height: 200px;
+	vertical-align: top;
+}
+
+.card-edit .msg input {
+	border: none;
+	margin-left: 40px;
+	padding: 10px;
+}
+
+.btn-edit a {
+	padding: 10px;
+	background-color: tomato;
+	color: #fff;
+	border-radius: 10px;
+}
+
