@@ -13,7 +13,7 @@
 		
 		alert("${message }");
 		if(page != null && pageId != null){
-		location.href = page+"?postId="+pageId;
+		location.href = page+"?gameId="+pageId;
 		}
 	</script>
 </body>
