@@ -20,6 +20,9 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+	
+<!-- for footer -->
+	
 </head>
 
 <body id="reportsPage">

@@ -115,11 +115,11 @@
 						<h3>Login With:</h3>
 						<ul>
 							<li><a id="naverIdLogin_loginButton" href="#" class="naver"><i
-									class="fa fa-facebook"></i> Sign in With Naver</a></li>
+									class="fa fa-leaf"></i> Sign in With Naver</a></li>
 							<li id="googlelogin"><a href="#" class="google"><i
 									class="fa fa-google"></i> Sign in With Google</a></li>
 							<li onclick="kakaoLogin()"><a href="#" class="kakao"><i
-									class="fa fa-twitter"></i> Sign in With Kakao</a></li>
+									class="fa fa-commenting"></i> Sign in With Kakao</a></li>
 						</ul>
 					</div>
 				</div>
@@ -129,15 +129,6 @@
 	<!-- Signup Section End -->
 
 	<!-- JS Section Begin -->
-	<script type="text/javascript">
-		function checkValue() {
-			
-			
-			if(!form.id.value){
-				
-			}
-		}
-	</script>
 
 	<!-- Login Id Check Begin -->
 	<script type="text/javascript">

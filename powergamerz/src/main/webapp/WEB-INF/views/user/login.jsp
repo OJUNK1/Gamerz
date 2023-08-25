@@ -8,7 +8,7 @@
 <meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 	<!-- Page top section -->
@@ -75,11 +75,11 @@
 							<span>or</span>
 							<ul>
 								<li><a  id="naverIdLogin_loginButton" href="#" class="naver">
-								<i class="fa fa-facebook"></i> Sign in With Naver</a></li>
+								<i class="fa fa-leaf"></i> Sign in With Naver</a></li>
 								<li id="googlelogin"><a href="javascript:void(0)" class="google"><i class="fa fa-google"></i>
 									Sign in With Google</a></li>
 								<li onclick="kakaoLogin()"><a href="#" 
-								class="kakao"><i class="fa fa-twitter"></i> Sign in With
+								class="kakao"><i class="fa fa-commenting"></i> Sign in With
 								Kakao</a></li>
 							</ul>
 						</div>
