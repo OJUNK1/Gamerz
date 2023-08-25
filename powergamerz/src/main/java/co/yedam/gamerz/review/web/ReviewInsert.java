@@ -42,10 +42,12 @@ public class ReviewInsert extends HttpServlet {
 			qna.setQnaDone("답변완료");
 			dao2.updateQnaDone(qna);
 		}
-
+    
 		int num = dao.reviewInsert(vo);
 
 		if (num == 1) {
+			request.setAttribute("reviewPage", request.getParameter("reviewPage"));
+			request.setAttribute("reviewPageId", request.getParameter("reviewPageId"));
 			request.setAttribute("message", "리뷰 등록 성공");
 		} else {
 			request.setAttribute("message", "리뷰 등록 실패");

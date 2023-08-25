@@ -53,8 +53,13 @@
 </select>
 
 <insert id="postInsert" parameterType="co.yedam.gamerz.community.post.service.PostVO">
-	INSERT INTO COMMUNITY(POST_TITLE, POST_SUBJECT,POST_ATTACH,POST_ATTACH_DIR,POST_WRITER,POST_WRITER_ID, POST_HIT)
-	VALUES(#{postTitle},#{postSubject},#{postAttach},#{postAttachDir},#{postWriter},#{postWriterId},0)
+	<selectKey resultType="int" keyProperty="postId" order="BEFORE">
+		SELECT CASE WHEN MAX(POST_ID) IS NULL THEN 1
+         	   ELSE MAX(POST_ID) + 1 END  AS postId FROM COMMUNITY
+	</selectKey>
+
+	INSERT INTO COMMUNITY(POST_ID,POST_TITLE, POST_SUBJECT,POST_ATTACH,POST_ATTACH_DIR,POST_WRITER,POST_WRITER_ID, POST_HIT,POST_REVIEW,POST_PAGE)
+	VALUES(#{postId},#{postTitle},#{postSubject},#{postAttach},#{postAttachDir},#{postWriter},#{postWriterId},0,'community'||#{postId},'postselect.do')
 </insert>
 
 <update id="postUpdate" parameterType="co.yedam.gamerz.community.post.service.PostVO">

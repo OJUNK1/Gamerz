@@ -18,4 +18,6 @@ public class PostVO {
 	private String postAttach;
 	private String postAttachDir;
 	private String postWriterId;
+	private String postReview;
+	private String postPage;
 }
