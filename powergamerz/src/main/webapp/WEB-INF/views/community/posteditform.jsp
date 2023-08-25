@@ -15,6 +15,8 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	
+<link href="css/boardedit.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<!-- Page top section -->
@@ -32,39 +34,30 @@
 	<!-- Table Section -->
 	<section class="review-section">
 		<div class="container">
-			<div align="center">
-				<div>
+			<div>
+				<div align="center">
 					<h2 class="text-white">게시글 수정</h2>
 				</div>
 				<br>
 				<div>
 					<form id="frm" action="postedit.do" method="post"
 						enctype="multipart/form-data">
-						<div style="background-color: white">
-							<table class="table table-bordered">
-								<tr>
-									<th width="100">작성자</th>
-									<td><input type="text" id="postWriter" name="postWriter"
-										value="${n.postWriter }" readonly="readonly" /></td>
-									<th width="100">수정일자</th>
-									<td><input type="date" id="postCreateDate"
-										name="postCreateDate" readonly="readonly" /></td>
-								</tr>
-								<tr>
-									<th>제목</th>
-									<td colspan="3"><input size="78" type="text"
-										id="postTitle" name="postTitle" value="${n.postTitle }" /></td>
-								</tr>
-								<c:if test="${not empty n.postAttach }">
-									<tr>
-										<th>이미지</th>
-										<td colspan="3"><img src="attach/post/${n.postAttach }"
-											style="width: 500px; height: 300px;"></td>
-									</tr>
-								</c:if>
-								<tr>
-									<th>내용</th>
-									<td colspan="3"><textarea id="summernote"
+						
+						<div class="card">
+							<div class="card-edit">
+								<div class="myinfo">
+								아이디<input type="text" id="postWriterId" name="postWriterId"
+										value="${n.postWriterId }" readonly />
+								작성자명<input type="text" id="postWriter" name="postWriter"
+										value="${n.postWriter }" readonly />
+								작성일자<input type="date" id="postCreateDate"
+										name="postCreateDate" readonly="readonly" />
+								</div>
+								<div class="title">
+								제목<input type="text" id="postTitle" name="postTitle" value="${n.postTitle }" />
+								</div>
+								<div class="msg">
+								내용<textarea id="summernote"
 											name="postSubject">${n.postSubject }</textarea> <script>
 												$('#summernote')
 														.summernote(
@@ -166,18 +159,14 @@
 																			'h6', // 제목 스타일 옵션
 																	]
 																});
-											</script></td>
-								</tr>
-								<tr>
-									<th>첨부파일</th>
-									<td>${n.postAttach}</td>
-									<td colspan="2"><input type="file" id="file" name="file"
-										value="${n.postAttach }" /></td>
-								</tr>
-							</table>
+											</script>
+								첨부파일 ${n.postAttach}
+								<input type="file" id="file" name="file"
+										value="${n.postAttach }" />
+								</div>
+							</div>
 						</div>
-						<br>
-						<div>
+						<div align="right">
 							<button class="btn btn-primary btn-jelly btn-lg" type="submit">
 								수정
 							</button>

@@ -53,6 +53,10 @@ public class PostList extends HttpServlet {
 			pagingVO = new PagingVO(pageNum, amount, total);
 			postpages = dao.postPagingC(pageNum, amount, key, val);
 			
+			System.out.println(total);
+			for(PostVO post : postpages) {
+				System.out.println(post);
+			}
 		}else {
 			int total = dao.postTotalCount();
 			pagingVO = new PagingVO(pageNum, amount, total);
