@@ -10,7 +10,7 @@
 <body>
 	<!-- Page top section -->
 	<section class="page-top-section set-bg"
-		data-setbg="usertemplet/img/page-top-bg/3.jpg">
+		data-setbg="usertemplet/img/page-top-bg/2.jpg">
 		<div class="page-info">
 			<h2>Promotion</h2>
 			<div class="site-breadcrumb">

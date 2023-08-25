@@ -35,8 +35,6 @@ public class ReviewInsert extends HttpServlet {
 		vo.setReviewWriter(request.getParameter("reviewWriter"));
 		vo.setReviewComment(request.getParameter("reviewComment"));
 
-		
-
 		// 'admin' 사용자인 경우 qna_done 업데이트
 		if ("ADMIN".equals(request.getParameter("memberAuthor"))) {
 			qna.setQnaId(Integer.parseInt(request.getParameter("qnaId")));
@@ -47,6 +45,10 @@ public class ReviewInsert extends HttpServlet {
 		int num = dao.reviewInsert(vo);
 
 		if (num == 1) {
+			request.setAttribute("reviewPage", request.getParameter("reviewPage"));
+			request.setAttribute("reviewPageId", request.getParameter("reviewPageId"));
+
+			request.setAttribute("reviewPagePath", request.getParameter("reviewPagePath"));
 			request.setAttribute("message", "리뷰 등록 성공");
 		} else {
 			request.setAttribute("message", "리뷰 등록 실패");

@@ -61,7 +61,13 @@
 							<div class="rating-widget">
 								<h4 class="widget-title">info</h4>
 								<ul>
+									<c:if test="${g.gamePriceDiscount == 0}">
 									<li>가격<span>${g.gamePrice }원</span></li>
+									</c:if>
+									<c:if test="${g.gamePriceDiscount != 0}">
+									<li>가격<span>${g.gamePriceDiscount }원</span></li>
+									</c:if>
+									
 									<li>출시일<span>${g.gameReleaseDate }</span></li>
 									<li>장르<span>${g.gameGenre }</span></li>
 									<li>개발사<span>${g.gameDeveloper }</span></li>
@@ -70,16 +76,15 @@
 								<c:if test="${not empty id }">
 									<form id="qty" action="cartadd.do" method="post">
 										<input type="hidden" id="itemId" name="itemId"
-
-											value="${g.gameId }"> 
-											<c:if test="${g.gamePriceDiscount == 0 }">
-												<input type="hidden" id="cartTotal" name="cartTotal" 
-													value="${g.gamePrice }">
-											</c:if>
-											<c:if test="${g.gamePriceDiscount != 0 }">
-												<input type="hidden" id="cartTotal" name="cartTotal" 
-													value="${g.gamePriceDiscount }">
-											</c:if>
+											value="${g.gameId }">
+										<c:if test="${g.gamePriceDiscount == 0 }">
+											<input type="hidden" id="cartTotal" name="cartTotal"
+												value="${g.gamePrice }">
+										</c:if>
+										<c:if test="${g.gamePriceDiscount != 0 }">
+											<input type="hidden" id="cartTotal" name="cartTotal"
+												value="${g.gamePriceDiscount }">
+										</c:if>
 
 										<input type="hidden" id="cartPersonal" name="cartPersonal"
 											value="${ name}">
@@ -142,6 +147,14 @@
 													Delete
 												</a>
 
+												<form action="reviewdelete.do" method="post" id="deleteform">
+													<input type="hidden" name="reviewId" value="${r.reviewId}">
+													<input type="hidden" name="reviewPage"
+														value="${g.gamePage }"> <input type="hidden"
+														name="reviewPageId" value="${g.gameId }"> <input
+														type="hidden" name="reviewPagePath" value="gameId">
+												</form>
+
 											</c:if>
 										</h6>
 										<div id="editForm_${r.reviewId}" style="display: none;">
@@ -153,6 +166,10 @@
 												<button type="submit" class="button condensed save">저장</button>
 												<button type="button" class="button condensed cancel"
 													onclick="cancelEdit('${r.reviewId}')">취소</button>
+												<input type="hidden" name="reviewPage"
+													value="${g.gamePage }"> <input type="hidden"
+													name="reviewPageId" value="${g.gameId }"> <input
+													type="hidden" name="reviewPagePath" value="gameId">
 											</form>
 										</div>
 										<p id="reviewText_${r.reviewId}">${r.reviewComment }</p>
@@ -178,6 +195,9 @@
 						<button type="submit" onclick="location.href='reviewinsert.do'">
 							<i class="fa fa-location-arrow"></i> Review
 						</button>
+						<input type="hidden" name="reviewPage" value="${g.gamePage }">
+						<input type="hidden" name="reviewPageId" value="${g.gameId }">
+						<input type="hidden" name="reviewPagePath" value="gameId">
 					</form>
 				</c:if>
 				<c:if test="${empty id }">
@@ -196,7 +216,6 @@
 		</div>
 	</section>
 	<script type="text/javascript">
-
 		function toggleEditForm(reviewId) {
 			var editForm = document.getElementById('editForm_' + reviewId);
 			var reviewText = document.getElementById('reviewText_' + reviewId);
@@ -219,21 +238,9 @@
 			reviewText.style.display = 'block';
 		}
 
-		function reviewDelete(reviewId) {
+		function reviewDelete() {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
-				var frm = document.createElement("form");
-				frm.method = "post";
-				frm.action = "reviewdelete.do";
-
-				var input = document.createElement("input");
-				input.type = "hidden";
-				input.name = "reviewId";
-				input.value = reviewId;
-
-				frm.appendChild(input);
-				document.body.appendChild(frm);
-
-				frm.submit();
+				document.getElementById('deleteform').submit();
 			}
 		}
 	</script>
