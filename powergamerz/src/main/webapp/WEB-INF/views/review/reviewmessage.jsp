@@ -10,6 +10,7 @@
 	<script type="text/javascript">
 		var page = "${reviewPage}";
 		var pageId = "${reviewPageId}";
+
 		var pagePath = "${reviewPagePath}";
 		
 		alert("${message }");
