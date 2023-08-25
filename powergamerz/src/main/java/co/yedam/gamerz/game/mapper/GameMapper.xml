@@ -66,7 +66,7 @@
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
         SELECT *
-        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT IS NOT NULL ORDER BY GAME_PRICE_DISCOUNT) V )
+        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT != 0 ORDER BY GAME_PRICE_DISCOUNT) V )
         WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
     ]]>
 	</select>
@@ -75,7 +75,7 @@
 		resultType="co.yedam.gamerz.game.service.GameVO">
 		<![CDATA[
         SELECT *
-        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT IS NOT NULL AND GAME_GENRE = #{key} ORDER BY GAME_PRICE_DISCOUNT) V )
+        FROM ( SELECT ROWNUM RN, V.* FROM (SELECT * FROM VIDEOGAMES WHERE GAME_PRICE_DISCOUNT != 0 AND GAME_GENRE = #{key} ORDER BY GAME_PRICE_DISCOUNT) V )
         WHERE RN > (#{pageNum} - 1) * #{amount} AND RN <= #{pageNum} * #{amount}
     ]]>
 	</select>

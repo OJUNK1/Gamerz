@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.security.SecureRandom"%>
 <%@ page import="java.math.BigInteger"%>
@@ -9,9 +10,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta name="google-signin-client_id"
+	content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
@@ -50,35 +55,52 @@
 				<div class="col-lg-6">
 					<div class="login__form">
 						<h3>Sign Up</h3>
-						<form action="signup.do" method="post" onsubmit="return formCheck()" enctype="multipart/form-data">
+						<form action="signup.do" method="post"
+							onsubmit="return formCheck()" enctype="multipart/form-data">
 							<div class="input__img">
-								<input type="file" id="memberImg" name="memberImg"	accept="image/*"> <span class="icon_upload"></span>
+								<input type="file" id="memberImg" name="memberImg"
+									accept="image/*"> <span class="icon_upload"></span>
 							</div>
 
 							<div class="input__item">
-								<input type="text" id="memberId" name="memberId" placeholder="Your Id*" required="required"> <span class="icon_info"></span>
-								<button type="button" id="btn" value="NoCheck" onclick="idCheck()" class="nk-btn nk-btn-rounded nk-btn-color-white ">중복체크</button>
+								<input type="text" id="memberId" name="memberId"
+									placeholder="Your Id*" required="required"> <span
+									class="icon_info"></span>
+								<button type="button" id="btn" value="NoCheck"
+									onclick="idCheck()" class="btn btn-primary btn-sm btn-jelly"
+									style="margin: 10px 0 0 0;">중복체크</button>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberName" name="memberName" placeholder="Your Name*" required="required"> <span class="icon_profile"></span>
+								<input type="text" id="memberName" name="memberName"
+									placeholder="Your Name*" required="required"> <span
+									class="icon_profile"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password*" required="required"> <span	class="icon_lock"></span>
+								<input type="password" id="memberPassword" name="memberPassword"
+									placeholder="Password*" required="required"> <span
+									class="icon_lock"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" id="memberPasswordCheck"	name="memberPasswordCheck" placeholder="Password Check*" required="required"> <span class="icon_check"></span>
+								<input type="password" id="memberPasswordCheck"
+									name="memberPasswordCheck" placeholder="Password Check*"
+									required="required"> <span class="icon_check"></span>
 							</div>
 							<div class="input__item">
-								<input type="date" id="memberBirth" name="memberBirth"	placeholder="Your Birth"> <span class="icon_clock"></span>
+								<input type="date" id="memberBirth" name="memberBirth"
+									placeholder="Your Birth"> <span class="icon_clock"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberPhone" name="memberPhone" placeholder="Your PhoneNumber"> <span class="icon_phone"></span>
+								<input type="text" id="memberPhone" name="memberPhone"
+									placeholder="Your PhoneNumber"> <span
+									class="icon_phone"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberAddress" name="memberAddress"	placeholder="Your Address"> <span class="icon_house"></span>
+								<input type="text" id="memberAddress" name="memberAddress"
+									placeholder="Your Address"> <span class="icon_house"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" id="memberEmail" name="memberEmail"	placeholder="Your Email"> <span class="icon_mail"></span>
+								<input type="text" id="memberEmail" name="memberEmail"
+									placeholder="Your Email"> <span class="icon_mail"></span>
 							</div>
 
 							<button type="submit" class="site-btn2">Register</button>
@@ -92,15 +114,12 @@
 					<div class="login__social__links">
 						<h3>Login With:</h3>
 						<ul>
-							<li><a id="naverIdLogin_loginButton" href="#"
-								class="naver"><i class="fa fa-facebook"></i> Sign in With
-									Naver</a></li>
-							<li id="googlelogin"><a href="#"
-								class="google"><i class="fa fa-google"></i> Sign in With
-									Google</a></li>
-							<li onclick="kakaoLogin()"><a href="#"
-								class="kakao"><i class="fa fa-twitter"></i> Sign in With
-									Kakao</a></li>
+							<li><a id="naverIdLogin_loginButton" href="#" class="naver"><i
+									class="fa fa-facebook"></i> Sign in With Naver</a></li>
+							<li id="googlelogin"><a href="#" class="google"><i
+									class="fa fa-google"></i> Sign in With Google</a></li>
+							<li onclick="kakaoLogin()"><a href="#" class="kakao"><i
+									class="fa fa-twitter"></i> Sign in With Kakao</a></li>
 						</ul>
 					</div>
 				</div>
@@ -119,7 +138,7 @@
 			}
 		}
 	</script>
-		
+
 	<!-- Login Id Check Begin -->
 	<script type="text/javascript">
 	function idCheck() { // ajax를 통신을 이용해 아이디 중복체크
@@ -194,10 +213,10 @@
 	<!-- Google Login Api End -->
 	
 	</script>
-	
+
 	<!-- Google Login Api2 Begin -->
 	<script src="https://apis.google.com/js/platform.js?onload=init" async
-			defer></script>
+		defer></script>
 	<!-- Google Login Api2 End -->
 
 	<!-- Kakao Login Api Begin -->
@@ -243,7 +262,9 @@
 	<!-- Kakao Login Api End -->
 
 	<!-- Naver Login Api Begin -->
-	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+	<script
+		src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
+		charset="utf-8"></script>
 
 	<script>
 	
@@ -295,8 +316,8 @@
 	}
 	</script>
 	<!-- Naver Login Api End -->
-	 
+
 	<!-- JS Section End -->
-	
+
 </body>
 </html>

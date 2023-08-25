@@ -41,6 +41,9 @@ public class ReviewEdit extends HttpServlet {
 		if (n == 1) {			
 			vo = dao.reviewSelect(vo);
 			request.setAttribute("r", vo);
+			request.setAttribute("reviewPage", request.getParameter("reviewPage"));
+			request.setAttribute("reviewPageId", request.getParameter("reviewPageId"));
+			request.setAttribute("reviewPagePath", request.getParameter("reviewPagePath"));
 			request.setAttribute("message", "리뷰 수정 완료.");
 			ViewResolve.forward(request, response, viewName);
 		} else {

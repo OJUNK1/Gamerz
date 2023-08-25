@@ -67,7 +67,7 @@
 		<!-- User List End -->
 		<!-- row -->
 
-		<div class="row tm-content-row" name="singleuser" id="singleuser">
+		<div class="row tm-content-row" name="singleuser" id="singleuser" style="display: none">
 			<div class="tm-block-col tm-col-avatar">
 				<div class="tm-bg-primary-dark tm-block tm-block-avatar">
 					<h2 class="tm-block-title">Change Avatar</h2>
@@ -123,7 +123,7 @@
 						<div class="form-group col-lg-6">
 							<label class="tm-hide-sm">&nbsp;</label>
 							<button type="submit"
-								class="btn btn-primary btn-block text-uppercase">
+								class="btn btn-primary btn-block text-uppercase" onclick="deleteuser()">
 								Delete Your Account</button>
 						</div>
 					</form>
@@ -185,6 +185,10 @@
 				
 		function selectUser() {
 			let key = document.getElementById("key").textContent;
+			
+			if(key != null){
+     			document.getElementById("singleuser").style.display = "block";
+     		} 
 			
 			let payload = "key="+key;
 			let url = "memberselect.do";
