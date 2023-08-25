@@ -16,4 +16,5 @@ public class QnaVO {
 	private LocalDateTime qnaDate;
 	private String qnaDone;
 	private String qnaReview;
+	private String qnaPage;
 }
