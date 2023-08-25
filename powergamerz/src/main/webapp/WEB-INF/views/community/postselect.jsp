@@ -181,6 +181,7 @@
 						</button>
 						<input type="hidden" name="reviewPage" value="${p.postPage }">
 						<input type="hidden" name="reviewPageId" value="${p.postId }">
+
 						<input type="hidden" name="reviewPagePath" value="postId">
 					</form>
 				</c:if>
@@ -234,6 +235,7 @@
 			editForm.style.display = 'none';
 			reviewText.style.display = 'block';
 		}
+
 
 		function reviewDelete() {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
