@@ -25,5 +25,10 @@
 			</div>
 		</div>
 	</section>
+	
+	<script type="text/javascript">
+		alert("${message }");
+		location.href = "postlist.do";
+	</script>
 </body>
 </html>

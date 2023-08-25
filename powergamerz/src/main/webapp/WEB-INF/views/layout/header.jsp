@@ -23,22 +23,22 @@
 											onclick="toggleSearchBox()"><span class="icon_search"></span></a></li>
 
 
-										<c:if test="${empty id}">
+										 <c:if test="${empty id}">
 
 											<li><a href="logincontroller.do"> <span
 													class="fa fa-user"></span>
 											</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
-
-											  <c:choose>
+										 <c:choose>
 											<c:when test="${author eq 'ADMIN'}">
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
+
 											<c:otherwise> 
-																							<li><a href="#">my page</a></li>
+												<li><a href="#">my page</a></li>
 											</c:otherwise>
-											</c:choose>  
+											</c:choose>
 
 											<li><a href="logout.do"> log out </a></li>
 										</c:if>
@@ -51,7 +51,7 @@
 										<c:if test="${not empty id}">
 											<li>${name}님접속중</li>
 
-										</c:if>
+										</c:if> 
 									</ul>
 								</div>
 							</div>

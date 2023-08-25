@@ -8,10 +8,13 @@
 </head>
 <body>
 	<script type="text/javascript">
+		var page = "${reviewPage}";
+		var pageId = "${reviewPageId}";
+		
 		alert("${message }");
-	    window.history.back(); // 이전 페이지로 이동
-	    location.reload(); // 페이지 새로고침
+		if(page != null && pageId != null){
+		location.href = page+"?gameId="+pageId;
+		}
 	</script>
-
 </body>
 </html>
