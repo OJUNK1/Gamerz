@@ -23,24 +23,24 @@
 											data-target="#modalSearch"> <span class="fa fa-search"></span>
 										</a></li>
 
-										<c:if test="${empty id}">
+										<%-- <c:if test="${empty id}">
 
 										<li><a href="logincontroller.do"> <span class="fa fa-user"></span>
 										</a></li>
 										</c:if>
 										<c:if test="${not empty id}">
 
-											 <c:choose>
+										 <c:choose>
 											<c:when test="${author eq 'ADMIN'}">
 												<li><a href="admin.do">admin page</a></li>
 											</c:when>
-<<<<<<< Updated upstream
-											<c:otherwise> --%>
-<%-- 												<li><a href="#">my page</a></li>
-=======
+
 											<c:otherwise> 
 												<li><a href="#">my page</a></li>
->>>>>>> Stashed changes
+											</c:otherwise>
+											<c:otherwise> 
+												<li><a href="#">my page</a></li>
+
 											</c:otherwise>
 											</c:choose> 
 
@@ -55,7 +55,7 @@
 										<c:if test="${not empty id}">
 											<li>${name}님 접속중</li>
 
-										</c:if>
+										</c:if> --%>
 									</ul>
 								</div>
 							</div>
