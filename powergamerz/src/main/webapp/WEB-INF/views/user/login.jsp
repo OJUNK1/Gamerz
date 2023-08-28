@@ -5,9 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="google-signin-client_id" content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta name="google-signin-client_id"
+	content="779704502037-d6iar8c2cu644l1ll1rra6rv0geljq3s.apps.googleusercontent.com">
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
@@ -22,7 +26,7 @@
 		</div>
 	</section>
 	<!-- Page top end-->
-	
+
 	<!-- Normal Breadcrumb Begin -->
 	<section class="normal-breadcrumb set-bg"
 		data-setbg="usertemplet/img/review-bg-2.jpg">
@@ -50,14 +54,14 @@
 						<h3>Login</h3>
 						<form action="login.do" method="post">
 							<div class="input__item">
-								<input type="text" id="memberId" name="memberId" placeholder="Your Id"> <span
-									class="icon_mail"></span>
+								<input type="text" id="memberId" name="memberId"
+									placeholder="Your Id"> <span class="icon_mail"></span>
 							</div>
 							<div class="input__item">
-								<input type="password" id="memberPassword" name="memberPassword" placeholder="Password"> <span
-									class="icon_lock"></span>
+								<input type="password" id="memberPassword" name="memberPassword"
+									placeholder="Password"> <span class="icon_lock"></span>
 							</div>
-							<button type="button" class="site-btn2" onclick="submit()">Login Now</button>
+							<button type="submit" class="site-btn2">Login Now</button>
 						</form>
 					</div>
 				</div>
@@ -74,13 +78,14 @@
 						<div class="login__social__links">
 							<span>or</span>
 							<ul>
-								<li><a  id="naverIdLogin_loginButton" href="#" class="naver">
-								<i class="fa fa-leaf"></i> Sign in With Naver</a></li>
-								<li id="googlelogin"><a href="javascript:void(0)" class="google"><i class="fa fa-google"></i>
-									Sign in With Google</a></li>
-								<li onclick="kakaoLogin()"><a href="#" 
-								class="kakao"><i class="fa fa-commenting"></i> Sign in With
-								Kakao</a></li>
+								<li><a id="naverIdLogin_loginButton" href="#" class="naver">
+										<i class="fa fa-leaf"></i> Sign in With Naver
+								</a></li>
+								<li id="googlelogin"><a href="javascript:void(0)"
+									class="google"><i class="fa fa-google"></i> Sign in With
+										Google</a></li>
+								<li onclick="kakaoLogin()"><a href="#" class="kakao"><i
+										class="fa fa-commenting"></i> Sign in With Kakao</a></li>
 							</ul>
 						</div>
 					</div>
@@ -90,9 +95,9 @@
 	</section>
 
 	<!-- Login Section End -->
-	
+
 	<!-- JS Section Begin -->
-	
+
 	<script>
 	function submit(){
 		let id = document.getElementById("memberId").value;
@@ -110,7 +115,7 @@
 			document.getElementById("memberId").focus();
 		}
 	</script>
-	
+
 	<!-- Google Login Api Begin -->
 	<script type="text/javascript">
 	function init() {
@@ -143,9 +148,10 @@
 		console.log(t);
 	}
 	</script>
-	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	<script src="https://apis.google.com/js/platform.js?onload=init" async
+		defer></script>
 	<!-- Google Login Api End -->
-	
+
 	<!-- Kakao Login Api Begin -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
@@ -187,9 +193,11 @@
 	  }  
 	</script>
 	<!-- Kakao Login Api End -->
-	
+
 	<!-- Naver Login Api Begin -->
-	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+	<script
+		src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
+		charset="utf-8"></script>
 
 	<script>
 	
@@ -239,15 +247,29 @@
 		
 		
 	}
+	
+	function enterkey(event){
+		if(event.keyCode == 13) {
+			submit();
+		}
+	}
+	
+	document.getElementById("memberId").addEventListener("keyup", function(event) {
+        enterkey(event);
+    });
+
+    document.getElementById("memberPassword").addEventListener("keyup", function(event) {
+        enterkey(event);
+    });
 	</script>
 	<!-- Naver Login Api End -->
-	
+
 	<!-- 
 	<script>
 	
 	</script>
 	-->
-	
+
 	<!-- JS Section End -->
 </body>
 </html>

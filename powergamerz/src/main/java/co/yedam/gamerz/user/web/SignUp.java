@@ -50,8 +50,8 @@ public class SignUp extends HttpServlet {
 		vo.setMemberName(multi.getParameter("memberName"));
 		vo.setMemberPassword(multi.getParameter("memberPassword"));
 		vo.setMemberBirth(multi.getParameter("memberBirth"));
-		vo.setMemberEmail(multi.getParameter("memberPhone"));
-		vo.setMemberEmail(multi.getParameter("memberAddress"));
+		vo.setMemberPhone(multi.getParameter("memberPhone"));
+		vo.setMemberAddress(multi.getParameter("memberAddress"));
 		vo.setMemberEmail(multi.getParameter("memberEmail"));
 		vo.setMemberImg(multi.getParameter("memberImg"));
 		

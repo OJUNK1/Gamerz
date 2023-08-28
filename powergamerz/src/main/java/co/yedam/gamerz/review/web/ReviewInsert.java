@@ -43,19 +43,21 @@ public class ReviewInsert extends HttpServlet {
 		}
 
 		int num = dao.reviewInsert(vo);
-
+		String viewName = "review/reviewmessage";
 		if (num == 1) {
 			request.setAttribute("reviewPage", request.getParameter("reviewPage"));
 			request.setAttribute("reviewPageId", request.getParameter("reviewPageId"));
 
 			request.setAttribute("reviewPagePath", request.getParameter("reviewPagePath"));
 			request.setAttribute("message", "리뷰 등록 성공");
+			ViewResolve.forward(request, response, viewName);
 		} else {
 			request.setAttribute("message", "리뷰 등록 실패");
+			ViewResolve.forward(request, response, viewName);
 		}
 
-		String viewName = "review/reviewmessage";
-		ViewResolve.forward(request, response, viewName);
+		
+		
 
 	}
 

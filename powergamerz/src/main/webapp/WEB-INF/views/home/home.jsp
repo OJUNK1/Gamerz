@@ -198,6 +198,9 @@
 				</div>
 			</div>
 		</div>
+		<form id="gamefrm" action="gameinfo.do" method="post">
+			<input type="hidden" name="gameId" id="gameId">		
+		</form>
 	</section>
 	<!-- Blog section end -->
 

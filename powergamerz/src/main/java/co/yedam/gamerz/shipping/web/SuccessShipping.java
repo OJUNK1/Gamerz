@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.gamerz.common.ViewResolve;
 import co.yedam.gamerz.shipping.service.ShippingService;
@@ -25,8 +26,11 @@ public class SuccessShipping extends HttpServlet {
 			throws ServletException, IOException {
 		ShippingService dao = new ShippingServiceImpl();
 		ShippingVO vo = new ShippingVO();
-
-		vo.setChaseName("홍길동");
+		HttpSession session = request.getSession();
+		
+		String chaseName = (String) session.getAttribute("name");
+		
+		vo.setChaseName(chaseName);
 		vo.setChaseId(Integer.valueOf(request.getParameter("orderId")));
 		vo.setChasePrice(Integer.valueOf(request.getParameter("amount")));
 		System.out.println(request.getParameter("orderName"));

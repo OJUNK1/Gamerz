@@ -89,6 +89,11 @@
 	</div>
 	<script type="text/javascript">
 	function selectFaq(n){
+		var author = "${author}";
+		console.log(author);
+		if(author != 'ADMIN'){
+			return;
+		}
 		document.getElementById("faqId").value = n;
 		document.getElementById("faqfrm").action ="faqselect.do"; 
 		document.getElementById("faqfrm").submit();

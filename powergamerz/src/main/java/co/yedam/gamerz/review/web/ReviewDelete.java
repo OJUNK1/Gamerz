@@ -29,6 +29,7 @@ public class ReviewDelete extends HttpServlet {
 		System.out.println("rid: "+ request.getParameter("reviewId") + ", rp: " + request.getParameter("reviewPage") + ", rpid: "+request.getParameter("reviewPageId")
 		+"rpp: "+request.getParameter("reviewPagePath"));
 		
+		
 		vo.setReviewId(Integer.valueOf(request.getParameter("reviewId")));
 		int n = dao.reviewDelete(vo);
 		String viewName = "review/reviewmessage";

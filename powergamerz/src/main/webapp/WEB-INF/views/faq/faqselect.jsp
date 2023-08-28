@@ -32,8 +32,8 @@
 						<td align="center">${f.faqWriter }</td>
 						<th width="100">작성일자</th>
 						<td align="center">${f.faqDate }</td>
-						<th width="100">답변여부</th>
-						<td align="center">${f.faqReq }</td>
+						<th width="100">작성자ID</th>
+						<td align="center">${f.faqWriterId }</td>
 					</tr>
 					<tr>
 						<th>제목</th>
