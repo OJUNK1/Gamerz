@@ -240,7 +240,6 @@ h1 {
   const customerKey = 'YbX2HuSlsC9uVJW6NMRMj' // 결제 고객을 특정하는 키
   const amount = "${c.cartTotal}"// 결제 금액
 
-
   /*결제위젯 영역 렌더링*/
   const paymentWidget = PaymentWidget(clientKey, customerKey) // 회원 결제
   paymentMethods = paymentWidget.renderPaymentMethods('#payment-method', amount)
@@ -252,23 +251,24 @@ h1 {
   document.querySelector("#payment-button").addEventListener("click",()=>{
     paymentWidget.requestPayment({
       orderId: '${c.gameId}',
-      orderName: '${c.gameName}',
-      successUrl: 'http://localhost/gamerz/success.jsp',
-      failUrl: 'http://localhost/gamerz/fail.jsp',
-      customerEmail: '${c.memberEmail}', 
-      customerName: '${c.memberName}'
-      }).catch(function (error) {
+      orderName: '${c.gameName}',         
+      successUrl: 'http://localhost/gamerz/success.do',
+      failUrl: 'http://localhost/gamerz/fail.jsp',    
+      customerEmail: '${c.memberEmail}',
+      customerName: '${c.cartPersonal}'      
+      }
+    ).catch(function (error) {
           if (error.code === 'USER_CANCEL') {
           // 결제 고객이 결제창을 닫았을 때 에러 처리
           } if (error.code === 'INVALID_CARD_COMPANY') {
             // 유효하지 않은 카드 코드에 대한 에러 처리
           }
-      })  
+      })
+    console.log('${c.cartPersonal}', '${c.gameId}', '${c.gameName}');  
   })
-
   </c:if>
   </c:forEach>
-  
+ 
   
 </script>
 <script type="text/javascript">

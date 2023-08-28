@@ -1152,7 +1152,7 @@ ol {
 }
 
 .site-breadcrumb span {
-	color: #c313b7;
+	color: #F0E067;
 }
 
 /* --------------
@@ -1309,7 +1309,7 @@ ol {
 }
 
 .game-single-content .gs-meta a {
-	color: #b01ba5;
+	color: #F0E067;
 }
 
 .game-single-content .gs-title {
@@ -1319,20 +1319,20 @@ ol {
 }
 
 .game-single-content h4 {
-	color: #b01ba5;
+	color: #F0E067;
 	margin-bottom: 20px;
 }
 
 .game-single-content p {
 	font-size: 16px;
 	font-weight: 500;
-	color: #68647d;
+	color: #7f78a3;
 	line-height: 1.8;
 	margin-bottom: 70px;
 }
 
 .rating-widget {
-	background: #34164b;
+	background: #242957;
 	padding: 55px 0 30px;
 }
 
@@ -1345,14 +1345,14 @@ ol {
 .rating-widget ul li {
 	display: block;
 	font-size: 16px;
-	color: #b01ba5;
+	color: #F0E067;
 	font-weight: 500;
 	margin-bottom: 10px;
 }
 
 .rating-widget ul li span {
 	float: right;
-	color: #68647d;
+	color: #7f78a3;
 }
 
 .rating-widget h5 {

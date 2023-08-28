@@ -6,7 +6,7 @@
 <body>
 	<nav class="navbar navbar-expand-xl">
 		<div class="container h-100">
-			<a class="navbar-brand" href="admin.do">
+			<a class="navbar-brand" href="home.do">
 				<img src="usertemplet/img/logohead.png" alt="">
 			</a>
 			<button class="navbar-toggler ml-auto mr-0" type="button"
@@ -34,7 +34,7 @@
 							<i class="fas fa-chart-line"></i> Chart
 					</a></li>
 					
-					<li class="nav-item"><a class="nav-link" href="admin.do">
+					<li class="nav-item"><a class="nav-link" href="notification.do">
 							<i class="fas fa-bell"></i> Notification
 					</a></li>
 					

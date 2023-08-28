@@ -73,13 +73,13 @@
 					<h2 class="tm-block-title">Change Avatar</h2>
 					<div class="tm-avatar-container">
 						<img id="avatarimg" name="avatarimg"
-							src="adminmaster/img/avatar.png" alt="Avatar"
+							src="adminmaster/img/noman.png" alt="Avatar"
 							class="tm-avatar img-fluid mb-4" /> <a href="#"
 							class="tm-avatar-delete-link"> <i
 							class="far fa-trash-alt tm-product-delete-icon"></i>
 						</a>
 					</div>
-					<input class="btn btn-primary btn-block text-uppercase" type="file"
+					<input class="btn btn-primary btn-block text-uppercase"
 						value="Upload New Photo">
 
 				</div>
@@ -163,7 +163,7 @@
      	       const memberIdCell = row.querySelector('td:first-child');
      	      if (memberIdCell) {
      	          const memberId = memberIdCell.textContent;
-     	          row.addEventListener('click', () => selectUser());
+     	          row.addEventListener('click', () => selectUser(memberId));
      	      }
      	    });
      	}
@@ -171,7 +171,7 @@
 		function htmlView(data){			
 			return `
 			<tr >
-			<td id="key" name="key">\${data.memberId}</td>
+			<td id="\${data.memberId}" name="key">\${data.memberId}</td>
 			<td>\${data.memberName}</td>
 			<td>\${data.memberBirth}</td>
 			<td>\${data.memberPhone}</td>
@@ -183,8 +183,8 @@
 				`
 		}
 				
-		function selectUser() {
-			let key = document.getElementById("key").textContent;
+		function selectUser(memberId) {
+			let key = document.getElementById(memberId).textContent;
 			
 			if(key != null){
      			document.getElementById("singleuser").style.display = "block";

@@ -25,13 +25,10 @@ public class CartItemDelete extends HttpServlet {
 		CartService dao = new CartServiceImpl();
 		CartVO vo = new CartVO();
 
-		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
 		vo.setCartPersonal(request.getParameter("cartPersonal"));
-
+		vo.setItemId(Integer.valueOf(request.getParameter("itemId")));
 		int num = dao.cartDelete(vo);
 		String viewName = "user/cartmessage";
-
-		
 
 		if (num == 1) {
 			request.setAttribute("message", "Succeed Delete to Cart");
@@ -40,7 +37,8 @@ public class CartItemDelete extends HttpServlet {
 			request.setAttribute("message", "Fail Delete to Cart.");
 			ViewResolve.forward(request, response, viewName);
 		}
-
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
