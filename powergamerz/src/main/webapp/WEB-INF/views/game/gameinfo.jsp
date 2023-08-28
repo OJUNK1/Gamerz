@@ -123,8 +123,6 @@
 
 						<c:forEach items="${reviewlist }" var="r">
 							<c:if test="${r.reviewLocation eq g.gameName }">
-								<input type="hidden" id="reviewId" name="reviewId"
-									value="${r.reviewId }">
 								<div class="anime__review__item">
 									<div class="anime__review__item__pic">
 										<img src="usertemplet/img/review/1.jpg" alt="">
@@ -141,13 +139,13 @@
 												</a>
 
 												<a class="general_btn panel_btn" href="#"
-													onclick="reviewDelete('${r.reviewId}', '${g.gamePage}', '${g.gameId}')"> <img
+													onclick="reviewDelete('${r.reviewId}')"> <img
 													class="toolsIcon"
 													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
 													Delete
 												</a>
 
-												<form action="reviewdelete.do" id="deleteform">
+												<form action="reviewdelete.do" method="post" id="deleteform">
 													<input type="hidden" name="reviewId" value="${r.reviewId}">
 													<input type="hidden" name="reviewPage"
 														value="${g.gamePage }"> <input type="hidden"
@@ -238,38 +236,12 @@
 			reviewText.style.display = 'block';
 		}
 
-		function reviewDelete(reviewId, reviewPage, reviewPageId) {
+		function reviewDelete(reviewId) {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
-				var form = document.createElement('form');
-				form.method = 'post';
-				form.action = 'reviewdelete.do';
-
-				var inputReviewId = document.createElement('input');
-				inputReviewId.type = 'hidden';
-				inputReviewId.name = 'reviewId';
-				inputReviewId.value = reviewId;
-
-				var inputReviewPage = document.createElement('input');
-				inputReviewPage.type = 'hidden';
-				inputReviewPage.name = 'reviewPage';
-				inputReviewPage.value = reviewPage;
-
-				var inputReviewPageId = document.createElement('input');
-				inputReviewPageId.type = 'hidden';
-				inputReviewPageId.name = 'reviewPageId';
-				inputReviewPageId.value = reviewPageId;
-				
-				var inputReviewPagePath = document.createElement('input');
-				inputReviewPageId.type = 'hidden';
-				inputReviewPageId.name = 'reviewPagePath';
-				inputReviewPageId.value = gameId;
-
-				form.appendChild(inputReviewId);
-				form.appendChild(inputReviewPage);
-				form.appendChild(inputReviewPageId);
-				form.appendChild(inputReviewPagePath);
-				document.body.appendChild(form);
-				form.submit();
+				var deleteForm = document.getElementById('deleteform');
+				// reviewId 값을 설정한 input 요소의 value 변경
+				deleteForm.querySelector('[name="reviewId"]').value = reviewId;
+				deleteForm.submit();
 			}
 		}
 	</script>
