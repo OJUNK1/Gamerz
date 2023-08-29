@@ -108,7 +108,7 @@
 				<div class="col-lg-8">
 					<div class="anime__details__review">
 						<div class="section-title">
-							<h5>Reviews</h5>
+							<h5>Comments</h5>
 						</div>
 
 						<c:forEach items="${reviewlist }" var="r">

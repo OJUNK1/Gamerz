@@ -252,8 +252,8 @@ h1 {
     paymentWidget.requestPayment({
       orderId: '${c.gameId}',
       orderName: '${c.gameName}',         
-      successUrl: 'http://localhost/gamerz/success.do',
-      failUrl: 'http://localhost/gamerz/fail.jsp',    
+      successUrl: 'http://192.168.0.17/gamerz/success.do',
+      failUrl: 'http://192.168.0.17/gamerz/fail.jsp',    
       customerEmail: '${c.memberEmail}',
       customerName: '${c.cartPersonal}'      
       }
