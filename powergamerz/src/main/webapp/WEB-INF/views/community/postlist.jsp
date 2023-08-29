@@ -9,6 +9,17 @@
 <link href="css/search.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.postsubject {
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: keep-all;   
+}
+</style>
 </head>
 <body>
 
@@ -72,7 +83,11 @@
 												/ 작성자 <a href="">${d.postWriter }</a>
 											</div>
 											<h3>${d.postTitle }</h3>
-											<p>content</p>
+											<div class="postsubject">
+											<div id="${d.postId }">
+											<p>${d.postSubject }</p>
+											</div>
+											</div>
 											<a href="#" onclick="selectPost(${d.postId })"
 												class="read-more">Read More <img
 												src="usertemplet/img/icons/double-arrow.png" alt="#" /></a>
@@ -121,6 +136,17 @@
 		</div>
 
 		<script type="text/javascript">
+	<c:forEach items="${postpages }" var="item">
+		removeHtml(${item.postId});
+	</c:forEach>
+	
+	function removeHtml(id){
+		const $el = document.getElementById(id);
+		const newText = $el.innerHTML.replace(/(<([^>]+)>)/gi, "");
+		$el.innerHTML = newText;
+		console.log(newText);
+	}
+		
 	function selectPost(p){
 		document.getElementById("postId").value = p;
 		document.getElementById("postfrm").action ="postselect.do"; 
