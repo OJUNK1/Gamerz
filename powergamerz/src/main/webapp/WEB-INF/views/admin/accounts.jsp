@@ -87,7 +87,8 @@
 			<div class="tm-block-col tm-col-account-settings">
 				<div class="tm-bg-primary-dark tm-block tm-block-settings">
 					<h2 class="tm-block-title">Account Settings</h2>
-					<form action="" class="tm-signup-form row">
+					<form action="" class="tm-signup-form row" method="post" id="testfrm">
+						<input type="hidden" id="id2" name="memberId" />
 						<div class="form-group col-lg-6">
 							<label for="name">Account Name</label> <input id="name2"
 								name="name2" type="text" class="form-control validate"
@@ -117,7 +118,7 @@
 						<div class="form-group col-lg-6">
 							<label class="tm-hide-sm">&nbsp;</label>
 							<button type="submit"
-								class="btn btn-primary btn-block text-uppercase">
+								class="btn btn-primary btn-block text-uppercase" onclick="updateuser()">
 								Update Your Profile</button>
 						</div>
 						<div class="form-group col-lg-6">
@@ -136,6 +137,16 @@
 
 	<script type="text/javascript">
 
+		function deleteuser(){
+			const elem = document.getElementById("testfrm");
+			elem.action = "memberdelete.do";
+		}
+		
+		function updateuser(){
+			const elem = document.getElementById("testfrm");
+			elem.action = "memberupdate.do";
+		}
+	
    	       	     	
      	function searchList(){
 			
@@ -205,6 +216,7 @@
 	}	
 		function populateFormData(data) {
 			if (data) {
+				document.getElementById("id2").value = data.memberId;
 		        document.getElementById("name2").value = data.memberName;
 		        document.getElementById("birth2").value = data.memberBirth;
 		        document.getElementById("phone2").value = data.memberPhone;
