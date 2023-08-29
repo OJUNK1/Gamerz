@@ -112,7 +112,7 @@
 									<div class="anime__review__item__text">
 										<h6>
 											${r.memberName } - <span>${r.reviewDate }</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-											<c:if test="${id eq r.memberId}">
+											<c:if test="${id eq r.memberId || author eq 'ADMIN'}">
 												<a class="general_btn panel_btn" href="#"
 													onclick="toggleEditForm('${r.reviewId}')"> <img
 													class="toolsIcon"
@@ -121,7 +121,7 @@
 												</a>
 
 												<a class="general_btn panel_btn" href="#"
-													onclick="reviewDelete()"> <img class="toolsIcon"
+													onclick="reviewDelete('${r.reviewId}')"> <img class="toolsIcon"
 													src="https://community.akamai.steamstatic.com/public/images//sharedfiles/icons/icon_delete.png">
 													Delete
 												</a>
@@ -232,9 +232,12 @@
 		}
 
 
-		function reviewDelete() {
+		function reviewDelete(reviewId) {
 			if (confirm("정말로 이 리뷰를 삭제할까요? 되돌릴 수 없습니다.")) {
-				document.getElementById('deleteform').submit();
+				var deleteForm = document.getElementById('deleteform');
+				// reviewId 값을 설정한 input 요소의 value 변경
+				deleteForm.querySelector('[name="reviewId"]').value = reviewId;
+				deleteForm.submit();
 			}
 		}
 	</script>
