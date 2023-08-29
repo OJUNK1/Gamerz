@@ -9,8 +9,6 @@ import co.yedam.gamerz.support.qna.service.QnaVO;
 public interface QnaMapper {
 	List<QnaVO> qnaSelectList();
 
-	List<QnaVO> qnaSearchtList(@Param("key") String key, @Param("val") String val);
-
 	List<QnaVO> qnaMyList(@Param("key") String key, @Param("pageNum") int pageNum, @Param("amount") int amount);
 	
 	void updateQnaDone(QnaVO qna);

@@ -6,16 +6,7 @@
 		resultType="co.yedam.gamerz.support.qna.service.QnaVO">
 		SELECT * FROM QNA ORDER BY QNA_ID DESC
 	</select>
-
-	<select id="qnaSearchtList"
-		resultType="co.yedam.gamerz.support.qna.service.QnaVO">
-		SELECT * FROM QNA WHERE
-		<if test="key == 'title'">QNA_TITLE LIKE '%'||#{val}||'%'</if>
-		<if test="key == 'subject'">QNA_SUBJECT LIKE '%'||#{val}||'%'</if>
-		<if test="key == 'writer'">QNA_WRITER LIKE '%'||#{val}||'%'</if>
-		ORDER BY QNA_ID DESC
-	</select>
-
+	
 	<select id="qnaSelect"
 		resultType="co.yedam.gamerz.support.qna.service.QnaVO">
 		SELECT * FROM QNA WHERE QNA_ID = #{qnaId}

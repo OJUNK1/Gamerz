@@ -5,8 +5,6 @@ import java.util.List;
 public interface QnaService {
 	List<QnaVO> qnaSelectList();
 
-	List<QnaVO> qnaSearchtList(String key, String val);
-
 	List<QnaVO> qnaMyList(String key, int pageNum, int amount);
 	
 	void updateQnaDone(QnaVO qna);

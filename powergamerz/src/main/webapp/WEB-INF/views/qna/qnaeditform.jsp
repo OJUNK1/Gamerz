@@ -47,9 +47,7 @@
 								</div>
 							</div>
 						</div>
-
 				</div>
-
 				<br>
 				<div>
 					<button class="_1h8gH51Art N=a:qna.write" type="submit">
@@ -59,10 +57,8 @@
 						onclick="location.href='qnalist.do'">취소</button>
 				</div>
 				<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }" />
-				</form>
-				<div></div>
+				</form>				
 			</div>
-		</div>
 		</div>
 	</section>
 </body>

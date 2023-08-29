@@ -32,10 +32,7 @@ public class SuccessShipping extends HttpServlet {
 		
 		vo.setChaseName(chaseName);
 		vo.setChaseId(Integer.valueOf(request.getParameter("orderId")));
-		vo.setChasePrice(Integer.valueOf(request.getParameter("amount")));
-		System.out.println(request.getParameter("orderName"));
-		System.out.println("customerName=====" + vo.getChaseName() + "chaseId=====" + vo.getChaseId()
-				+ "chasePrice======" + vo.getChasePrice());
+		vo.setChasePrice(Integer.valueOf(request.getParameter("amount")));		
 
 		int num = dao.shippingInsert(vo);
 

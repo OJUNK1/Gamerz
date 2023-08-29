@@ -20,11 +20,6 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public List<QnaVO> qnaSearchtList(String key, String val) {
-		return map.qnaSearchtList(key, val);
-	}
-
-	@Override
 	public List<QnaVO> qnaMyList(String key, int pageNum, int amount) {
 		return map.qnaMyList(key, pageNum, amount);
 	}
